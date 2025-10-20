@@ -65,7 +65,7 @@ Partial Class Main
         '
         Me.WebView21.AllowExternalDrop = True
         Me.WebView21.CreationProperties = Nothing
-        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.Transparent
         Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebView21.Location = New System.Drawing.Point(0, 0)
         Me.WebView21.Name = "WebView21"
@@ -167,8 +167,8 @@ Partial Class Main
         Me.NavCheckbox.Size = New System.Drawing.Size(149, 17)
         Me.NavCheckbox.TabIndex = 14
         Me.NavCheckbox.Text = "Open links in a browser"
-        Me.ToolTip1.SetToolTip(Me.NavCheckbox, "Open links in an external browser." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "If unchecked, will open links in a new WebV" &
-        "iew2 window.")
+        Me.ToolTip1.SetToolTip(Me.NavCheckbox, "Open links in an external browser." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord has to reload when opening an exter" &
+        "nal link." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "If unchecked, will open links in a new WebView2 window.")
         Me.NavCheckbox.UseVisualStyleBackColor = True
         '
         'ContentTimer
@@ -381,6 +381,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1264, 661)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.WebView21)

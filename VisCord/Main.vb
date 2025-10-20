@@ -2,15 +2,6 @@
 Imports Microsoft.Web.WebView2.Core
 
 Public Class Main
-
-    Private initialUrl As String = "https://discord.com/app"
-
-    Private Async Sub InitialiseWebView()
-        Await WebView21.EnsureCoreWebView2Async(Nothing)
-        AddHandler WebView21.CoreWebView2.NavigationStarting, AddressOf WebView21_NavigationStarting
-        WebView21.Source = New Uri(initialUrl)
-    End Sub
-
     Private Sub WebView21_CoreWebView2InitializationCompleted(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs) Handles WebView21.CoreWebView2InitializationCompleted
         WebView21.CoreWebView2.Settings.AreDefaultScriptDialogsEnabled = False
         WebView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = False
@@ -78,9 +69,12 @@ Public Class Main
         'Attempt to update window title to match area of Discord. 
         Try
             If WebView21.CoreWebView2.DocumentTitle = "" Then
+                WebView21.Visible = False
                 Me.Text = "Initialising... - VisCord"
                 SysTrayIcon.Text = "Initialising... - VisCord"
+                Thread.Sleep(1000)
             Else
+                WebView21.Visible = True
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
             End If
 
@@ -267,9 +261,10 @@ Public Class Main
         If My.Settings.OpenExternal = 0 Then
         Else
             If Not e.Uri.Contains("discord.com") Then
+                Dim url As String = WebView21.CoreWebView2.Source
                 e.NewWindow = WebView21.CoreWebView2
                 e.Handled = True
-                WebView21.CoreWebView2.Navigate("https://discord.com/app")
+                WebView21.CoreWebView2.Navigate(url)
             End If
         End If
 
