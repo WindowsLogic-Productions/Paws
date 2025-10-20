@@ -58,7 +58,8 @@ Partial Class About
         Me.labelLicense.Name = "labelLicense"
         Me.labelLicense.Size = New System.Drawing.Size(220, 52)
         Me.labelLicense.TabIndex = 7
-        Me.labelLicense.Text = "A lightweight Discord client for Windows" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "systems." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Licensed under GPLv3"
+        Me.labelLicense.Text = "A lightweight Discord client for Windows" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "systems using WebView2." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Licensed und" &
+    "er GPLv3"
         Me.labelLicense.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'labelVersion

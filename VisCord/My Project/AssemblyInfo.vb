@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("VisCord")>
-<Assembly: AssemblyDescription("A lightweight Discord client.")>
+<Assembly: AssemblyDescription("A lightweight Discord client for Windows using WebView2")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("VisCord")>
 <Assembly: AssemblyCopyright("Copyright © 2025 Alethila")>

@@ -26,25 +26,10 @@ Public Class Main
 
     Private Sub Ping()
         For val As Integer = 0 To 1
-            If Me.Text.Contains("(") Then
+            If WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+                Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                 SysTrayIcon.ShowBalloonTip(1, "VisCord - Notification", "You have unread messages.", ToolTipIcon.Info)
-                Me.Text = "New messages"
-                SysTrayIcon.Text = "New messages - VisCord"
-                If My.Settings.NotifBadge = 1 Then
-                    SysTrayIcon.Icon = My.Resources.DiscordNotif
-                    Me.Icon = My.Resources.DiscordNotif
-                End If
-            ElseIf Me.Text.Contains("(2)") Then
-                SysTrayIcon.ShowBalloonTip(1, "VisCord - Notification", "You have 2 unread messages.", ToolTipIcon.Info)
-                Me.Text = "New messages"
-                SysTrayIcon.Text = "New messages - VisCord"
-                If My.Settings.NotifBadge = 1 Then
-                    SysTrayIcon.Icon = My.Resources.DiscordNotif
-                    Me.Icon = My.Resources.DiscordNotif
-                End If
-            ElseIf Me.Text.Contains("(3)") Then
-                SysTrayIcon.ShowBalloonTip(1, "VisCord - Notification", "You have 3 unread messages.", ToolTipIcon.Info)
-                Me.Text = "New messages"
+                Me.Text = "New messages - VisCord"
                 SysTrayIcon.Text = "New messages - VisCord"
                 If My.Settings.NotifBadge = 1 Then
                     SysTrayIcon.Icon = My.Resources.DiscordNotif
@@ -52,11 +37,10 @@ Public Class Main
                 End If
             End If
             If val = 1 Then
+                ContentTimer.Stop()
                 Exit For
             End If
         Next
-
-        ContentTimer.Stop()
     End Sub
 
     Private Sub UpdateBadge()
@@ -93,7 +77,13 @@ Public Class Main
 
         'Attempt to update window title to match area of Discord. 
         Try
-            Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
+            If WebView21.CoreWebView2.DocumentTitle = "" Then
+                Me.Text = "Initialising... - VisCord"
+                SysTrayIcon.Text = "Initialising... - VisCord"
+            Else
+                Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
+            End If
+
 
             If Me.Text.Contains("Settings") Then
                 Panel1.Visible = True
@@ -102,7 +92,8 @@ Public Class Main
             End If
 
             If My.Settings.Notify = 1 Then
-                If Me.WindowState = FormWindowState.Minimized = True Then
+                Ping()
+                If Me.WindowState = FormWindowState.Minimized Then
                     Ping()
                 End If
             End If
@@ -194,32 +185,38 @@ Public Class Main
     End Sub
 
     Private Sub NotifTimer_Tick(sender As Object, e As EventArgs) Handles NotifTimer.Tick
-        If Me.Text.Contains("(") Then
-            UpdateBadge()
-        End If
+        Try
+            If Me.Text.Contains("(") Then
+                UpdateBadge()
+            End If
+        Catch
+        End Try
 
         If Me.Focused = True Then
-            If Not Me.Text.Contains("(1)") Then
+            If Not Me.Text.Contains("(") Then
                 ContentTimer.Start()
             End If
         End If
     End Sub
 
     Private Sub FixTitle_Tick(sender As Object, e As EventArgs) Handles FixTitle.Tick
-        If Me.WindowState = FormWindowState.Minimized = False Then
-            If Me.Text.Contains("- VisCord") Then
-                SysTrayIcon.Icon = My.Resources.Discord1
-                Me.Icon = My.Resources.Discord1
-                ContentTimer.Start()
-            End If
+        Try
+            If Me.WindowState = FormWindowState.Minimized = False Then
+                If Me.Text.Contains("Discord") Then
+                    SysTrayIcon.Icon = My.Resources.Discord1
+                    Me.Icon = My.Resources.Discord1
+                    ContentTimer.Start()
+                End If
 
-            If Me.Text = "New messages" Then
-                Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
-                SysTrayIcon.Text = "VisCord"
-                SysTrayIcon.Icon = My.Resources.Discord1
-                Me.Icon = My.Resources.Discord1
+                If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+                    Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
+                    SysTrayIcon.Text = "VisCord"
+                    SysTrayIcon.Icon = My.Resources.Discord1
+                    Me.Icon = My.Resources.Discord1
+                End If
             End If
-        End If
+        Catch
+        End Try
     End Sub
 
     Private Sub CacheButton_Click(sender As Object, e As EventArgs) Handles CacheButton.Click
@@ -251,8 +248,8 @@ Public Class Main
 
     Private Sub WebView21_NavigationStarting(sender As Object, e As CoreWebView2NavigationStartingEventArgs) Handles WebView21.NavigationStarting
         If Not e.Uri.Contains("discord.com") Then
-            e.Cancel = True ' Cancel the navigation in WebView2
-            OpenInExternalBrowser(e.Uri) ' Open in external browser
+            e.Cancel = True
+            OpenInExternalBrowser(e.Uri)
         End If
     End Sub
 
@@ -307,9 +304,7 @@ Public Class Main
     End Sub
 
     Private Async Function OpenDiscordSettingsAsync() As Task
-        ' wait until the WebView2 core is ready and page loaded
-        Await Task.Delay(0) ' small delay to let Discord app JS initialize (adjust as needed)
-
+        Await Task.Delay(0)
         Dim js As String = "
     (function(){
       try {
@@ -323,7 +318,6 @@ Public Class Main
     })();
     "
         Dim resultJson As String = Await WebView21.CoreWebView2.ExecuteScriptAsync(js)
-        ' resultJson is a quoted string like "clicked" — trim quotes if needed
     End Function
 
     Private Sub RestoreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreToolStripMenuItem.Click
@@ -350,5 +344,9 @@ Public Class Main
     Private Sub LogOffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOffToolStripMenuItem.Click
         WebView21.CoreWebView2.Profile.ClearBrowsingDataAsync()
         WebView21.Reload()
+    End Sub
+
+    Private Sub CFULink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CFULink.LinkClicked
+        Process.Start("https://github.com/windowslogic/VisCord/releases")
     End Sub
 End Class

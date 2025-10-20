@@ -36,6 +36,7 @@ Partial Class Main
         Me.NavCheckbox = New System.Windows.Forms.CheckBox()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CFULink = New System.Windows.Forms.LinkLabel()
         Me.AboutLink = New System.Windows.Forms.LinkLabel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -118,8 +119,8 @@ Partial Class Main
         Me.NotifyCheckbox.Size = New System.Drawing.Size(156, 17)
         Me.NotifyCheckbox.TabIndex = 7
         Me.NotifyCheckbox.Text = "Notify on communication"
-        Me.ToolTip1.SetToolTip(Me.NotifyCheckbox, "Send a real-time notification when communication is detected." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord needs to" &
-        " be minimised for real-time notifications to work.")
+        Me.ToolTip1.SetToolTip(Me.NotifyCheckbox, "Send a real-time notification when communication is detected." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Notifications do" &
+        " not work if VisCord is minimised.")
         Me.NotifyCheckbox.UseVisualStyleBackColor = True
         '
         'CacheButton
@@ -179,6 +180,7 @@ Partial Class Main
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.CFULink)
         Me.Panel1.Controls.Add(Me.AboutLink)
         Me.Panel1.Controls.Add(Me.NavCheckbox)
         Me.Panel1.Controls.Add(Me.Label5)
@@ -201,8 +203,21 @@ Partial Class Main
         Me.Panel1.TabIndex = 2
         Me.Panel1.Visible = False
         '
+        'CFULink
+        '
+        Me.CFULink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.CFULink.AutoSize = True
+        Me.CFULink.LinkColor = System.Drawing.Color.White
+        Me.CFULink.Location = New System.Drawing.Point(14, 309)
+        Me.CFULink.Name = "CFULink"
+        Me.CFULink.Size = New System.Drawing.Size(110, 13)
+        Me.CFULink.TabIndex = 16
+        Me.CFULink.TabStop = True
+        Me.CFULink.Text = "Check for updates..."
+        '
         'AboutLink
         '
+        Me.AboutLink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.AboutLink.AutoSize = True
         Me.AboutLink.LinkColor = System.Drawing.Color.White
         Me.AboutLink.Location = New System.Drawing.Point(88, 335)
@@ -373,7 +388,7 @@ Partial Class Main
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1280, 700)
         Me.Name = "Main"
-        Me.Text = "VisCord"
+        Me.Text = "Initialising... - VisCord"
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -413,4 +428,5 @@ Partial Class Main
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOffToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CFULink As LinkLabel
 End Class
