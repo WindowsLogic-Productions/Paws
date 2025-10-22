@@ -21,3 +21,4 @@ J:\Projects\VisCord\VisCord\obj\Debug\VisCord.exe
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.xml
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.pdb
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.About.resources
+J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Injection.resources

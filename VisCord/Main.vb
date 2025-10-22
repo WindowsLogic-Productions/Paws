@@ -1,4 +1,5 @@
-﻿Imports System.Threading
+﻿Imports System.Net
+Imports System.Threading
 Imports Microsoft.Web.WebView2.Core
 
 Public Class Main
@@ -13,6 +14,20 @@ Public Class Main
         Else
         End If
         AddHandler WebView21.CoreWebView2.NewWindowRequested, AddressOf CoreWebView2_NewWindowRequested
+
+        'Check for Internet connection.
+        If My.Settings.EnableNetwork = 1 Then
+            CheckForInternetConnection()
+        Else
+            WebView21.Visible = False
+            VisCordSettings.Visible = True
+            OfflinePanel.Visible = True
+            Me.Text = "Offline Mode - VisCord"
+            TitlePanel.Visible = False
+            ContentTimer.Stop()
+            NotifTimer.Stop()
+            FixTitle.Stop()
+        End If
     End Sub
 
     Private Sub Ping()
@@ -76,20 +91,43 @@ Public Class Main
             Else
                 WebView21.Visible = True
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
+                If WebView21.CoreWebView2.DocumentTitle = "Discord" Then
+                    AreaLabel.Text = ""
+                Else
+                    AreaLabel.Text = "- " + WebView21.CoreWebView2.DocumentTitle
+                End If
+
             End If
 
-
-            If Me.Text.Contains("Settings") Then
-                Panel1.Visible = True
+            'Check if user is on the settings area of Discord.
+            If Me.Text.Contains("User Settings") Then
+                VisCordSettings.Visible = True
             Else
-                Panel1.Visible = False
+                VisCordSettings.Visible = False
             End If
 
+            'Ping user if message is detected.
             If My.Settings.Notify = 1 Then
                 Ping()
                 If Me.WindowState = FormWindowState.Minimized Then
                     Ping()
                 End If
+            End If
+
+            'Make sure title bar is visible.
+            TitlePanel.Visible = True
+
+            'Check WebView2 history for back/forward buttons.
+            If WebView21.CoreWebView2.CanGoBack = True Then
+                BackButton.Enabled = True
+            Else
+                BackButton.Enabled = False
+            End If
+
+            If WebView21.CoreWebView2.CanGoForward = True Then
+                ForwardButton.Enabled = True
+            Else
+                ForwardButton.Enabled = False
             End If
         Catch
 
@@ -146,6 +184,12 @@ Public Class Main
             NavCheckbox.Checked = True
         Else
             NavCheckbox.Checked = False
+        End If
+
+        If My.Settings.EnableNetwork = 1 Then
+            NetworkCheckbox.Checked = True
+        Else
+            NetworkCheckbox.Checked = False
         End If
     End Sub
 
@@ -343,5 +387,54 @@ Public Class Main
 
     Private Sub CFULink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CFULink.LinkClicked
         Process.Start("https://github.com/windowslogic/VisCord/releases")
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        WebView21.CoreWebView2.GoBack()
+    End Sub
+
+    Private Sub ForwardButton_Click(sender As Object, e As EventArgs) Handles ForwardButton.Click
+        WebView21.CoreWebView2.GoForward()
+    End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        Process.Start("https://support.discord.com/")
+    End Sub
+
+    Public Shared Function CheckForInternetConnection() As Boolean
+        Try
+            Using client = New WebClient()
+                Using stream = client.OpenRead("https://www.discord.com")
+                    Return True
+                End Using
+            End Using
+        Catch
+            Return False
+            Main.VisCordSettings.Visible = True
+        End Try
+    End Function
+
+    Private Sub NetworkCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles NetworkCheckbox.CheckedChanged
+        If NetworkCheckbox.Checked = True Then
+            My.Settings.EnableNetwork = 1
+            WebView21.Visible = True
+            VisCordSettings.Visible = False
+            OfflinePanel.Visible = False
+            TitlePanel.Visible = True
+            ContentTimer.Start()
+            NotifTimer.Start()
+            FixTitle.Start()
+            OpenDiscordSettingsAsync()
+        Else
+            My.Settings.EnableNetwork = 0
+            WebView21.Visible = False
+            VisCordSettings.Visible = True
+            OfflinePanel.Visible = True
+            Me.Text = "Offline Mode - VisCord"
+            TitlePanel.Visible = False
+            ContentTimer.Stop()
+            NotifTimer.Stop()
+            FixTitle.Stop()
+        End If
     End Sub
 End Class

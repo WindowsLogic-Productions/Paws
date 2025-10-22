@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Main
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
@@ -34,8 +34,17 @@ Partial Class Main
         Me.DataButton = New System.Windows.Forms.Button()
         Me.HardwareCheckbox = New System.Windows.Forms.CheckBox()
         Me.NavCheckbox = New System.Windows.Forms.CheckBox()
+        Me.CSSCheckbox = New System.Windows.Forms.CheckBox()
+        Me.JSCheckbox = New System.Windows.Forms.CheckBox()
+        Me.ESCButton = New System.Windows.Forms.Button()
+        Me.BackButton = New System.Windows.Forms.Button()
+        Me.ForwardButton = New System.Windows.Forms.Button()
+        Me.HelpButton = New System.Windows.Forms.Button()
+        Me.NetworkCheckbox = New System.Windows.Forms.CheckBox()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.VisCordSettings = New System.Windows.Forms.Panel()
+        Me.IconBox = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.CFULink = New System.Windows.Forms.LinkLabel()
         Me.AboutLink = New System.Windows.Forms.LinkLabel()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -56,9 +65,27 @@ Partial Class Main
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifTimer = New System.Windows.Forms.Timer(Me.components)
         Me.FixTitle = New System.Windows.Forms.Timer(Me.components)
+        Me.InjectionPanel = New System.Windows.Forms.Panel()
+        Me.ESCLabel = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.JSLabel = New System.Windows.Forms.Label()
+        Me.InjectionLabel = New System.Windows.Forms.Label()
+        Me.TitlePanel = New System.Windows.Forms.Panel()
+        Me.AreaLabel = New System.Windows.Forms.Label()
+        Me.VisCordPic = New System.Windows.Forms.PictureBox()
+        Me.OfflinePanel = New System.Windows.Forms.Panel()
+        Me.IconPictureBox = New System.Windows.Forms.PictureBox()
+        Me.OfflineLabel = New System.Windows.Forms.Label()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
+        Me.VisCordSettings.SuspendLayout()
         Me.SysTrayMenu.SuspendLayout()
+        Me.InjectionPanel.SuspendLayout()
+        Me.TitlePanel.SuspendLayout()
+        CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.OfflinePanel.SuspendLayout()
+        CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'WebView21
@@ -81,7 +108,7 @@ Partial Class Main
         Me.StartupCheckbox.Location = New System.Drawing.Point(13, 51)
         Me.StartupCheckbox.Name = "StartupCheckbox"
         Me.StartupCheckbox.Size = New System.Drawing.Size(100, 17)
-        Me.StartupCheckbox.TabIndex = 1
+        Me.StartupCheckbox.TabIndex = 3
         Me.StartupCheckbox.Text = "Run at startup"
         Me.ToolTip1.SetToolTip(Me.StartupCheckbox, "Automatically start VisCord on startup.")
         Me.StartupCheckbox.UseVisualStyleBackColor = True
@@ -93,7 +120,7 @@ Partial Class Main
         Me.SysTrayCheckbox.Location = New System.Drawing.Point(13, 87)
         Me.SysTrayCheckbox.Name = "SysTrayCheckbox"
         Me.SysTrayCheckbox.Size = New System.Drawing.Size(145, 17)
-        Me.SysTrayCheckbox.TabIndex = 2
+        Me.SysTrayCheckbox.TabIndex = 4
         Me.SysTrayCheckbox.Text = "Minimise to system tray"
         Me.ToolTip1.SetToolTip(Me.SysTrayCheckbox, "Minimising will hide VisCord in the system tray.")
         Me.SysTrayCheckbox.UseVisualStyleBackColor = True
@@ -105,7 +132,7 @@ Partial Class Main
         Me.BadgeCheckbox.Location = New System.Drawing.Point(13, 110)
         Me.BadgeCheckbox.Name = "BadgeCheckbox"
         Me.BadgeCheckbox.Size = New System.Drawing.Size(154, 17)
-        Me.BadgeCheckbox.TabIndex = 6
+        Me.BadgeCheckbox.TabIndex = 5
         Me.BadgeCheckbox.Text = "Show notification badge"
         Me.ToolTip1.SetToolTip(Me.BadgeCheckbox, "Show a notification badge on the system tray icon and taskbar icon.")
         Me.BadgeCheckbox.UseVisualStyleBackColor = True
@@ -117,7 +144,7 @@ Partial Class Main
         Me.NotifyCheckbox.Location = New System.Drawing.Point(13, 146)
         Me.NotifyCheckbox.Name = "NotifyCheckbox"
         Me.NotifyCheckbox.Size = New System.Drawing.Size(156, 17)
-        Me.NotifyCheckbox.TabIndex = 7
+        Me.NotifyCheckbox.TabIndex = 6
         Me.NotifyCheckbox.Text = "Notify on communication"
         Me.ToolTip1.SetToolTip(Me.NotifyCheckbox, "Send a real-time notification when communication is detected." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Notifications do" &
         " not work if VisCord is minimised.")
@@ -152,7 +179,7 @@ Partial Class Main
         Me.HardwareCheckbox.Location = New System.Drawing.Point(13, 218)
         Me.HardwareCheckbox.Name = "HardwareCheckbox"
         Me.HardwareCheckbox.Size = New System.Drawing.Size(141, 17)
-        Me.HardwareCheckbox.TabIndex = 11
+        Me.HardwareCheckbox.TabIndex = 8
         Me.HardwareCheckbox.Text = "Hardware acceleration"
         Me.ToolTip1.SetToolTip(Me.HardwareCheckbox, "Select whether to use your GPU or CPU to render Discord." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will reload t" &
         "he page when this option is checked/unchecked.")
@@ -165,53 +192,170 @@ Partial Class Main
         Me.NavCheckbox.Location = New System.Drawing.Point(13, 182)
         Me.NavCheckbox.Name = "NavCheckbox"
         Me.NavCheckbox.Size = New System.Drawing.Size(149, 17)
-        Me.NavCheckbox.TabIndex = 14
+        Me.NavCheckbox.TabIndex = 7
         Me.NavCheckbox.Text = "Open links in a browser"
         Me.ToolTip1.SetToolTip(Me.NavCheckbox, "Open links in an external browser." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord has to reload when opening an exter" &
         "nal link." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "If unchecked, will open links in a new WebView2 window.")
         Me.NavCheckbox.UseVisualStyleBackColor = True
         '
+        'CSSCheckbox
+        '
+        Me.CSSCheckbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CSSCheckbox.AutoSize = True
+        Me.CSSCheckbox.ForeColor = System.Drawing.Color.White
+        Me.CSSCheckbox.Location = New System.Drawing.Point(-476, 52)
+        Me.CSSCheckbox.Name = "CSSCheckbox"
+        Me.CSSCheckbox.Size = New System.Drawing.Size(131, 17)
+        Me.CSSCheckbox.TabIndex = 2
+        Me.CSSCheckbox.Text = "Enable CSS injection"
+        Me.ToolTip1.SetToolTip(Me.CSSCheckbox, "Change how Discord looks/feels with your own CSS script." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This script will run " &
+        "at startup when enabled.")
+        Me.CSSCheckbox.UseVisualStyleBackColor = True
+        '
+        'JSCheckbox
+        '
+        Me.JSCheckbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.JSCheckbox.AutoSize = True
+        Me.JSCheckbox.ForeColor = System.Drawing.Color.White
+        Me.JSCheckbox.Location = New System.Drawing.Point(-476, 88)
+        Me.JSCheckbox.Name = "JSCheckbox"
+        Me.JSCheckbox.Size = New System.Drawing.Size(162, 17)
+        Me.JSCheckbox.TabIndex = 1
+        Me.JSCheckbox.Text = "Enable JavaScript injection"
+        Me.ToolTip1.SetToolTip(Me.JSCheckbox, "Change how Discord works." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This script will run at startup when enabled.")
+        Me.JSCheckbox.UseVisualStyleBackColor = True
+        '
+        'ESCButton
+        '
+        Me.ESCButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ESCButton.FlatAppearance.BorderSize = 0
+        Me.ESCButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ESCButton.Image = Global.VisCord.My.Resources.Resources.WinClose
+        Me.ESCButton.Location = New System.Drawing.Point(-54, 26)
+        Me.ESCButton.Name = "ESCButton"
+        Me.ESCButton.Size = New System.Drawing.Size(33, 32)
+        Me.ESCButton.TabIndex = 12
+        Me.ToolTip1.SetToolTip(Me.ESCButton, "Close user settings.")
+        Me.ESCButton.UseVisualStyleBackColor = True
+        '
+        'BackButton
+        '
+        Me.BackButton.Enabled = False
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.VisCord.My.Resources.Resources.WinBack
+        Me.BackButton.Location = New System.Drawing.Point(1, 1)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(28, 28)
+        Me.BackButton.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.BackButton, "Back")
+        Me.BackButton.UseVisualStyleBackColor = True
+        '
+        'ForwardButton
+        '
+        Me.ForwardButton.Enabled = False
+        Me.ForwardButton.FlatAppearance.BorderSize = 0
+        Me.ForwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ForwardButton.Image = Global.VisCord.My.Resources.Resources.WinForward
+        Me.ForwardButton.Location = New System.Drawing.Point(29, 1)
+        Me.ForwardButton.Name = "ForwardButton"
+        Me.ForwardButton.Size = New System.Drawing.Size(28, 28)
+        Me.ForwardButton.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.ForwardButton, "Forward")
+        Me.ForwardButton.UseVisualStyleBackColor = True
+        '
+        'HelpButton
+        '
+        Me.HelpButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.HelpButton.FlatAppearance.BorderSize = 0
+        Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HelpButton.Image = Global.VisCord.My.Resources.Resources.WinHelp
+        Me.HelpButton.Location = New System.Drawing.Point(1235, 1)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(28, 28)
+        Me.HelpButton.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.HelpButton, "Help")
+        Me.HelpButton.UseVisualStyleBackColor = True
+        '
+        'NetworkCheckbox
+        '
+        Me.NetworkCheckbox.AutoSize = True
+        Me.NetworkCheckbox.ForeColor = System.Drawing.Color.White
+        Me.NetworkCheckbox.Location = New System.Drawing.Point(13, 325)
+        Me.NetworkCheckbox.Name = "NetworkCheckbox"
+        Me.NetworkCheckbox.Size = New System.Drawing.Size(168, 17)
+        Me.NetworkCheckbox.TabIndex = 15
+        Me.NetworkCheckbox.Text = "Enable network connection"
+        Me.ToolTip1.SetToolTip(Me.NetworkCheckbox, "Select whether to connect to Discord's servers or not." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will not load t" &
+        "he Discord interface if this is disabled.")
+        Me.NetworkCheckbox.UseVisualStyleBackColor = True
+        '
         'ContentTimer
         '
         Me.ContentTimer.Enabled = True
+        Me.ContentTimer.Interval = 10
         '
-        'Panel1
+        'VisCordSettings
         '
-        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.VisCordSettings.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.CFULink)
-        Me.Panel1.Controls.Add(Me.AboutLink)
-        Me.Panel1.Controls.Add(Me.NavCheckbox)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.HardwareCheckbox)
-        Me.Panel1.Controls.Add(Me.DataButton)
-        Me.Panel1.Controls.Add(Me.CacheButton)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.NotifyCheckbox)
-        Me.Panel1.Controls.Add(Me.BadgeCheckbox)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.GeneralTitle)
-        Me.Panel1.Controls.Add(Me.SysTrayCheckbox)
-        Me.Panel1.Controls.Add(Me.StartupCheckbox)
-        Me.Panel1.Controls.Add(Me.VCSettingsTitle)
-        Me.Panel1.Location = New System.Drawing.Point(1068, 295)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(182, 354)
-        Me.Panel1.TabIndex = 2
-        Me.Panel1.Visible = False
+        Me.VisCordSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(61, Byte), Integer))
+        Me.VisCordSettings.Controls.Add(Me.IconBox)
+        Me.VisCordSettings.Controls.Add(Me.NetworkCheckbox)
+        Me.VisCordSettings.Controls.Add(Me.Label6)
+        Me.VisCordSettings.Controls.Add(Me.CFULink)
+        Me.VisCordSettings.Controls.Add(Me.AboutLink)
+        Me.VisCordSettings.Controls.Add(Me.NavCheckbox)
+        Me.VisCordSettings.Controls.Add(Me.Label5)
+        Me.VisCordSettings.Controls.Add(Me.Label4)
+        Me.VisCordSettings.Controls.Add(Me.HardwareCheckbox)
+        Me.VisCordSettings.Controls.Add(Me.DataButton)
+        Me.VisCordSettings.Controls.Add(Me.CacheButton)
+        Me.VisCordSettings.Controls.Add(Me.Label3)
+        Me.VisCordSettings.Controls.Add(Me.NotifyCheckbox)
+        Me.VisCordSettings.Controls.Add(Me.BadgeCheckbox)
+        Me.VisCordSettings.Controls.Add(Me.Label2)
+        Me.VisCordSettings.Controls.Add(Me.Label1)
+        Me.VisCordSettings.Controls.Add(Me.GeneralTitle)
+        Me.VisCordSettings.Controls.Add(Me.SysTrayCheckbox)
+        Me.VisCordSettings.Controls.Add(Me.StartupCheckbox)
+        Me.VisCordSettings.Controls.Add(Me.VCSettingsTitle)
+        Me.VisCordSettings.Location = New System.Drawing.Point(1068, 171)
+        Me.VisCordSettings.Name = "VisCordSettings"
+        Me.VisCordSettings.Size = New System.Drawing.Size(182, 478)
+        Me.VisCordSettings.TabIndex = 2
+        Me.VisCordSettings.Visible = False
+        '
+        'IconBox
+        '
+        Me.IconBox.ForeColor = System.Drawing.Color.White
+        Me.IconBox.Location = New System.Drawing.Point(3, 348)
+        Me.IconBox.Name = "IconBox"
+        Me.IconBox.Size = New System.Drawing.Size(176, 82)
+        Me.IconBox.TabIndex = 16
+        Me.IconBox.TabStop = False
+        Me.IconBox.Text = "Icon"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(10, 309)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(41, 13)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Privacy"
         '
         'CFULink
         '
         Me.CFULink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.CFULink.AutoSize = True
         Me.CFULink.LinkColor = System.Drawing.Color.White
-        Me.CFULink.Location = New System.Drawing.Point(14, 309)
+        Me.CFULink.Location = New System.Drawing.Point(10, 433)
         Me.CFULink.Name = "CFULink"
         Me.CFULink.Size = New System.Drawing.Size(110, 13)
-        Me.CFULink.TabIndex = 16
+        Me.CFULink.TabIndex = 11
         Me.CFULink.TabStop = True
         Me.CFULink.Text = "Check for updates..."
         '
@@ -220,10 +364,10 @@ Partial Class Main
         Me.AboutLink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.AboutLink.AutoSize = True
         Me.AboutLink.LinkColor = System.Drawing.Color.White
-        Me.AboutLink.Location = New System.Drawing.Point(88, 335)
+        Me.AboutLink.Location = New System.Drawing.Point(88, 460)
         Me.AboutLink.Name = "AboutLink"
         Me.AboutLink.Size = New System.Drawing.Size(91, 13)
-        Me.AboutLink.TabIndex = 15
+        Me.AboutLink.TabIndex = 12
         Me.AboutLink.TabStop = True
         Me.AboutLink.Text = "About VisCord..."
         '
@@ -377,13 +521,167 @@ Partial Class Main
         Me.FixTitle.Enabled = True
         Me.FixTitle.Interval = 1000
         '
+        'InjectionPanel
+        '
+        Me.InjectionPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.InjectionPanel.Controls.Add(Me.ESCButton)
+        Me.InjectionPanel.Controls.Add(Me.ESCLabel)
+        Me.InjectionPanel.Controls.Add(Me.Button1)
+        Me.InjectionPanel.Controls.Add(Me.Button2)
+        Me.InjectionPanel.Controls.Add(Me.Label10)
+        Me.InjectionPanel.Controls.Add(Me.JSLabel)
+        Me.InjectionPanel.Controls.Add(Me.CSSCheckbox)
+        Me.InjectionPanel.Controls.Add(Me.JSCheckbox)
+        Me.InjectionPanel.Controls.Add(Me.InjectionLabel)
+        Me.InjectionPanel.Location = New System.Drawing.Point(29, 258)
+        Me.InjectionPanel.Name = "InjectionPanel"
+        Me.InjectionPanel.Size = New System.Drawing.Size(51, 120)
+        Me.InjectionPanel.TabIndex = 17
+        Me.InjectionPanel.Visible = False
+        '
+        'ESCLabel
+        '
+        Me.ESCLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ESCLabel.AutoSize = True
+        Me.ESCLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ESCLabel.ForeColor = System.Drawing.Color.Transparent
+        Me.ESCLabel.Location = New System.Drawing.Point(-55, 61)
+        Me.ESCLabel.Name = "ESCLabel"
+        Me.ESCLabel.Size = New System.Drawing.Size(37, 21)
+        Me.ESCLabel.TabIndex = 11
+        Me.ESCLabel.Text = "ESC"
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(-339, 48)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(111, 23)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Edit CSS Code..."
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Location = New System.Drawing.Point(-308, 84)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(136, 23)
+        Me.Button2.TabIndex = 9
+        Me.Button2.Text = "Edit JavaScript Code..."
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(-479, 36)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(26, 13)
+        Me.Label10.TabIndex = 4
+        Me.Label10.Text = "CSS"
+        '
+        'JSLabel
+        '
+        Me.JSLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.JSLabel.AutoSize = True
+        Me.JSLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.JSLabel.ForeColor = System.Drawing.Color.White
+        Me.JSLabel.Location = New System.Drawing.Point(-479, 72)
+        Me.JSLabel.Name = "JSLabel"
+        Me.JSLabel.Size = New System.Drawing.Size(57, 13)
+        Me.JSLabel.TabIndex = 3
+        Me.JSLabel.Text = "JavaScript"
+        '
+        'InjectionLabel
+        '
+        Me.InjectionLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.InjectionLabel.AutoSize = True
+        Me.InjectionLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InjectionLabel.ForeColor = System.Drawing.Color.White
+        Me.InjectionLabel.Location = New System.Drawing.Point(-480, 9)
+        Me.InjectionLabel.Name = "InjectionLabel"
+        Me.InjectionLabel.Size = New System.Drawing.Size(158, 17)
+        Me.InjectionLabel.TabIndex = 0
+        Me.InjectionLabel.Text = "CSS && JavaScript Injection"
+        '
+        'TitlePanel
+        '
+        Me.TitlePanel.Controls.Add(Me.HelpButton)
+        Me.TitlePanel.Controls.Add(Me.AreaLabel)
+        Me.TitlePanel.Controls.Add(Me.VisCordPic)
+        Me.TitlePanel.Controls.Add(Me.BackButton)
+        Me.TitlePanel.Controls.Add(Me.ForwardButton)
+        Me.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TitlePanel.Location = New System.Drawing.Point(0, 0)
+        Me.TitlePanel.Name = "TitlePanel"
+        Me.TitlePanel.Size = New System.Drawing.Size(1264, 30)
+        Me.TitlePanel.TabIndex = 20
+        '
+        'AreaLabel
+        '
+        Me.AreaLabel.AutoSize = True
+        Me.AreaLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AreaLabel.ForeColor = System.Drawing.Color.White
+        Me.AreaLabel.Location = New System.Drawing.Point(111, 6)
+        Me.AreaLabel.Name = "AreaLabel"
+        Me.AreaLabel.Size = New System.Drawing.Size(0, 17)
+        Me.AreaLabel.TabIndex = 21
+        '
+        'VisCordPic
+        '
+        Me.VisCordPic.Image = Global.VisCord.My.Resources.Resources.VisCord
+        Me.VisCordPic.Location = New System.Drawing.Point(60, 6)
+        Me.VisCordPic.Name = "VisCordPic"
+        Me.VisCordPic.Size = New System.Drawing.Size(49, 18)
+        Me.VisCordPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.VisCordPic.TabIndex = 20
+        Me.VisCordPic.TabStop = False
+        '
+        'OfflinePanel
+        '
+        Me.OfflinePanel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.OfflinePanel.Controls.Add(Me.OfflineLabel)
+        Me.OfflinePanel.Controls.Add(Me.IconPictureBox)
+        Me.OfflinePanel.Location = New System.Drawing.Point(476, 173)
+        Me.OfflinePanel.Name = "OfflinePanel"
+        Me.OfflinePanel.Size = New System.Drawing.Size(312, 315)
+        Me.OfflinePanel.TabIndex = 21
+        Me.OfflinePanel.Visible = False
+        '
+        'IconPictureBox
+        '
+        Me.IconPictureBox.Image = Global.VisCord.My.Resources.Resources.Discord_Big
+        Me.IconPictureBox.Location = New System.Drawing.Point(81, 82)
+        Me.IconPictureBox.Name = "IconPictureBox"
+        Me.IconPictureBox.Size = New System.Drawing.Size(150, 150)
+        Me.IconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.IconPictureBox.TabIndex = 0
+        Me.IconPictureBox.TabStop = False
+        '
+        'OfflineLabel
+        '
+        Me.OfflineLabel.AutoSize = True
+        Me.OfflineLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OfflineLabel.ForeColor = System.Drawing.Color.White
+        Me.OfflineLabel.Location = New System.Drawing.Point(74, 258)
+        Me.OfflineLabel.Name = "OfflineLabel"
+        Me.OfflineLabel.Size = New System.Drawing.Size(165, 17)
+        Me.OfflineLabel.TabIndex = 1
+        Me.OfflineLabel.Text = "VisCord is in offline mode."
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1264, 661)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.OfflinePanel)
+        Me.Controls.Add(Me.VisCordSettings)
+        Me.Controls.Add(Me.TitlePanel)
+        Me.Controls.Add(Me.InjectionPanel)
         Me.Controls.Add(Me.WebView21)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -391,9 +689,17 @@ Partial Class Main
         Me.Name = "Main"
         Me.Text = "Initialising... - VisCord"
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.VisCordSettings.ResumeLayout(False)
+        Me.VisCordSettings.PerformLayout()
         Me.SysTrayMenu.ResumeLayout(False)
+        Me.InjectionPanel.ResumeLayout(False)
+        Me.InjectionPanel.PerformLayout()
+        Me.TitlePanel.ResumeLayout(False)
+        Me.TitlePanel.PerformLayout()
+        CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.OfflinePanel.ResumeLayout(False)
+        Me.OfflinePanel.PerformLayout()
+        CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -401,7 +707,7 @@ Partial Class Main
     Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents ContentTimer As Timer
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents VisCordSettings As Panel
     Friend WithEvents StartupCheckbox As CheckBox
     Friend WithEvents VCSettingsTitle As Label
     Friend WithEvents Label1 As Label
@@ -430,4 +736,26 @@ Partial Class Main
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOffToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CFULink As LinkLabel
+    Friend WithEvents InjectionPanel As Panel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents JSLabel As Label
+    Friend WithEvents CSSCheckbox As CheckBox
+    Friend WithEvents JSCheckbox As CheckBox
+    Friend WithEvents InjectionLabel As Label
+    Friend WithEvents ESCButton As Button
+    Friend WithEvents ESCLabel As Label
+    Friend WithEvents BackButton As Button
+    Friend WithEvents ForwardButton As Button
+    Friend WithEvents TitlePanel As Panel
+    Friend WithEvents VisCordPic As PictureBox
+    Friend WithEvents AreaLabel As Label
+    Friend WithEvents HelpButton As Button
+    Friend WithEvents NetworkCheckbox As CheckBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents OfflinePanel As Panel
+    Friend WithEvents IconBox As GroupBox
+    Friend WithEvents IconPictureBox As PictureBox
+    Friend WithEvents OfflineLabel As Label
 End Class

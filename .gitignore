@@ -1,3 +1,4 @@
 /.vs
 VisCord/bin/Debug/VisCord.exe.WebView2
 *.zip
+VisCord/bin/Release/VisCord.exe.WebView2
