@@ -153,37 +153,24 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property InjectJS() As Integer
+        Public Property Icon() As Integer
             Get
-                Return CType(Me("InjectJS"),Integer)
+                Return CType(Me("Icon"),Integer)
             End Get
             Set
-                Me("InjectJS") = value
+                Me("Icon") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute(":root {"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    /* --font-primary: ""Segoe UI"", ""Noto Sans"", ""Helvetica Neue"", Helvet"& _ 
-            "ica, Arial, sans-serif; */"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    --font-display: ""gg sans"", ""Noto Sans"", ""Helveti"& _ 
-            "ca Neue"", Helvetica, Arial, sans-serif;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    --font-headline: ""ABC Ginto Nord"", "& _ 
-            """Noto Sans"", ""Helvetica Neue"", Helvetica, Arial, sans-serif;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    --font-code: """& _ 
-            "gg mono"", ""Source Code Pro"", Consolas, ""Andale Mono WT"", ""Andale Mono"", ""Lucida "& _ 
-            "Console"", ""Lucida Sans Typewriter"", ""DejaVu Sans Mono"", ""Bitstream Vera Sans Mon"& _ 
-            "o"", ""Liberation Mono"", ""Nimbus Mono L"", Monaco, ""Courier New"", Courier, monospac"& _ 
-            "e;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    --font-clan-body: Fraunces, ""gg sans"", serif, ""Noto Sans"", ""Helvetica Ne"& _ 
-            "ue"", Helvetica, Arial, sans-serif;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    --font-clan-signature: Corinthia, ""gg sa"& _ 
-            "ns"", cursive, ""Noto Sans"", ""Helvetica Neue"", Helvetica, Arial, sans-serif;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
-            "--font-display-marketing: ""ABC Ginto Discord"", ""gg sans"", serif, ""Noto Sans"", ""H"& _ 
-            "elvetica Neue"", Helvetica, Arial, sans-serif;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    --font-display-marketing-head"& _ 
-            "er: ""ABC Ginto Nord Discord"", ""gg sans"", serif, ""Noto Sans"", ""Helvetica Neue"", H"& _ 
-            "elvetica, Arial, sans-serif;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"}")>  _
-        Public Property CSS() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property NSFWIcon() As Integer
             Get
-                Return CType(Me("CSS"),String)
+                Return CType(Me("NSFWIcon"),Integer)
             End Get
             Set
-                Me("CSS") = value
+                Me("NSFWIcon") = value
             End Set
         End Property
         

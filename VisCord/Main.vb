@@ -51,9 +51,56 @@ Public Class Main
 
     Private Sub UpdateBadge()
         If My.Settings.NotifBadge = 1 Then
-            SysTrayIcon.Icon = My.Resources.DiscordNotif
-            Me.Icon = My.Resources.DiscordNotif
+            Select Case My.Settings.Icon
+                Case 0
+                    SysTrayIcon.Icon = My.Resources.DiscordNotif
+                    Me.Icon = My.Resources.DiscordNotif
+                Case 1
+                    SysTrayIcon.Icon = My.Resources.PDiscord_Notif
+                    Me.Icon = My.Resources.PDiscord_Notif
+                Case 2
+                    SysTrayIcon.Icon = My.Resources.Alethila_Notif
+                    Me.Icon = My.Resources.Alethila_Notif
+                Case 3
+                    SysTrayIcon.Icon = My.Resources.Velo_Notif
+                    Me.Icon = My.Resources.Velo_Notif
+                Case 4
+                    SysTrayIcon.Icon = My.Resources.AleVag_Notif
+                    Me.Icon = My.Resources.AleVag_Notif
+                Case 5
+                    SysTrayIcon.Icon = My.Resources.VeloVag_Notif
+                    Me.Icon = My.Resources.VeloVag_Notif
+            End Select
         End If
+    End Sub
+
+    Private Sub UpdateIcon()
+        Select Case My.Settings.Icon
+            Case 0
+                IconPictureBox.Image = My.Resources.Discord_Big
+                Me.Icon = My.Resources.Discord1
+                DiscordButton.Checked = True
+            Case 1
+                IconPictureBox.Image = My.Resources.PDiscord_Big
+                Me.Icon = My.Resources.PDiscord
+                PokemonButton.Checked = True
+            Case 2
+                IconPictureBox.Image = My.Resources.Alethila_Big
+                Me.Icon = My.Resources.Alethila_Discord
+                AleButton.Checked = True
+            Case 3
+                IconPictureBox.Image = My.Resources.Velo_Big
+                Me.Icon = My.Resources.Velo
+                VeloButton.Checked = True
+            Case 4
+                IconPictureBox.Image = My.Resources.AleVag_Big
+                Me.Icon = My.Resources.AleVag
+                AleNSFWButton.Checked = True
+            Case 5
+                IconPictureBox.Image = My.Resources.VeloVag_Big
+                Me.Icon = My.Resources.VeloVag
+                VeloNSFWButton.Checked = True
+        End Select
     End Sub
 
     Private Sub SysTrayIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles SysTrayIcon.MouseDoubleClick
@@ -191,6 +238,20 @@ Public Class Main
         Else
             NetworkCheckbox.Checked = False
         End If
+
+        'Load NSFW icon settings.
+        If My.Settings.NSFWIcon = 1 Then
+            NSFWCheckbox.Checked = True
+            AleNSFWButton.Enabled = True
+            VeloNSFWButton.Enabled = True
+        Else
+            NSFWCheckbox.Checked = False
+            AleNSFWButton.Enabled = False
+            VeloNSFWButton.Enabled = False
+        End If
+
+        'Load correct icon.
+        UpdateIcon()
     End Sub
 
     Private Sub SysTrayCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles SysTrayCheckbox.CheckedChanged
@@ -209,8 +270,7 @@ Public Class Main
             End If
         Else
             My.Settings.NotifBadge = 0
-            SysTrayIcon.Icon = My.Resources.Discord1
-            Me.Icon = My.Resources.Discord1
+            UpdateIcon()
         End If
     End Sub
 
@@ -241,16 +301,14 @@ Public Class Main
         Try
             If Me.WindowState = FormWindowState.Minimized = False Then
                 If Me.Text.Contains("Discord") Then
-                    SysTrayIcon.Icon = My.Resources.Discord1
-                    Me.Icon = My.Resources.Discord1
+                    UpdateIcon()
                     ContentTimer.Start()
                 End If
 
                 If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
                     Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                     SysTrayIcon.Text = "VisCord"
-                    SysTrayIcon.Icon = My.Resources.Discord1
-                    Me.Icon = My.Resources.Discord1
+                    UpdateIcon()
                 End If
             End If
         Catch
@@ -435,6 +493,60 @@ Public Class Main
             ContentTimer.Stop()
             NotifTimer.Stop()
             FixTitle.Stop()
+        End If
+    End Sub
+
+    Private Sub DiscordButton_CheckedChanged(sender As Object, e As EventArgs) Handles DiscordButton.CheckedChanged
+        If DiscordButton.Checked = True Then
+            My.Settings.Icon = 0
+            UpdateIcon()
+        End If
+    End Sub
+
+    Private Sub PokemonButton_CheckedChanged(sender As Object, e As EventArgs) Handles PokemonButton.CheckedChanged
+        If PokemonButton.Checked = True Then
+            My.Settings.Icon = 1
+            UpdateIcon()
+        End If
+    End Sub
+
+    Private Sub AleButton_CheckedChanged(sender As Object, e As EventArgs) Handles AleButton.CheckedChanged
+        If AleButton.Checked = True Then
+            My.Settings.Icon = 2
+            UpdateIcon()
+        End If
+    End Sub
+
+    Private Sub NSFWCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles NSFWCheckbox.CheckedChanged
+        If NSFWCheckbox.Checked = True Then
+            My.Settings.NSFWIcon = 1
+            AleNSFWButton.Enabled = True
+            VeloNSFWButton.Enabled = True
+        Else
+            My.Settings.NSFWIcon = 0
+            AleNSFWButton.Enabled = False
+            VeloNSFWButton.Enabled = False
+        End If
+    End Sub
+
+    Private Sub VeloButton_CheckedChanged(sender As Object, e As EventArgs) Handles VeloButton.CheckedChanged
+        If VeloButton.Checked = True Then
+            My.Settings.Icon = 3
+            UpdateIcon()
+        End If
+    End Sub
+
+    Private Sub AleNSFWButton_CheckedChanged(sender As Object, e As EventArgs) Handles AleNSFWButton.CheckedChanged
+        If AleNSFWButton.Checked = True Then
+            My.Settings.Icon = 4
+            UpdateIcon()
+        End If
+    End Sub
+
+    Private Sub VeloNSFWButton_CheckedChanged(sender As Object, e As EventArgs) Handles VeloNSFWButton.CheckedChanged
+        If VeloNSFWButton.Checked = True Then
+            My.Settings.Icon = 5
+            UpdateIcon()
         End If
     End Sub
 End Class

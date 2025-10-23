@@ -163,4 +163,40 @@
   <data name="Velo_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Velo_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Alethila_Discord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alethila_Discord.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Alethila_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alethila_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AleVag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AleVag.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AleVag_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AleVag_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AleVag_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AleVag_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PDiscord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PDiscord.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PDiscord_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PDiscord_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Velo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Velo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VeloVag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VeloVag.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VeloVag_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VeloVag_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VeloVag_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VeloVag_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Velo_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Velo_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

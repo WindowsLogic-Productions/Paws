@@ -41,9 +41,17 @@ Partial Class Main
         Me.ForwardButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
         Me.NetworkCheckbox = New System.Windows.Forms.CheckBox()
+        Me.NSFWCheckbox = New System.Windows.Forms.CheckBox()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
+        Me.OtherLabel = New System.Windows.Forms.Label()
         Me.IconBox = New System.Windows.Forms.GroupBox()
+        Me.VeloNSFWButton = New System.Windows.Forms.RadioButton()
+        Me.AleNSFWButton = New System.Windows.Forms.RadioButton()
+        Me.VeloButton = New System.Windows.Forms.RadioButton()
+        Me.AleButton = New System.Windows.Forms.RadioButton()
+        Me.PokemonButton = New System.Windows.Forms.RadioButton()
+        Me.DiscordButton = New System.Windows.Forms.RadioButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.CFULink = New System.Windows.Forms.LinkLabel()
         Me.AboutLink = New System.Windows.Forms.LinkLabel()
@@ -76,10 +84,11 @@ Partial Class Main
         Me.AreaLabel = New System.Windows.Forms.Label()
         Me.VisCordPic = New System.Windows.Forms.PictureBox()
         Me.OfflinePanel = New System.Windows.Forms.Panel()
-        Me.IconPictureBox = New System.Windows.Forms.PictureBox()
         Me.OfflineLabel = New System.Windows.Forms.Label()
+        Me.IconPictureBox = New System.Windows.Forms.PictureBox()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
+        Me.IconBox.SuspendLayout()
         Me.SysTrayMenu.SuspendLayout()
         Me.InjectionPanel.SuspendLayout()
         Me.TitlePanel.SuspendLayout()
@@ -281,14 +290,28 @@ Partial Class Main
         '
         Me.NetworkCheckbox.AutoSize = True
         Me.NetworkCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NetworkCheckbox.Location = New System.Drawing.Point(13, 325)
+        Me.NetworkCheckbox.Location = New System.Drawing.Point(12, 343)
         Me.NetworkCheckbox.Name = "NetworkCheckbox"
-        Me.NetworkCheckbox.Size = New System.Drawing.Size(168, 17)
+        Me.NetworkCheckbox.Size = New System.Drawing.Size(130, 17)
         Me.NetworkCheckbox.TabIndex = 15
-        Me.NetworkCheckbox.Text = "Enable network connection"
-        Me.ToolTip1.SetToolTip(Me.NetworkCheckbox, "Select whether to connect to Discord's servers or not." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will not load t" &
-        "he Discord interface if this is disabled.")
+        Me.NetworkCheckbox.Text = "Enable offline mode"
+        Me.ToolTip1.SetToolTip(Me.NetworkCheckbox, "Offline mode disconnects VisCord from the Discord interface" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and shows your selec" &
+        "ted icon instead." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will not load the Discord interface until disabled." &
+        "")
         Me.NetworkCheckbox.UseVisualStyleBackColor = True
+        '
+        'NSFWCheckbox
+        '
+        Me.NSFWCheckbox.AutoSize = True
+        Me.NSFWCheckbox.ForeColor = System.Drawing.Color.White
+        Me.NSFWCheckbox.Location = New System.Drawing.Point(13, 476)
+        Me.NSFWCheckbox.Name = "NSFWCheckbox"
+        Me.NSFWCheckbox.Size = New System.Drawing.Size(87, 17)
+        Me.NSFWCheckbox.TabIndex = 17
+        Me.NSFWCheckbox.Text = "NSFW icons"
+        Me.ToolTip1.SetToolTip(Me.NSFWCheckbox, "Enable access to 18+ icons." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Warning: this option contains lewd pony/furry flui" &
+        "ds.")
+        Me.NSFWCheckbox.UseVisualStyleBackColor = True
         '
         'ContentTimer
         '
@@ -297,9 +320,10 @@ Partial Class Main
         '
         'VisCordSettings
         '
-        Me.VisCordSettings.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.VisCordSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.VisCordSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(61, Byte), Integer))
+        Me.VisCordSettings.Controls.Add(Me.OtherLabel)
+        Me.VisCordSettings.Controls.Add(Me.NSFWCheckbox)
         Me.VisCordSettings.Controls.Add(Me.IconBox)
         Me.VisCordSettings.Controls.Add(Me.NetworkCheckbox)
         Me.VisCordSettings.Controls.Add(Me.Label6)
@@ -320,28 +344,111 @@ Partial Class Main
         Me.VisCordSettings.Controls.Add(Me.SysTrayCheckbox)
         Me.VisCordSettings.Controls.Add(Me.StartupCheckbox)
         Me.VisCordSettings.Controls.Add(Me.VCSettingsTitle)
-        Me.VisCordSettings.Location = New System.Drawing.Point(1068, 171)
+        Me.VisCordSettings.Location = New System.Drawing.Point(1068, 130)
         Me.VisCordSettings.Name = "VisCordSettings"
-        Me.VisCordSettings.Size = New System.Drawing.Size(182, 478)
+        Me.VisCordSettings.Size = New System.Drawing.Size(182, 519)
         Me.VisCordSettings.TabIndex = 2
         Me.VisCordSettings.Visible = False
         '
+        'OtherLabel
+        '
+        Me.OtherLabel.AutoSize = True
+        Me.OtherLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OtherLabel.ForeColor = System.Drawing.Color.White
+        Me.OtherLabel.Location = New System.Drawing.Point(10, 363)
+        Me.OtherLabel.Name = "OtherLabel"
+        Me.OtherLabel.Size = New System.Drawing.Size(37, 13)
+        Me.OtherLabel.TabIndex = 18
+        Me.OtherLabel.Text = "Other"
+        '
         'IconBox
         '
+        Me.IconBox.Controls.Add(Me.VeloNSFWButton)
+        Me.IconBox.Controls.Add(Me.AleNSFWButton)
+        Me.IconBox.Controls.Add(Me.VeloButton)
+        Me.IconBox.Controls.Add(Me.AleButton)
+        Me.IconBox.Controls.Add(Me.PokemonButton)
+        Me.IconBox.Controls.Add(Me.DiscordButton)
         Me.IconBox.ForeColor = System.Drawing.Color.White
-        Me.IconBox.Location = New System.Drawing.Point(3, 348)
+        Me.IconBox.Location = New System.Drawing.Point(13, 379)
         Me.IconBox.Name = "IconBox"
-        Me.IconBox.Size = New System.Drawing.Size(176, 82)
+        Me.IconBox.Size = New System.Drawing.Size(157, 91)
         Me.IconBox.TabIndex = 16
         Me.IconBox.TabStop = False
         Me.IconBox.Text = "Icon"
+        '
+        'VeloNSFWButton
+        '
+        Me.VeloNSFWButton.AutoSize = True
+        Me.VeloNSFWButton.Location = New System.Drawing.Point(77, 67)
+        Me.VeloNSFWButton.Name = "VeloNSFWButton"
+        Me.VeloNSFWButton.Size = New System.Drawing.Size(75, 17)
+        Me.VeloNSFWButton.TabIndex = 5
+        Me.VeloNSFWButton.TabStop = True
+        Me.VeloNSFWButton.Text = "Velo lewd"
+        Me.VeloNSFWButton.UseVisualStyleBackColor = True
+        '
+        'AleNSFWButton
+        '
+        Me.AleNSFWButton.AutoSize = True
+        Me.AleNSFWButton.Location = New System.Drawing.Point(7, 67)
+        Me.AleNSFWButton.Name = "AleNSFWButton"
+        Me.AleNSFWButton.Size = New System.Drawing.Size(69, 17)
+        Me.AleNSFWButton.TabIndex = 4
+        Me.AleNSFWButton.TabStop = True
+        Me.AleNSFWButton.Text = "Ale lewd"
+        Me.AleNSFWButton.UseVisualStyleBackColor = True
+        '
+        'VeloButton
+        '
+        Me.VeloButton.AutoSize = True
+        Me.VeloButton.Location = New System.Drawing.Point(77, 44)
+        Me.VeloButton.Name = "VeloButton"
+        Me.VeloButton.Size = New System.Drawing.Size(47, 17)
+        Me.VeloButton.TabIndex = 3
+        Me.VeloButton.TabStop = True
+        Me.VeloButton.Text = "Velo"
+        Me.VeloButton.UseVisualStyleBackColor = True
+        '
+        'AleButton
+        '
+        Me.AleButton.AutoSize = True
+        Me.AleButton.Location = New System.Drawing.Point(7, 44)
+        Me.AleButton.Name = "AleButton"
+        Me.AleButton.Size = New System.Drawing.Size(64, 17)
+        Me.AleButton.TabIndex = 2
+        Me.AleButton.TabStop = True
+        Me.AleButton.Text = "Alethila"
+        Me.AleButton.UseVisualStyleBackColor = True
+        '
+        'PokemonButton
+        '
+        Me.PokemonButton.AutoSize = True
+        Me.PokemonButton.Location = New System.Drawing.Point(77, 21)
+        Me.PokemonButton.Name = "PokemonButton"
+        Me.PokemonButton.Size = New System.Drawing.Size(73, 17)
+        Me.PokemonButton.TabIndex = 1
+        Me.PokemonButton.TabStop = True
+        Me.PokemonButton.Text = "Pokemon"
+        Me.PokemonButton.UseVisualStyleBackColor = True
+        '
+        'DiscordButton
+        '
+        Me.DiscordButton.AutoSize = True
+        Me.DiscordButton.Location = New System.Drawing.Point(7, 21)
+        Me.DiscordButton.Name = "DiscordButton"
+        Me.DiscordButton.Size = New System.Drawing.Size(64, 17)
+        Me.DiscordButton.TabIndex = 0
+        Me.DiscordButton.TabStop = True
+        Me.DiscordButton.Text = "Discord"
+        Me.DiscordButton.UseVisualStyleBackColor = True
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(10, 309)
+        Me.Label6.Location = New System.Drawing.Point(9, 327)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(41, 13)
         Me.Label6.TabIndex = 14
@@ -352,7 +459,7 @@ Partial Class Main
         Me.CFULink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.CFULink.AutoSize = True
         Me.CFULink.LinkColor = System.Drawing.Color.White
-        Me.CFULink.Location = New System.Drawing.Point(10, 433)
+        Me.CFULink.Location = New System.Drawing.Point(10, 309)
         Me.CFULink.Name = "CFULink"
         Me.CFULink.Size = New System.Drawing.Size(110, 13)
         Me.CFULink.TabIndex = 11
@@ -364,7 +471,7 @@ Partial Class Main
         Me.AboutLink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.AboutLink.AutoSize = True
         Me.AboutLink.LinkColor = System.Drawing.Color.White
-        Me.AboutLink.Location = New System.Drawing.Point(88, 460)
+        Me.AboutLink.Location = New System.Drawing.Point(90, 499)
         Me.AboutLink.Name = "AboutLink"
         Me.AboutLink.Size = New System.Drawing.Size(91, 13)
         Me.AboutLink.TabIndex = 12
@@ -651,16 +758,6 @@ Partial Class Main
         Me.OfflinePanel.TabIndex = 21
         Me.OfflinePanel.Visible = False
         '
-        'IconPictureBox
-        '
-        Me.IconPictureBox.Image = Global.VisCord.My.Resources.Resources.Discord_Big
-        Me.IconPictureBox.Location = New System.Drawing.Point(81, 82)
-        Me.IconPictureBox.Name = "IconPictureBox"
-        Me.IconPictureBox.Size = New System.Drawing.Size(150, 150)
-        Me.IconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.IconPictureBox.TabIndex = 0
-        Me.IconPictureBox.TabStop = False
-        '
         'OfflineLabel
         '
         Me.OfflineLabel.AutoSize = True
@@ -671,6 +768,16 @@ Partial Class Main
         Me.OfflineLabel.Size = New System.Drawing.Size(165, 17)
         Me.OfflineLabel.TabIndex = 1
         Me.OfflineLabel.Text = "VisCord is in offline mode."
+        '
+        'IconPictureBox
+        '
+        Me.IconPictureBox.Image = Global.VisCord.My.Resources.Resources.Discord_Big
+        Me.IconPictureBox.Location = New System.Drawing.Point(81, 82)
+        Me.IconPictureBox.Name = "IconPictureBox"
+        Me.IconPictureBox.Size = New System.Drawing.Size(150, 150)
+        Me.IconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.IconPictureBox.TabIndex = 0
+        Me.IconPictureBox.TabStop = False
         '
         'Main
         '
@@ -691,6 +798,8 @@ Partial Class Main
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VisCordSettings.ResumeLayout(False)
         Me.VisCordSettings.PerformLayout()
+        Me.IconBox.ResumeLayout(False)
+        Me.IconBox.PerformLayout()
         Me.SysTrayMenu.ResumeLayout(False)
         Me.InjectionPanel.ResumeLayout(False)
         Me.InjectionPanel.PerformLayout()
@@ -758,4 +867,12 @@ Partial Class Main
     Friend WithEvents IconBox As GroupBox
     Friend WithEvents IconPictureBox As PictureBox
     Friend WithEvents OfflineLabel As Label
+    Friend WithEvents AleButton As RadioButton
+    Friend WithEvents PokemonButton As RadioButton
+    Friend WithEvents DiscordButton As RadioButton
+    Friend WithEvents NSFWCheckbox As CheckBox
+    Friend WithEvents OtherLabel As Label
+    Friend WithEvents VeloButton As RadioButton
+    Friend WithEvents VeloNSFWButton As RadioButton
+    Friend WithEvents AleNSFWButton As RadioButton
 End Class

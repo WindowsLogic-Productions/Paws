@@ -71,6 +71,56 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property Alethila_Discord() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Alethila_Discord", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property Alethila_Notif() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Alethila_Notif", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property AleVag() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("AleVag", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property AleVag_Big() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("AleVag_Big", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property AleVag_Notif() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("AleVag_Notif", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Discord() As System.Drawing.Bitmap
@@ -111,6 +161,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property PDiscord() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("PDiscord", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property PDiscord_Big() As System.Drawing.Bitmap
@@ -121,12 +181,72 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property PDiscord_Notif() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("PDiscord_Notif", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property Velo() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Velo", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Velo_Big() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Velo_Big", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property Velo_Notif() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Velo_Notif", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property VeloVag() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("VeloVag", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property VeloVag_Big() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("VeloVag_Big", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property VeloVag_Notif() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("VeloVag_Notif", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         

@@ -162,6 +162,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Discord.ico" />
+    <None Include="Resources\VeloVag_Notif.ico" />
+    <None Include="Resources\VeloVag.ico" />
+    <None Include="Resources\Velo_Notif.ico" />
+    <None Include="Resources\Velo.ico" />
+    <None Include="Resources\PDiscord_Notif.ico" />
+    <None Include="Resources\PDiscord.ico" />
+    <None Include="Resources\AleVag_Notif.ico" />
+    <None Include="Resources\AleVag.ico" />
+    <None Include="Resources\Alethila_Notif.ico" />
+    <None Include="Resources\Alethila_Discord.ico" />
+    <None Include="Resources\VeloVag_Big.png" />
+    <None Include="Resources\AleVag_Big.png" />
     <None Include="Resources\Velo_Big.png" />
     <None Include="Resources\PDiscord_Big.png" />
     <None Include="Resources\Discord_Big.png" />
