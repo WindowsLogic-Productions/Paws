@@ -32,20 +32,21 @@ Partial Class Injection
         Me.TextBox1.Location = New System.Drawing.Point(0, 0)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(434, 411)
+        Me.TextBox1.Size = New System.Drawing.Size(428, 405)
         Me.TextBox1.TabIndex = 0
         '
         'Injection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 411)
+        Me.ClientSize = New System.Drawing.Size(428, 405)
         Me.Controls.Add(Me.TextBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(450, 450)
         Me.Name = "Injection"
+        Me.ShowInTaskbar = False
         Me.Text = "JavaScript"
         Me.ResumeLayout(False)
         Me.PerformLayout()

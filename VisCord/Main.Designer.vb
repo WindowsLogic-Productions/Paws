@@ -40,6 +40,7 @@ Partial Class Main
         Me.NetworkCheckbox = New System.Windows.Forms.CheckBox()
         Me.NSFWCheckbox = New System.Windows.Forms.CheckBox()
         Me.ToolboxButton = New System.Windows.Forms.Button()
+        Me.NSFWContentChecbox = New System.Windows.Forms.CheckBox()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
         Me.OtherLabel = New System.Windows.Forms.Label()
@@ -82,7 +83,6 @@ Partial Class Main
         Me.IconPictureBox = New System.Windows.Forms.PictureBox()
         Me.ToolPanel = New System.Windows.Forms.Panel()
         Me.ContentLabel = New System.Windows.Forms.Label()
-        Me.NSFWContentChecbox = New System.Windows.Forms.CheckBox()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
@@ -249,12 +249,11 @@ Partial Class Main
         Me.NetworkCheckbox.ForeColor = System.Drawing.Color.White
         Me.NetworkCheckbox.Location = New System.Drawing.Point(12, 343)
         Me.NetworkCheckbox.Name = "NetworkCheckbox"
-        Me.NetworkCheckbox.Size = New System.Drawing.Size(130, 17)
+        Me.NetworkCheckbox.Size = New System.Drawing.Size(129, 17)
         Me.NetworkCheckbox.TabIndex = 15
-        Me.NetworkCheckbox.Text = "Enable offline mode"
-        Me.ToolTip1.SetToolTip(Me.NetworkCheckbox, "Offline mode disconnects VisCord from the Discord interface" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and shows your selec" &
-        "ted icon instead." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will not load the Discord interface until disabled." &
-        "")
+        Me.NetworkCheckbox.Text = "Enable online mode"
+        Me.ToolTip1.SetToolTip(Me.NetworkCheckbox, "Online mode connects VisCord to the Discord interface." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will not load t" &
+        "he Discord interface when disabled" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and will show your selected icon instead.")
         Me.NetworkCheckbox.UseVisualStyleBackColor = True
         '
         'NSFWCheckbox
@@ -282,6 +281,18 @@ Partial Class Main
         Me.ToolboxButton.TabIndex = 22
         Me.ToolTip1.SetToolTip(Me.ToolboxButton, "VisCord Toolbox")
         Me.ToolboxButton.UseVisualStyleBackColor = True
+        '
+        'NSFWContentChecbox
+        '
+        Me.NSFWContentChecbox.AutoSize = True
+        Me.NSFWContentChecbox.ForeColor = System.Drawing.Color.White
+        Me.NSFWContentChecbox.Location = New System.Drawing.Point(144, 41)
+        Me.NSFWContentChecbox.Name = "NSFWContentChecbox"
+        Me.NSFWContentChecbox.Size = New System.Drawing.Size(210, 17)
+        Me.NSFWContentChecbox.TabIndex = 16
+        Me.NSFWContentChecbox.Text = "Navigate away from NSFW channels"
+        Me.ToolTip1.SetToolTip(Me.NSFWContentChecbox, "When enabled, VisCord will not allow access to NSFW channels.")
+        Me.NSFWContentChecbox.UseVisualStyleBackColor = True
         '
         'ContentTimer
         '
@@ -734,18 +745,6 @@ Partial Class Main
         Me.ContentLabel.Size = New System.Drawing.Size(49, 13)
         Me.ContentLabel.TabIndex = 10
         Me.ContentLabel.Text = "Content"
-        '
-        'NSFWContentChecbox
-        '
-        Me.NSFWContentChecbox.AutoSize = True
-        Me.NSFWContentChecbox.ForeColor = System.Drawing.Color.White
-        Me.NSFWContentChecbox.Location = New System.Drawing.Point(144, 41)
-        Me.NSFWContentChecbox.Name = "NSFWContentChecbox"
-        Me.NSFWContentChecbox.Size = New System.Drawing.Size(210, 17)
-        Me.NSFWContentChecbox.TabIndex = 16
-        Me.NSFWContentChecbox.Text = "Navigate away from NSFW channels"
-        Me.ToolTip1.SetToolTip(Me.NSFWContentChecbox, "When enabled, VisCord will not allow access to NSFW channels.")
-        Me.NSFWContentChecbox.UseVisualStyleBackColor = True
         '
         'Main
         '
