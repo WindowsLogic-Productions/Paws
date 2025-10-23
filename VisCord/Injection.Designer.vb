@@ -46,7 +46,7 @@ Partial Class Injection
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(450, 450)
         Me.Name = "Injection"
-        Me.Text = "Injection"
+        Me.Text = "JavaScript"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

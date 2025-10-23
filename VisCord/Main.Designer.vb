@@ -42,6 +42,7 @@ Partial Class Main
         Me.HelpButton = New System.Windows.Forms.Button()
         Me.NetworkCheckbox = New System.Windows.Forms.CheckBox()
         Me.NSFWCheckbox = New System.Windows.Forms.CheckBox()
+        Me.ToolboxButton = New System.Windows.Forms.Button()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
         Me.OtherLabel = New System.Windows.Forms.Label()
@@ -76,16 +77,17 @@ Partial Class Main
         Me.InjectionPanel = New System.Windows.Forms.Panel()
         Me.ESCLabel = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.JSButton = New System.Windows.Forms.Button()
         Me.JSLabel = New System.Windows.Forms.Label()
-        Me.InjectionLabel = New System.Windows.Forms.Label()
+        Me.ToolLabel = New System.Windows.Forms.Label()
         Me.TitlePanel = New System.Windows.Forms.Panel()
         Me.AreaLabel = New System.Windows.Forms.Label()
         Me.VisCordPic = New System.Windows.Forms.PictureBox()
         Me.OfflinePanel = New System.Windows.Forms.Panel()
         Me.OfflineLabel = New System.Windows.Forms.Label()
         Me.IconPictureBox = New System.Windows.Forms.PictureBox()
+        Me.ToolPanel = New System.Windows.Forms.Panel()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
@@ -95,6 +97,7 @@ Partial Class Main
         CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.OfflinePanel.SuspendLayout()
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'WebView21
@@ -212,7 +215,7 @@ Partial Class Main
         Me.CSSCheckbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CSSCheckbox.AutoSize = True
         Me.CSSCheckbox.ForeColor = System.Drawing.Color.White
-        Me.CSSCheckbox.Location = New System.Drawing.Point(-476, 52)
+        Me.CSSCheckbox.Location = New System.Drawing.Point(5, 52)
         Me.CSSCheckbox.Name = "CSSCheckbox"
         Me.CSSCheckbox.Size = New System.Drawing.Size(131, 17)
         Me.CSSCheckbox.TabIndex = 2
@@ -226,7 +229,7 @@ Partial Class Main
         Me.JSCheckbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.JSCheckbox.AutoSize = True
         Me.JSCheckbox.ForeColor = System.Drawing.Color.White
-        Me.JSCheckbox.Location = New System.Drawing.Point(-476, 88)
+        Me.JSCheckbox.Location = New System.Drawing.Point(5, 88)
         Me.JSCheckbox.Name = "JSCheckbox"
         Me.JSCheckbox.Size = New System.Drawing.Size(162, 17)
         Me.JSCheckbox.TabIndex = 1
@@ -240,7 +243,7 @@ Partial Class Main
         Me.ESCButton.FlatAppearance.BorderSize = 0
         Me.ESCButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ESCButton.Image = Global.VisCord.My.Resources.Resources.WinClose
-        Me.ESCButton.Location = New System.Drawing.Point(-54, 26)
+        Me.ESCButton.Location = New System.Drawing.Point(427, 26)
         Me.ESCButton.Name = "ESCButton"
         Me.ESCButton.Size = New System.Drawing.Size(33, 32)
         Me.ESCButton.TabIndex = 12
@@ -312,6 +315,19 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.NSFWCheckbox, "Enable access to 18+ icons." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Warning: this option contains lewd pony/furry flui" &
         "ds.")
         Me.NSFWCheckbox.UseVisualStyleBackColor = True
+        '
+        'ToolboxButton
+        '
+        Me.ToolboxButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ToolboxButton.FlatAppearance.BorderSize = 0
+        Me.ToolboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ToolboxButton.Image = Global.VisCord.My.Resources.Resources.WinAccount
+        Me.ToolboxButton.Location = New System.Drawing.Point(1208, 1)
+        Me.ToolboxButton.Name = "ToolboxButton"
+        Me.ToolboxButton.Size = New System.Drawing.Size(28, 28)
+        Me.ToolboxButton.TabIndex = 22
+        Me.ToolTip1.SetToolTip(Me.ToolboxButton, "VisCord Toolbox")
+        Me.ToolboxButton.UseVisualStyleBackColor = True
         '
         'ContentTimer
         '
@@ -634,15 +650,12 @@ Partial Class Main
         Me.InjectionPanel.Controls.Add(Me.ESCButton)
         Me.InjectionPanel.Controls.Add(Me.ESCLabel)
         Me.InjectionPanel.Controls.Add(Me.Button1)
-        Me.InjectionPanel.Controls.Add(Me.Button2)
         Me.InjectionPanel.Controls.Add(Me.Label10)
-        Me.InjectionPanel.Controls.Add(Me.JSLabel)
         Me.InjectionPanel.Controls.Add(Me.CSSCheckbox)
         Me.InjectionPanel.Controls.Add(Me.JSCheckbox)
-        Me.InjectionPanel.Controls.Add(Me.InjectionLabel)
-        Me.InjectionPanel.Location = New System.Drawing.Point(29, 258)
+        Me.InjectionPanel.Location = New System.Drawing.Point(83, 494)
         Me.InjectionPanel.Name = "InjectionPanel"
-        Me.InjectionPanel.Size = New System.Drawing.Size(51, 120)
+        Me.InjectionPanel.Size = New System.Drawing.Size(532, 212)
         Me.InjectionPanel.TabIndex = 17
         Me.InjectionPanel.Visible = False
         '
@@ -652,7 +665,7 @@ Partial Class Main
         Me.ESCLabel.AutoSize = True
         Me.ESCLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ESCLabel.ForeColor = System.Drawing.Color.Transparent
-        Me.ESCLabel.Location = New System.Drawing.Point(-55, 61)
+        Me.ESCLabel.Location = New System.Drawing.Point(426, 61)
         Me.ESCLabel.Name = "ESCLabel"
         Me.ESCLabel.Size = New System.Drawing.Size(37, 21)
         Me.ESCLabel.TabIndex = 11
@@ -661,22 +674,12 @@ Partial Class Main
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(-339, 48)
+        Me.Button1.Location = New System.Drawing.Point(142, 48)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(111, 23)
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "Edit CSS Code..."
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(-308, 84)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(136, 23)
-        Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Edit JavaScript Code..."
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -684,38 +687,54 @@ Partial Class Main
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(-479, 36)
+        Me.Label10.Location = New System.Drawing.Point(2, 36)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(26, 13)
         Me.Label10.TabIndex = 4
         Me.Label10.Text = "CSS"
         '
+        'JSButton
+        '
+        Me.JSButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.JSButton.BackColor = System.Drawing.Color.Transparent
+        Me.JSButton.Location = New System.Drawing.Point(6, 41)
+        Me.JSButton.Name = "JSButton"
+        Me.JSButton.Size = New System.Drawing.Size(126, 23)
+        Me.JSButton.TabIndex = 9
+        Me.JSButton.Text = "Edit JavaScript..."
+        Me.JSButton.UseVisualStyleBackColor = False
+        '
         'JSLabel
         '
         Me.JSLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.JSLabel.AutoSize = True
+        Me.JSLabel.BackColor = System.Drawing.Color.Transparent
         Me.JSLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.JSLabel.ForeColor = System.Drawing.Color.White
-        Me.JSLabel.Location = New System.Drawing.Point(-479, 72)
+        Me.JSLabel.Location = New System.Drawing.Point(5, 25)
         Me.JSLabel.Name = "JSLabel"
-        Me.JSLabel.Size = New System.Drawing.Size(57, 13)
+        Me.JSLabel.Size = New System.Drawing.Size(127, 13)
         Me.JSLabel.TabIndex = 3
-        Me.JSLabel.Text = "JavaScript"
+        Me.JSLabel.Text = "Load Custom JavaScript"
         '
-        'InjectionLabel
+        'ToolLabel
         '
-        Me.InjectionLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.InjectionLabel.AutoSize = True
-        Me.InjectionLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.InjectionLabel.ForeColor = System.Drawing.Color.White
-        Me.InjectionLabel.Location = New System.Drawing.Point(-480, 9)
-        Me.InjectionLabel.Name = "InjectionLabel"
-        Me.InjectionLabel.Size = New System.Drawing.Size(158, 17)
-        Me.InjectionLabel.TabIndex = 0
-        Me.InjectionLabel.Text = "CSS && JavaScript Injection"
+        Me.ToolLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ToolLabel.AutoSize = True
+        Me.ToolLabel.BackColor = System.Drawing.Color.Transparent
+        Me.ToolLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolLabel.ForeColor = System.Drawing.Color.White
+        Me.ToolLabel.Location = New System.Drawing.Point(5, 6)
+        Me.ToolLabel.Name = "ToolLabel"
+        Me.ToolLabel.Size = New System.Drawing.Size(55, 17)
+        Me.ToolLabel.TabIndex = 0
+        Me.ToolLabel.Text = "Toolbox"
         '
         'TitlePanel
         '
+        Me.TitlePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.TitlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TitlePanel.Controls.Add(Me.ToolboxButton)
         Me.TitlePanel.Controls.Add(Me.HelpButton)
         Me.TitlePanel.Controls.Add(Me.AreaLabel)
         Me.TitlePanel.Controls.Add(Me.VisCordPic)
@@ -750,6 +769,8 @@ Partial Class Main
         'OfflinePanel
         '
         Me.OfflinePanel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.OfflinePanel.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
+        Me.OfflinePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.OfflinePanel.Controls.Add(Me.OfflineLabel)
         Me.OfflinePanel.Controls.Add(Me.IconPictureBox)
         Me.OfflinePanel.Location = New System.Drawing.Point(476, 173)
@@ -761,6 +782,7 @@ Partial Class Main
         'OfflineLabel
         '
         Me.OfflineLabel.AutoSize = True
+        Me.OfflineLabel.BackColor = System.Drawing.Color.Transparent
         Me.OfflineLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OfflineLabel.ForeColor = System.Drawing.Color.White
         Me.OfflineLabel.Location = New System.Drawing.Point(74, 258)
@@ -771,6 +793,7 @@ Partial Class Main
         '
         'IconPictureBox
         '
+        Me.IconPictureBox.BackColor = System.Drawing.Color.Transparent
         Me.IconPictureBox.Image = Global.VisCord.My.Resources.Resources.Discord_Big
         Me.IconPictureBox.Location = New System.Drawing.Point(81, 82)
         Me.IconPictureBox.Name = "IconPictureBox"
@@ -779,17 +802,33 @@ Partial Class Main
         Me.IconPictureBox.TabIndex = 0
         Me.IconPictureBox.TabStop = False
         '
+        'ToolPanel
+        '
+        Me.ToolPanel.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
+        Me.ToolPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ToolPanel.Controls.Add(Me.JSLabel)
+        Me.ToolPanel.Controls.Add(Me.ToolLabel)
+        Me.ToolPanel.Controls.Add(Me.JSButton)
+        Me.ToolPanel.Location = New System.Drawing.Point(1068, 29)
+        Me.ToolPanel.Name = "ToolPanel"
+        Me.ToolPanel.Size = New System.Drawing.Size(168, 74)
+        Me.ToolPanel.TabIndex = 22
+        Me.ToolPanel.Visible = False
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1264, 661)
+        Me.Controls.Add(Me.ToolPanel)
         Me.Controls.Add(Me.OfflinePanel)
         Me.Controls.Add(Me.VisCordSettings)
         Me.Controls.Add(Me.TitlePanel)
         Me.Controls.Add(Me.InjectionPanel)
         Me.Controls.Add(Me.WebView21)
+        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1280, 700)
@@ -809,6 +848,8 @@ Partial Class Main
         Me.OfflinePanel.ResumeLayout(False)
         Me.OfflinePanel.PerformLayout()
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolPanel.ResumeLayout(False)
+        Me.ToolPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -847,12 +888,12 @@ Partial Class Main
     Friend WithEvents CFULink As LinkLabel
     Friend WithEvents InjectionPanel As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents JSButton As Button
     Friend WithEvents Label10 As Label
     Friend WithEvents JSLabel As Label
     Friend WithEvents CSSCheckbox As CheckBox
     Friend WithEvents JSCheckbox As CheckBox
-    Friend WithEvents InjectionLabel As Label
+    Friend WithEvents ToolLabel As Label
     Friend WithEvents ESCButton As Button
     Friend WithEvents ESCLabel As Label
     Friend WithEvents BackButton As Button
@@ -875,4 +916,6 @@ Partial Class Main
     Friend WithEvents VeloButton As RadioButton
     Friend WithEvents VeloNSFWButton As RadioButton
     Friend WithEvents AleNSFWButton As RadioButton
+    Friend WithEvents ToolboxButton As Button
+    Friend WithEvents ToolPanel As Panel
 End Class

@@ -28,6 +28,8 @@ Public Class Main
             NotifTimer.Stop()
             FixTitle.Stop()
         End If
+
+        LoadJS()
     End Sub
 
     Private Sub Ping()
@@ -38,8 +40,7 @@ Public Class Main
                 Me.Text = "New messages - VisCord"
                 SysTrayIcon.Text = "New messages - VisCord"
                 If My.Settings.NotifBadge = 1 Then
-                    SysTrayIcon.Icon = My.Resources.DiscordNotif
-                    Me.Icon = My.Resources.DiscordNotif
+                    UpdateBadge()
                 End If
             End If
             If val = 1 Then
@@ -79,26 +80,32 @@ Public Class Main
             Case 0
                 IconPictureBox.Image = My.Resources.Discord_Big
                 Me.Icon = My.Resources.Discord1
+                SysTrayIcon.Icon = My.Resources.Discord1
                 DiscordButton.Checked = True
             Case 1
                 IconPictureBox.Image = My.Resources.PDiscord_Big
                 Me.Icon = My.Resources.PDiscord
+                SysTrayIcon.Icon = My.Resources.PDiscord
                 PokemonButton.Checked = True
             Case 2
                 IconPictureBox.Image = My.Resources.Alethila_Big
                 Me.Icon = My.Resources.Alethila_Discord
+                SysTrayIcon.Icon = My.Resources.Alethila_Discord
                 AleButton.Checked = True
             Case 3
                 IconPictureBox.Image = My.Resources.Velo_Big
                 Me.Icon = My.Resources.Velo
+                SysTrayIcon.Icon = My.Resources.Velo
                 VeloButton.Checked = True
             Case 4
                 IconPictureBox.Image = My.Resources.AleVag_Big
                 Me.Icon = My.Resources.AleVag
+                SysTrayIcon.Icon = My.Resources.AleVag
                 AleNSFWButton.Checked = True
             Case 5
                 IconPictureBox.Image = My.Resources.VeloVag_Big
                 Me.Icon = My.Resources.VeloVag
+                SysTrayIcon.Icon = My.Resources.VeloVag
                 VeloNSFWButton.Checked = True
         End Select
     End Sub
@@ -548,5 +555,32 @@ Public Class Main
             My.Settings.Icon = 5
             UpdateIcon()
         End If
+    End Sub
+
+    Private Sub ToolboxButton_Click(sender As Object, e As EventArgs) Handles ToolboxButton.Click
+        If ToolPanel.Visible = True Then
+            ToolPanel.Visible = False
+        Else
+            ToolPanel.Visible = True
+        End If
+    End Sub
+
+    Private Sub WebView21_Click(sender As Object, e As EventArgs) Handles WebView21.Click
+        ToolPanel.Visible = False
+    End Sub
+
+    Private Sub TitlePanel_Click(sender As Object, e As EventArgs) Handles TitlePanel.Click
+        ToolPanel.Visible = False
+    End Sub
+
+    Private Async Function LoadJS() As Task
+        Await Task.Delay(0)
+        Dim js As String = My.Settings.AddNavJS
+        Dim resultJson As String = Await WebView21.CoreWebView2.ExecuteScriptAsync(js)
+    End Function
+
+    Private Sub JSButton_Click(sender As Object, e As EventArgs) Handles JSButton.Click
+        ToolPanel.Visible = False
+        Injection.ShowDialog()
     End Sub
 End Class

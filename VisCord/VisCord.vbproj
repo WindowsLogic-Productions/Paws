@@ -162,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Discord.ico" />
+    <None Include="Resources\gradient.png" />
     <None Include="Resources\VeloVag_Notif.ico" />
     <None Include="Resources\VeloVag.ico" />
     <None Include="Resources\Velo_Notif.ico" />
