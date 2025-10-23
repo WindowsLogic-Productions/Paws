@@ -22,7 +22,42 @@ VisCord
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:VisCord.My.Resources.Resources.Alethila_Big">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.Alethila_Discord">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.Alethila_Notif">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.AleVag">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.AleVag_Big">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.AleVag_Notif">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
 <member name="P:VisCord.My.Resources.Resources.Discord">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.Discord_Big">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -37,7 +72,67 @@ VisCord
   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
 </summary>
 </member>
+<member name="P:VisCord.My.Resources.Resources.gradient">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.PDiscord">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.PDiscord_Big">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.PDiscord_Notif">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.Velo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.Velo_Big">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.Velo_Notif">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.VeloVag">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.VeloVag_Big">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.VeloVag_Notif">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.VisCord">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:VisCord.My.Resources.Resources.WinAccount">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.WinBack">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -48,6 +143,11 @@ VisCord
 </summary>
 </member>
 <member name="P:VisCord.My.Resources.Resources.WinForward">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.WinHelp">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

@@ -21,3 +21,4 @@ J:\Projects\VisCord\VisCord\obj\Release\VisCord.xml
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.pdb
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.vbprojAssemblyReference.cache
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.About.resources
+J:\Projects\VisCord\VisCord\obj\Release\VisCord.Injection.resources
