@@ -276,7 +276,7 @@ Partial Class Main
         Me.ToolboxButton.FlatAppearance.BorderSize = 0
         Me.ToolboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ToolboxButton.Image = Global.VisCord.My.Resources.Resources.WinAccount
-        Me.ToolboxButton.Location = New System.Drawing.Point(1208, 1)
+        Me.ToolboxButton.Location = New System.Drawing.Point(1207, 1)
         Me.ToolboxButton.Name = "ToolboxButton"
         Me.ToolboxButton.Size = New System.Drawing.Size(28, 28)
         Me.ToolboxButton.TabIndex = 22
@@ -717,7 +717,7 @@ Partial Class Main
         Me.ToolPanel.Controls.Add(Me.JSLabel)
         Me.ToolPanel.Controls.Add(Me.ToolLabel)
         Me.ToolPanel.Controls.Add(Me.JSButton)
-        Me.ToolPanel.Location = New System.Drawing.Point(875, 29)
+        Me.ToolPanel.Location = New System.Drawing.Point(874, 29)
         Me.ToolPanel.Name = "ToolPanel"
         Me.ToolPanel.Size = New System.Drawing.Size(361, 74)
         Me.ToolPanel.TabIndex = 22

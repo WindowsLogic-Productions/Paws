@@ -27,8 +27,8 @@ Partial Class About
         Me.linkLabelContribute = New System.Windows.Forms.LinkLabel()
         Me.labelLicense = New System.Windows.Forms.Label()
         Me.labelVersion = New System.Windows.Forms.Label()
-        Me.pictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.AppPic = New System.Windows.Forms.PictureBox()
+        CType(Me.AppPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'buttonOK
@@ -43,7 +43,10 @@ Partial Class About
         '
         'linkLabelContribute
         '
+        Me.linkLabelContribute.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.linkLabelContribute.AutoSize = True
+        Me.linkLabelContribute.BackColor = System.Drawing.Color.Transparent
+        Me.linkLabelContribute.LinkColor = System.Drawing.Color.White
         Me.linkLabelContribute.Location = New System.Drawing.Point(90, 167)
         Me.linkLabelContribute.Name = "linkLabelContribute"
         Me.linkLabelContribute.Size = New System.Drawing.Size(63, 13)
@@ -54,6 +57,8 @@ Partial Class About
         'labelLicense
         '
         Me.labelLicense.AutoSize = True
+        Me.labelLicense.BackColor = System.Drawing.Color.Transparent
+        Me.labelLicense.ForeColor = System.Drawing.Color.White
         Me.labelLicense.Location = New System.Drawing.Point(11, 100)
         Me.labelLicense.Name = "labelLicense"
         Me.labelLicense.Size = New System.Drawing.Size(220, 52)
@@ -65,34 +70,40 @@ Partial Class About
         'labelVersion
         '
         Me.labelVersion.AutoSize = True
+        Me.labelVersion.BackColor = System.Drawing.Color.Transparent
         Me.labelVersion.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelVersion.ForeColor = System.Drawing.Color.White
         Me.labelVersion.Location = New System.Drawing.Point(64, 71)
         Me.labelVersion.Name = "labelVersion"
         Me.labelVersion.Size = New System.Drawing.Size(114, 21)
         Me.labelVersion.TabIndex = 6
         Me.labelVersion.Text = "VisCord 0.0.0.0"
         '
-        'pictureBox1
+        'AppPic
         '
-        Me.pictureBox1.Image = Global.VisCord.My.Resources.Resources.Discord
-        Me.pictureBox1.Location = New System.Drawing.Point(105, 21)
-        Me.pictureBox1.Name = "pictureBox1"
-        Me.pictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.pictureBox1.TabIndex = 4
-        Me.pictureBox1.TabStop = False
+        Me.AppPic.BackColor = System.Drawing.Color.Transparent
+        Me.AppPic.Image = Global.VisCord.My.Resources.Resources.Discord
+        Me.AppPic.Location = New System.Drawing.Point(97, 14)
+        Me.AppPic.Name = "AppPic"
+        Me.AppPic.Size = New System.Drawing.Size(48, 48)
+        Me.AppPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.AppPic.TabIndex = 4
+        Me.AppPic.TabStop = False
         '
         'About
         '
         Me.AcceptButton = Me.buttonOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(242, 234)
         Me.Controls.Add(Me.buttonOK)
         Me.Controls.Add(Me.linkLabelContribute)
         Me.Controls.Add(Me.labelLicense)
         Me.Controls.Add(Me.labelVersion)
-        Me.Controls.Add(Me.pictureBox1)
+        Me.Controls.Add(Me.AppPic)
+        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -102,7 +113,7 @@ Partial Class About
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "About VisCord"
-        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AppPic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -111,6 +122,6 @@ Partial Class About
     Private WithEvents buttonOK As Button
     Private WithEvents linkLabelContribute As LinkLabel
     Private WithEvents labelLicense As Label
-    Private WithEvents pictureBox1 As PictureBox
     Friend WithEvents labelVersion As Label
+    Friend WithEvents AppPic As PictureBox
 End Class

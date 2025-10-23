@@ -404,6 +404,33 @@ Public Class Main
 
     Private Sub AboutLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles AboutLink.LinkClicked
         About.labelVersion.Text = "VisCord " + My.Application.Info.Version.ToString()
+        Select Case My.Settings.Icon
+            Case 0
+                Dim img As New Bitmap(My.Resources.Discord_Big)
+                About.AppPic.Image = img
+                About.Icon = My.Resources.Discord1
+            Case 1
+                Dim img As New Bitmap(My.Resources.PDiscord_Big)
+                About.AppPic.Image = img
+                About.Icon = My.Resources.PDiscord
+            Case 2
+                Dim img As New Bitmap(My.Resources.Alethila_Big)
+                About.AppPic.Image = img
+                About.Icon = My.Resources.Alethila_Discord
+            Case 3
+                Dim img As New Bitmap(My.Resources.Velo_Big)
+                About.AppPic.Image = img
+                About.Icon = My.Resources.Velo
+            Case 4
+                Dim img As New Bitmap(My.Resources.AleVag_Big)
+                About.AppPic.Image = img
+                About.Icon = My.Resources.AleVag
+            Case 5
+                Dim img As New Bitmap(My.Resources.VeloVag_Big)
+                About.AppPic.Image = img
+                About.Icon = My.Resources.VeloVag
+        End Select
+
         About.ShowDialog()
     End Sub
 
