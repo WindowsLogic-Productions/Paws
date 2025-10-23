@@ -23,7 +23,8 @@ Public Class Main
             VisCordSettings.Visible = True
             OfflinePanel.Visible = True
             Me.Text = "Offline Mode - VisCord"
-            TitlePanel.Visible = False
+            AreaLabel.Text = ""
+            HelpButton.Enabled = False
             ContentTimer.Stop()
             NotifTimer.Stop()
             FixTitle.Stop()
@@ -168,6 +169,13 @@ Public Class Main
                 End If
             End If
 
+            'Check if user is on a NSFW area.
+            If My.Settings.NSFWContent = 1 Then
+                If Me.Text.Contains("nsfw") Then
+                    WebView21.CoreWebView2.Navigate("https://discord.com/app")
+                End If
+            Else
+            End If
             'Make sure title bar is visible.
             TitlePanel.Visible = True
 
@@ -255,6 +263,13 @@ Public Class Main
             NSFWCheckbox.Checked = False
             AleNSFWButton.Enabled = False
             VeloNSFWButton.Enabled = False
+        End If
+
+        'Load NSFW content settings.
+        If My.Settings.NSFWContent = 1 Then
+            NSFWContentChecbox.Checked = True
+        Else
+            NSFWContentChecbox.Checked = False
         End If
 
         'Load correct icon.
@@ -485,7 +500,7 @@ Public Class Main
             WebView21.Visible = True
             VisCordSettings.Visible = False
             OfflinePanel.Visible = False
-            TitlePanel.Visible = True
+            HelpButton.Enabled = True
             ContentTimer.Start()
             NotifTimer.Start()
             FixTitle.Start()
@@ -496,7 +511,8 @@ Public Class Main
             VisCordSettings.Visible = True
             OfflinePanel.Visible = True
             Me.Text = "Offline Mode - VisCord"
-            TitlePanel.Visible = False
+            AreaLabel.Text = ""
+            HelpButton.Enabled = False
             ContentTimer.Stop()
             NotifTimer.Stop()
             FixTitle.Stop()
@@ -582,5 +598,29 @@ Public Class Main
     Private Sub JSButton_Click(sender As Object, e As EventArgs) Handles JSButton.Click
         ToolPanel.Visible = False
         Injection.ShowDialog()
+    End Sub
+
+    Private Sub Main_Click(sender As Object, e As EventArgs) Handles MyBase.Click
+        ToolPanel.Visible = False
+    End Sub
+
+    Private Sub IconPictureBox_Click(sender As Object, e As EventArgs) Handles IconPictureBox.Click
+        ToolPanel.Visible = False
+    End Sub
+
+    Private Sub OfflinePanel_Click(sender As Object, e As EventArgs) Handles OfflinePanel.Click
+        ToolPanel.Visible = False
+    End Sub
+
+    Private Sub OfflineLabel_Click(sender As Object, e As EventArgs) Handles OfflineLabel.Click
+        ToolPanel.Visible = False
+    End Sub
+
+    Private Sub NSFWContentChecbox_CheckedChanged(sender As Object, e As EventArgs) Handles NSFWContentChecbox.CheckedChanged
+        If NSFWContentChecbox.Checked = True Then
+            My.Settings.NSFWContent = 1
+        Else
+            My.Settings.NSFWContent = 0
+        End If
     End Sub
 End Class

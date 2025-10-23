@@ -34,9 +34,6 @@ Partial Class Main
         Me.DataButton = New System.Windows.Forms.Button()
         Me.HardwareCheckbox = New System.Windows.Forms.CheckBox()
         Me.NavCheckbox = New System.Windows.Forms.CheckBox()
-        Me.CSSCheckbox = New System.Windows.Forms.CheckBox()
-        Me.JSCheckbox = New System.Windows.Forms.CheckBox()
-        Me.ESCButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
         Me.ForwardButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
@@ -74,10 +71,6 @@ Partial Class Main
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifTimer = New System.Windows.Forms.Timer(Me.components)
         Me.FixTitle = New System.Windows.Forms.Timer(Me.components)
-        Me.InjectionPanel = New System.Windows.Forms.Panel()
-        Me.ESCLabel = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.JSButton = New System.Windows.Forms.Button()
         Me.JSLabel = New System.Windows.Forms.Label()
         Me.ToolLabel = New System.Windows.Forms.Label()
@@ -88,11 +81,12 @@ Partial Class Main
         Me.OfflineLabel = New System.Windows.Forms.Label()
         Me.IconPictureBox = New System.Windows.Forms.PictureBox()
         Me.ToolPanel = New System.Windows.Forms.Panel()
+        Me.ContentLabel = New System.Windows.Forms.Label()
+        Me.NSFWContentChecbox = New System.Windows.Forms.CheckBox()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
         Me.SysTrayMenu.SuspendLayout()
-        Me.InjectionPanel.SuspendLayout()
         Me.TitlePanel.SuspendLayout()
         CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.OfflinePanel.SuspendLayout()
@@ -209,46 +203,6 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.NavCheckbox, "Open links in an external browser." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord has to reload when opening an exter" &
         "nal link." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "If unchecked, will open links in a new WebView2 window.")
         Me.NavCheckbox.UseVisualStyleBackColor = True
-        '
-        'CSSCheckbox
-        '
-        Me.CSSCheckbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CSSCheckbox.AutoSize = True
-        Me.CSSCheckbox.ForeColor = System.Drawing.Color.White
-        Me.CSSCheckbox.Location = New System.Drawing.Point(5, 52)
-        Me.CSSCheckbox.Name = "CSSCheckbox"
-        Me.CSSCheckbox.Size = New System.Drawing.Size(131, 17)
-        Me.CSSCheckbox.TabIndex = 2
-        Me.CSSCheckbox.Text = "Enable CSS injection"
-        Me.ToolTip1.SetToolTip(Me.CSSCheckbox, "Change how Discord looks/feels with your own CSS script." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This script will run " &
-        "at startup when enabled.")
-        Me.CSSCheckbox.UseVisualStyleBackColor = True
-        '
-        'JSCheckbox
-        '
-        Me.JSCheckbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.JSCheckbox.AutoSize = True
-        Me.JSCheckbox.ForeColor = System.Drawing.Color.White
-        Me.JSCheckbox.Location = New System.Drawing.Point(5, 88)
-        Me.JSCheckbox.Name = "JSCheckbox"
-        Me.JSCheckbox.Size = New System.Drawing.Size(162, 17)
-        Me.JSCheckbox.TabIndex = 1
-        Me.JSCheckbox.Text = "Enable JavaScript injection"
-        Me.ToolTip1.SetToolTip(Me.JSCheckbox, "Change how Discord works." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This script will run at startup when enabled.")
-        Me.JSCheckbox.UseVisualStyleBackColor = True
-        '
-        'ESCButton
-        '
-        Me.ESCButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ESCButton.FlatAppearance.BorderSize = 0
-        Me.ESCButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ESCButton.Image = Global.VisCord.My.Resources.Resources.WinClose
-        Me.ESCButton.Location = New System.Drawing.Point(427, 26)
-        Me.ESCButton.Name = "ESCButton"
-        Me.ESCButton.Size = New System.Drawing.Size(33, 32)
-        Me.ESCButton.TabIndex = 12
-        Me.ToolTip1.SetToolTip(Me.ESCButton, "Close user settings.")
-        Me.ESCButton.UseVisualStyleBackColor = True
         '
         'BackButton
         '
@@ -644,60 +598,10 @@ Partial Class Main
         Me.FixTitle.Enabled = True
         Me.FixTitle.Interval = 1000
         '
-        'InjectionPanel
-        '
-        Me.InjectionPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.InjectionPanel.Controls.Add(Me.ESCButton)
-        Me.InjectionPanel.Controls.Add(Me.ESCLabel)
-        Me.InjectionPanel.Controls.Add(Me.Button1)
-        Me.InjectionPanel.Controls.Add(Me.Label10)
-        Me.InjectionPanel.Controls.Add(Me.CSSCheckbox)
-        Me.InjectionPanel.Controls.Add(Me.JSCheckbox)
-        Me.InjectionPanel.Location = New System.Drawing.Point(83, 494)
-        Me.InjectionPanel.Name = "InjectionPanel"
-        Me.InjectionPanel.Size = New System.Drawing.Size(532, 212)
-        Me.InjectionPanel.TabIndex = 17
-        Me.InjectionPanel.Visible = False
-        '
-        'ESCLabel
-        '
-        Me.ESCLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ESCLabel.AutoSize = True
-        Me.ESCLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ESCLabel.ForeColor = System.Drawing.Color.Transparent
-        Me.ESCLabel.Location = New System.Drawing.Point(426, 61)
-        Me.ESCLabel.Name = "ESCLabel"
-        Me.ESCLabel.Size = New System.Drawing.Size(37, 21)
-        Me.ESCLabel.TabIndex = 11
-        Me.ESCLabel.Text = "ESC"
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(142, 48)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(111, 23)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Edit CSS Code..."
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label10
-        '
-        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(2, 36)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(26, 13)
-        Me.Label10.TabIndex = 4
-        Me.Label10.Text = "CSS"
-        '
         'JSButton
         '
-        Me.JSButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.JSButton.BackColor = System.Drawing.Color.Transparent
-        Me.JSButton.Location = New System.Drawing.Point(6, 41)
+        Me.JSButton.Location = New System.Drawing.Point(9, 41)
         Me.JSButton.Name = "JSButton"
         Me.JSButton.Size = New System.Drawing.Size(126, 23)
         Me.JSButton.TabIndex = 9
@@ -706,12 +610,11 @@ Partial Class Main
         '
         'JSLabel
         '
-        Me.JSLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.JSLabel.AutoSize = True
         Me.JSLabel.BackColor = System.Drawing.Color.Transparent
         Me.JSLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.JSLabel.ForeColor = System.Drawing.Color.White
-        Me.JSLabel.Location = New System.Drawing.Point(5, 25)
+        Me.JSLabel.Location = New System.Drawing.Point(8, 25)
         Me.JSLabel.Name = "JSLabel"
         Me.JSLabel.Size = New System.Drawing.Size(127, 13)
         Me.JSLabel.TabIndex = 3
@@ -719,12 +622,11 @@ Partial Class Main
         '
         'ToolLabel
         '
-        Me.ToolLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ToolLabel.AutoSize = True
         Me.ToolLabel.BackColor = System.Drawing.Color.Transparent
         Me.ToolLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolLabel.ForeColor = System.Drawing.Color.White
-        Me.ToolLabel.Location = New System.Drawing.Point(5, 6)
+        Me.ToolLabel.Location = New System.Drawing.Point(8, 6)
         Me.ToolLabel.Name = "ToolLabel"
         Me.ToolLabel.Size = New System.Drawing.Size(55, 17)
         Me.ToolLabel.TabIndex = 0
@@ -781,6 +683,8 @@ Partial Class Main
         '
         'OfflineLabel
         '
+        Me.OfflineLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OfflineLabel.AutoSize = True
         Me.OfflineLabel.BackColor = System.Drawing.Color.Transparent
         Me.OfflineLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -790,6 +694,7 @@ Partial Class Main
         Me.OfflineLabel.Size = New System.Drawing.Size(165, 17)
         Me.OfflineLabel.TabIndex = 1
         Me.OfflineLabel.Text = "VisCord is in offline mode."
+        Me.OfflineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'IconPictureBox
         '
@@ -804,16 +709,43 @@ Partial Class Main
         '
         'ToolPanel
         '
+        Me.ToolPanel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ToolPanel.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
         Me.ToolPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ToolPanel.Controls.Add(Me.NSFWContentChecbox)
+        Me.ToolPanel.Controls.Add(Me.ContentLabel)
         Me.ToolPanel.Controls.Add(Me.JSLabel)
         Me.ToolPanel.Controls.Add(Me.ToolLabel)
         Me.ToolPanel.Controls.Add(Me.JSButton)
-        Me.ToolPanel.Location = New System.Drawing.Point(1068, 29)
+        Me.ToolPanel.Location = New System.Drawing.Point(875, 29)
         Me.ToolPanel.Name = "ToolPanel"
-        Me.ToolPanel.Size = New System.Drawing.Size(168, 74)
+        Me.ToolPanel.Size = New System.Drawing.Size(361, 74)
         Me.ToolPanel.TabIndex = 22
         Me.ToolPanel.Visible = False
+        '
+        'ContentLabel
+        '
+        Me.ContentLabel.AutoSize = True
+        Me.ContentLabel.BackColor = System.Drawing.Color.Transparent
+        Me.ContentLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ContentLabel.ForeColor = System.Drawing.Color.White
+        Me.ContentLabel.Location = New System.Drawing.Point(141, 25)
+        Me.ContentLabel.Name = "ContentLabel"
+        Me.ContentLabel.Size = New System.Drawing.Size(49, 13)
+        Me.ContentLabel.TabIndex = 10
+        Me.ContentLabel.Text = "Content"
+        '
+        'NSFWContentChecbox
+        '
+        Me.NSFWContentChecbox.AutoSize = True
+        Me.NSFWContentChecbox.ForeColor = System.Drawing.Color.White
+        Me.NSFWContentChecbox.Location = New System.Drawing.Point(144, 41)
+        Me.NSFWContentChecbox.Name = "NSFWContentChecbox"
+        Me.NSFWContentChecbox.Size = New System.Drawing.Size(210, 17)
+        Me.NSFWContentChecbox.TabIndex = 16
+        Me.NSFWContentChecbox.Text = "Navigate away from NSFW channels"
+        Me.ToolTip1.SetToolTip(Me.NSFWContentChecbox, "When enabled, VisCord will not allow access to NSFW channels.")
+        Me.NSFWContentChecbox.UseVisualStyleBackColor = True
         '
         'Main
         '
@@ -826,7 +758,6 @@ Partial Class Main
         Me.Controls.Add(Me.OfflinePanel)
         Me.Controls.Add(Me.VisCordSettings)
         Me.Controls.Add(Me.TitlePanel)
-        Me.Controls.Add(Me.InjectionPanel)
         Me.Controls.Add(Me.WebView21)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -840,8 +771,6 @@ Partial Class Main
         Me.IconBox.ResumeLayout(False)
         Me.IconBox.PerformLayout()
         Me.SysTrayMenu.ResumeLayout(False)
-        Me.InjectionPanel.ResumeLayout(False)
-        Me.InjectionPanel.PerformLayout()
         Me.TitlePanel.ResumeLayout(False)
         Me.TitlePanel.PerformLayout()
         CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).EndInit()
@@ -886,16 +815,9 @@ Partial Class Main
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOffToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CFULink As LinkLabel
-    Friend WithEvents InjectionPanel As Panel
-    Friend WithEvents Button1 As Button
     Friend WithEvents JSButton As Button
-    Friend WithEvents Label10 As Label
     Friend WithEvents JSLabel As Label
-    Friend WithEvents CSSCheckbox As CheckBox
-    Friend WithEvents JSCheckbox As CheckBox
     Friend WithEvents ToolLabel As Label
-    Friend WithEvents ESCButton As Button
-    Friend WithEvents ESCLabel As Label
     Friend WithEvents BackButton As Button
     Friend WithEvents ForwardButton As Button
     Friend WithEvents TitlePanel As Panel
@@ -918,4 +840,6 @@ Partial Class Main
     Friend WithEvents AleNSFWButton As RadioButton
     Friend WithEvents ToolboxButton As Button
     Friend WithEvents ToolPanel As Panel
+    Friend WithEvents NSFWContentChecbox As CheckBox
+    Friend WithEvents ContentLabel As Label
 End Class
