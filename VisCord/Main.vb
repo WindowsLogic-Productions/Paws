@@ -372,23 +372,15 @@ Public Class Main
     End Sub
 
     Private Sub OpenInExternalBrowser(url As String)
-        Try
-            Dim psi As New ProcessStartInfo(url)
-            psi.UseShellExecute = True
-            Process.Start(psi)
-        Catch ex As Exception
-            MessageBox.Show("Unable to open the link in the external browser: " & ex.Message)
-        End Try
+        Process.Start(url)
     End Sub
 
     Private Sub CoreWebView2_NewWindowRequested(sender As Object, e As Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs)
         If My.Settings.OpenExternal = 0 Then
         Else
             If Not e.Uri.Contains("discord.com") Then
-                Dim url As String = WebView21.CoreWebView2.Source
-                e.NewWindow = WebView21.CoreWebView2
+                Process.Start(e.Uri)
                 e.Handled = True
-                WebView21.CoreWebView2.Navigate(url)
             End If
         End If
 
