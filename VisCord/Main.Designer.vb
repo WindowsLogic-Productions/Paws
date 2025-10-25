@@ -41,6 +41,8 @@ Partial Class Main
         Me.NSFWCheckbox = New System.Windows.Forms.CheckBox()
         Me.ToolboxButton = New System.Windows.Forms.Button()
         Me.NSFWContentChecbox = New System.Windows.Forms.CheckBox()
+        Me.OfflineMessageLink = New System.Windows.Forms.LinkLabel()
+        Me.ReloadLink = New System.Windows.Forms.LinkLabel()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
         Me.OtherLabel = New System.Windows.Forms.Label()
@@ -56,7 +58,6 @@ Partial Class Main
         Me.AboutLink = New System.Windows.Forms.LinkLabel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GeneralTitle = New System.Windows.Forms.Label()
@@ -74,15 +75,23 @@ Partial Class Main
         Me.FixTitle = New System.Windows.Forms.Timer(Me.components)
         Me.JSButton = New System.Windows.Forms.Button()
         Me.JSLabel = New System.Windows.Forms.Label()
-        Me.ToolLabel = New System.Windows.Forms.Label()
         Me.TitlePanel = New System.Windows.Forms.Panel()
         Me.AreaLabel = New System.Windows.Forms.Label()
         Me.VisCordPic = New System.Windows.Forms.PictureBox()
         Me.OfflinePanel = New System.Windows.Forms.Panel()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.OfflineLabel = New System.Windows.Forms.Label()
         Me.IconPictureBox = New System.Windows.Forms.PictureBox()
         Me.ToolPanel = New System.Windows.Forms.Panel()
+        Me.ClearOutboxLink = New System.Windows.Forms.LinkLabel()
+        Me.DeleteMessageLink = New System.Windows.Forms.LinkLabel()
+        Me.NewMessageLink = New System.Windows.Forms.LinkLabel()
+        Me.OutboxLabel = New System.Windows.Forms.Label()
         Me.ContentLabel = New System.Windows.Forms.Label()
+        Me.InternetTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.OutboxView = New System.Windows.Forms.ListView()
+        Me.Sendee = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Message = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
@@ -123,7 +132,7 @@ Partial Class Main
         '
         Me.SysTrayCheckbox.AutoSize = True
         Me.SysTrayCheckbox.ForeColor = System.Drawing.Color.White
-        Me.SysTrayCheckbox.Location = New System.Drawing.Point(13, 87)
+        Me.SysTrayCheckbox.Location = New System.Drawing.Point(13, 110)
         Me.SysTrayCheckbox.Name = "SysTrayCheckbox"
         Me.SysTrayCheckbox.Size = New System.Drawing.Size(145, 17)
         Me.SysTrayCheckbox.TabIndex = 4
@@ -135,7 +144,7 @@ Partial Class Main
         '
         Me.BadgeCheckbox.AutoSize = True
         Me.BadgeCheckbox.ForeColor = System.Drawing.Color.White
-        Me.BadgeCheckbox.Location = New System.Drawing.Point(13, 110)
+        Me.BadgeCheckbox.Location = New System.Drawing.Point(13, 71)
         Me.BadgeCheckbox.Name = "BadgeCheckbox"
         Me.BadgeCheckbox.Size = New System.Drawing.Size(154, 17)
         Me.BadgeCheckbox.TabIndex = 5
@@ -158,7 +167,7 @@ Partial Class Main
         '
         'CacheButton
         '
-        Me.CacheButton.Location = New System.Drawing.Point(13, 254)
+        Me.CacheButton.Location = New System.Drawing.Point(13, 241)
         Me.CacheButton.Name = "CacheButton"
         Me.CacheButton.Size = New System.Drawing.Size(111, 23)
         Me.CacheButton.TabIndex = 9
@@ -169,7 +178,7 @@ Partial Class Main
         '
         'DataButton
         '
-        Me.DataButton.Location = New System.Drawing.Point(13, 283)
+        Me.DataButton.Location = New System.Drawing.Point(13, 270)
         Me.DataButton.Name = "DataButton"
         Me.DataButton.Size = New System.Drawing.Size(111, 23)
         Me.DataButton.TabIndex = 10
@@ -247,7 +256,7 @@ Partial Class Main
         '
         Me.NetworkCheckbox.AutoSize = True
         Me.NetworkCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NetworkCheckbox.Location = New System.Drawing.Point(12, 343)
+        Me.NetworkCheckbox.Location = New System.Drawing.Point(12, 329)
         Me.NetworkCheckbox.Name = "NetworkCheckbox"
         Me.NetworkCheckbox.Size = New System.Drawing.Size(129, 17)
         Me.NetworkCheckbox.TabIndex = 15
@@ -260,7 +269,7 @@ Partial Class Main
         '
         Me.NSFWCheckbox.AutoSize = True
         Me.NSFWCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NSFWCheckbox.Location = New System.Drawing.Point(13, 476)
+        Me.NSFWCheckbox.Location = New System.Drawing.Point(13, 462)
         Me.NSFWCheckbox.Name = "NSFWCheckbox"
         Me.NSFWCheckbox.Size = New System.Drawing.Size(87, 17)
         Me.NSFWCheckbox.TabIndex = 17
@@ -286,13 +295,43 @@ Partial Class Main
         '
         Me.NSFWContentChecbox.AutoSize = True
         Me.NSFWContentChecbox.ForeColor = System.Drawing.Color.White
-        Me.NSFWContentChecbox.Location = New System.Drawing.Point(144, 41)
+        Me.NSFWContentChecbox.Location = New System.Drawing.Point(6, 20)
         Me.NSFWContentChecbox.Name = "NSFWContentChecbox"
         Me.NSFWContentChecbox.Size = New System.Drawing.Size(210, 17)
         Me.NSFWContentChecbox.TabIndex = 16
         Me.NSFWContentChecbox.Text = "Navigate away from NSFW channels"
         Me.ToolTip1.SetToolTip(Me.NSFWContentChecbox, "When enabled, VisCord will not allow access to NSFW channels.")
         Me.NSFWContentChecbox.UseVisualStyleBackColor = True
+        '
+        'OfflineMessageLink
+        '
+        Me.OfflineMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.OfflineMessageLink.AutoSize = True
+        Me.OfflineMessageLink.BackColor = System.Drawing.Color.Transparent
+        Me.OfflineMessageLink.LinkColor = System.Drawing.Color.White
+        Me.OfflineMessageLink.Location = New System.Drawing.Point(31, 287)
+        Me.OfflineMessageLink.Name = "OfflineMessageLink"
+        Me.OfflineMessageLink.Size = New System.Drawing.Size(141, 13)
+        Me.OfflineMessageLink.TabIndex = 20
+        Me.OfflineMessageLink.TabStop = True
+        Me.OfflineMessageLink.Text = "Send a message (offline)..."
+        Me.ToolTip1.SetToolTip(Me.OfflineMessageLink, "Send a message to a Discord contact offline." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "When you go back online, the mess" &
+        "ages you've sent" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "offline will outbox to any contact you click on.")
+        '
+        'ReloadLink
+        '
+        Me.ReloadLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.ReloadLink.AutoSize = True
+        Me.ReloadLink.BackColor = System.Drawing.Color.Transparent
+        Me.ReloadLink.LinkColor = System.Drawing.Color.White
+        Me.ReloadLink.Location = New System.Drawing.Point(178, 287)
+        Me.ReloadLink.Name = "ReloadLink"
+        Me.ReloadLink.Size = New System.Drawing.Size(104, 13)
+        Me.ReloadLink.TabIndex = 22
+        Me.ReloadLink.TabStop = True
+        Me.ReloadLink.Text = "Try loading again..."
+        Me.ToolTip1.SetToolTip(Me.ReloadLink, "Discord is down or there is no connection available." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click here to try loading" &
+        " Discord again.")
         '
         'ContentTimer
         '
@@ -316,7 +355,6 @@ Partial Class Main
         Me.VisCordSettings.Controls.Add(Me.HardwareCheckbox)
         Me.VisCordSettings.Controls.Add(Me.DataButton)
         Me.VisCordSettings.Controls.Add(Me.CacheButton)
-        Me.VisCordSettings.Controls.Add(Me.Label3)
         Me.VisCordSettings.Controls.Add(Me.NotifyCheckbox)
         Me.VisCordSettings.Controls.Add(Me.BadgeCheckbox)
         Me.VisCordSettings.Controls.Add(Me.Label2)
@@ -336,7 +374,7 @@ Partial Class Main
         Me.OtherLabel.AutoSize = True
         Me.OtherLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OtherLabel.ForeColor = System.Drawing.Color.White
-        Me.OtherLabel.Location = New System.Drawing.Point(10, 363)
+        Me.OtherLabel.Location = New System.Drawing.Point(10, 349)
         Me.OtherLabel.Name = "OtherLabel"
         Me.OtherLabel.Size = New System.Drawing.Size(37, 13)
         Me.OtherLabel.TabIndex = 18
@@ -351,7 +389,7 @@ Partial Class Main
         Me.IconBox.Controls.Add(Me.PokemonButton)
         Me.IconBox.Controls.Add(Me.DiscordButton)
         Me.IconBox.ForeColor = System.Drawing.Color.White
-        Me.IconBox.Location = New System.Drawing.Point(13, 379)
+        Me.IconBox.Location = New System.Drawing.Point(13, 365)
         Me.IconBox.Name = "IconBox"
         Me.IconBox.Size = New System.Drawing.Size(157, 91)
         Me.IconBox.TabIndex = 16
@@ -429,7 +467,7 @@ Partial Class Main
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(9, 327)
+        Me.Label6.Location = New System.Drawing.Point(9, 313)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(41, 13)
         Me.Label6.TabIndex = 14
@@ -440,7 +478,7 @@ Partial Class Main
         Me.CFULink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.CFULink.AutoSize = True
         Me.CFULink.LinkColor = System.Drawing.Color.White
-        Me.CFULink.Location = New System.Drawing.Point(10, 309)
+        Me.CFULink.Location = New System.Drawing.Point(10, 296)
         Me.CFULink.Name = "CFULink"
         Me.CFULink.Size = New System.Drawing.Size(110, 13)
         Me.CFULink.TabIndex = 11
@@ -477,20 +515,9 @@ Partial Class Main
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(10, 202)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(71, 13)
+        Me.Label4.Size = New System.Drawing.Size(117, 13)
         Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Performance"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(10, 238)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 13)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Cache && Data"
+        Me.Label4.Text = "Performance && Cache"
         '
         'Label2
         '
@@ -508,7 +535,7 @@ Partial Class Main
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(10, 71)
+        Me.Label1.Location = New System.Drawing.Point(10, 94)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(64, 13)
         Me.Label1.TabIndex = 4
@@ -612,7 +639,7 @@ Partial Class Main
         'JSButton
         '
         Me.JSButton.BackColor = System.Drawing.Color.Transparent
-        Me.JSButton.Location = New System.Drawing.Point(9, 41)
+        Me.JSButton.Location = New System.Drawing.Point(484, 20)
         Me.JSButton.Name = "JSButton"
         Me.JSButton.Size = New System.Drawing.Size(126, 23)
         Me.JSButton.TabIndex = 9
@@ -625,23 +652,11 @@ Partial Class Main
         Me.JSLabel.BackColor = System.Drawing.Color.Transparent
         Me.JSLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.JSLabel.ForeColor = System.Drawing.Color.White
-        Me.JSLabel.Location = New System.Drawing.Point(8, 25)
+        Me.JSLabel.Location = New System.Drawing.Point(483, 4)
         Me.JSLabel.Name = "JSLabel"
         Me.JSLabel.Size = New System.Drawing.Size(127, 13)
         Me.JSLabel.TabIndex = 3
         Me.JSLabel.Text = "Load Custom JavaScript"
-        '
-        'ToolLabel
-        '
-        Me.ToolLabel.AutoSize = True
-        Me.ToolLabel.BackColor = System.Drawing.Color.Transparent
-        Me.ToolLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolLabel.ForeColor = System.Drawing.Color.White
-        Me.ToolLabel.Location = New System.Drawing.Point(8, 6)
-        Me.ToolLabel.Name = "ToolLabel"
-        Me.ToolLabel.Size = New System.Drawing.Size(55, 17)
-        Me.ToolLabel.TabIndex = 0
-        Me.ToolLabel.Text = "Toolbox"
         '
         'TitlePanel
         '
@@ -684,6 +699,9 @@ Partial Class Main
         Me.OfflinePanel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.OfflinePanel.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
         Me.OfflinePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.OfflinePanel.Controls.Add(Me.ReloadLink)
+        Me.OfflinePanel.Controls.Add(Me.LinkLabel1)
+        Me.OfflinePanel.Controls.Add(Me.OfflineMessageLink)
         Me.OfflinePanel.Controls.Add(Me.OfflineLabel)
         Me.OfflinePanel.Controls.Add(Me.IconPictureBox)
         Me.OfflinePanel.Location = New System.Drawing.Point(476, 173)
@@ -691,6 +709,16 @@ Partial Class Main
         Me.OfflinePanel.Size = New System.Drawing.Size(312, 315)
         Me.OfflinePanel.TabIndex = 21
         Me.OfflinePanel.Visible = False
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.LinkColor = System.Drawing.Color.White
+        Me.LinkLabel1.Location = New System.Drawing.Point(164, 286)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(0, 13)
+        Me.LinkLabel1.TabIndex = 21
         '
         'OfflineLabel
         '
@@ -723,16 +751,68 @@ Partial Class Main
         Me.ToolPanel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ToolPanel.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
         Me.ToolPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ToolPanel.Controls.Add(Me.OutboxView)
+        Me.ToolPanel.Controls.Add(Me.ClearOutboxLink)
+        Me.ToolPanel.Controls.Add(Me.DeleteMessageLink)
+        Me.ToolPanel.Controls.Add(Me.NewMessageLink)
+        Me.ToolPanel.Controls.Add(Me.OutboxLabel)
         Me.ToolPanel.Controls.Add(Me.NSFWContentChecbox)
         Me.ToolPanel.Controls.Add(Me.ContentLabel)
         Me.ToolPanel.Controls.Add(Me.JSLabel)
-        Me.ToolPanel.Controls.Add(Me.ToolLabel)
         Me.ToolPanel.Controls.Add(Me.JSButton)
-        Me.ToolPanel.Location = New System.Drawing.Point(874, 29)
+        Me.ToolPanel.Location = New System.Drawing.Point(577, 29)
         Me.ToolPanel.Name = "ToolPanel"
-        Me.ToolPanel.Size = New System.Drawing.Size(361, 74)
+        Me.ToolPanel.Size = New System.Drawing.Size(658, 95)
         Me.ToolPanel.TabIndex = 22
         Me.ToolPanel.Visible = False
+        '
+        'ClearOutboxLink
+        '
+        Me.ClearOutboxLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.ClearOutboxLink.AutoSize = True
+        Me.ClearOutboxLink.LinkColor = System.Drawing.Color.White
+        Me.ClearOutboxLink.Location = New System.Drawing.Point(403, 82)
+        Me.ClearOutboxLink.Name = "ClearOutboxLink"
+        Me.ClearOutboxLink.Size = New System.Drawing.Size(75, 13)
+        Me.ClearOutboxLink.TabIndex = 21
+        Me.ClearOutboxLink.TabStop = True
+        Me.ClearOutboxLink.Text = "Clear Outbox"
+        '
+        'DeleteMessageLink
+        '
+        Me.DeleteMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.DeleteMessageLink.AutoSize = True
+        Me.DeleteMessageLink.LinkColor = System.Drawing.Color.White
+        Me.DeleteMessageLink.Location = New System.Drawing.Point(312, 82)
+        Me.DeleteMessageLink.Name = "DeleteMessageLink"
+        Me.DeleteMessageLink.Size = New System.Drawing.Size(88, 13)
+        Me.DeleteMessageLink.TabIndex = 20
+        Me.DeleteMessageLink.TabStop = True
+        Me.DeleteMessageLink.Text = "Delete Message"
+        '
+        'NewMessageLink
+        '
+        Me.NewMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.NewMessageLink.AutoSize = True
+        Me.NewMessageLink.LinkColor = System.Drawing.Color.White
+        Me.NewMessageLink.Location = New System.Drawing.Point(219, 82)
+        Me.NewMessageLink.Name = "NewMessageLink"
+        Me.NewMessageLink.Size = New System.Drawing.Size(87, 13)
+        Me.NewMessageLink.TabIndex = 19
+        Me.NewMessageLink.TabStop = True
+        Me.NewMessageLink.Text = "New Message..."
+        '
+        'OutboxLabel
+        '
+        Me.OutboxLabel.AutoSize = True
+        Me.OutboxLabel.BackColor = System.Drawing.Color.Transparent
+        Me.OutboxLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OutboxLabel.ForeColor = System.Drawing.Color.White
+        Me.OutboxLabel.Location = New System.Drawing.Point(219, 4)
+        Me.OutboxLabel.Name = "OutboxLabel"
+        Me.OutboxLabel.Size = New System.Drawing.Size(46, 13)
+        Me.OutboxLabel.TabIndex = 17
+        Me.OutboxLabel.Text = "Outbox"
         '
         'ContentLabel
         '
@@ -740,11 +820,37 @@ Partial Class Main
         Me.ContentLabel.BackColor = System.Drawing.Color.Transparent
         Me.ContentLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ContentLabel.ForeColor = System.Drawing.Color.White
-        Me.ContentLabel.Location = New System.Drawing.Point(141, 25)
+        Me.ContentLabel.Location = New System.Drawing.Point(3, 4)
         Me.ContentLabel.Name = "ContentLabel"
         Me.ContentLabel.Size = New System.Drawing.Size(49, 13)
         Me.ContentLabel.TabIndex = 10
         Me.ContentLabel.Text = "Content"
+        '
+        'InternetTimer
+        '
+        Me.InternetTimer.Enabled = True
+        Me.InternetTimer.Interval = 1000
+        '
+        'OutboxView
+        '
+        Me.OutboxView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Sendee, Me.Message})
+        Me.OutboxView.HideSelection = False
+        Me.OutboxView.Location = New System.Drawing.Point(222, 20)
+        Me.OutboxView.Name = "OutboxView"
+        Me.OutboxView.Size = New System.Drawing.Size(256, 59)
+        Me.OutboxView.TabIndex = 22
+        Me.OutboxView.UseCompatibleStateImageBehavior = False
+        Me.OutboxView.View = System.Windows.Forms.View.Details
+        '
+        'Sendee
+        '
+        Me.Sendee.Text = "Send to"
+        Me.Sendee.Width = 85
+        '
+        'Message
+        '
+        Me.Message.Text = "Message"
+        Me.Message.Width = 166
         '
         'Main
         '
@@ -798,7 +904,6 @@ Partial Class Main
     Friend WithEvents NotifTimer As Timer
     Friend WithEvents FixTitle As Timer
     Friend WithEvents CacheButton As Button
-    Friend WithEvents Label3 As Label
     Friend WithEvents DataButton As Button
     Friend WithEvents HardwareCheckbox As CheckBox
     Friend WithEvents Label4 As Label
@@ -816,7 +921,6 @@ Partial Class Main
     Friend WithEvents CFULink As LinkLabel
     Friend WithEvents JSButton As Button
     Friend WithEvents JSLabel As Label
-    Friend WithEvents ToolLabel As Label
     Friend WithEvents BackButton As Button
     Friend WithEvents ForwardButton As Button
     Friend WithEvents TitlePanel As Panel
@@ -841,4 +945,15 @@ Partial Class Main
     Friend WithEvents ToolPanel As Panel
     Friend WithEvents NSFWContentChecbox As CheckBox
     Friend WithEvents ContentLabel As Label
+    Friend WithEvents ClearOutboxLink As LinkLabel
+    Friend WithEvents DeleteMessageLink As LinkLabel
+    Friend WithEvents NewMessageLink As LinkLabel
+    Friend WithEvents OutboxLabel As Label
+    Friend WithEvents OfflineMessageLink As LinkLabel
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents InternetTimer As Timer
+    Friend WithEvents ReloadLink As LinkLabel
+    Friend WithEvents OutboxView As ListView
+    Friend WithEvents Sendee As ColumnHeader
+    Friend WithEvents Message As ColumnHeader
 End Class
