@@ -50,6 +50,7 @@ Public Class Main
             NetworkCheckbox.Checked = True
         Else
             NetworkCheckbox.Checked = False
+
         End If
 
         'Load NSFW icon settings.
@@ -91,9 +92,11 @@ Public Class Main
         If My.Settings.EnableNetwork = 1 Then
             If CheckForInternetConnection() = False Then
                 Offline()
+                ReloadLink.Enabled = True
             End If
         Else
             Offline()
+            ReloadLink.Enabled = False
         End If
 
         LoadJS()
@@ -178,10 +181,48 @@ Public Class Main
             My.Settings.NSFWContent = 0
         End If
     End Sub
+
+    Private Sub OutboxView_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles OutboxView.MouseDoubleClick
+        Dim lvi As ListViewItem = OutboxView.HitTest(e.Location).Item
+        If lvi IsNot Nothing Then
+            Dim ItemText As String
+            ItemText = OutboxView.Items(OutboxView.FocusedItem.Index).SubItems(0).Text
+            Clipboard.SetText(ItemText)
+        End If
+    End Sub
+
+    Private Sub NewMessageLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles NewMessageLink.LinkClicked
+        SendOfflineMessage.ShowDialog()
+    End Sub
+
+    Private Sub DeleteMessageLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles DeleteMessageLink.LinkClicked
+        OutboxView.SelectedItems.Clear()
+    End Sub
+
+    Private Sub ClearOutboxLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ClearOutboxLink.LinkClicked
+        OutboxView.Items.Clear()
+    End Sub
 #End Region
 #Region "Offline Mode"
     Private Sub OfflineMessageLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles OfflineMessageLink.LinkClicked
+        SendOfflineMessage.ShowDialog()
+    End Sub
 
+    Private Sub ReloadLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReloadLink.LinkClicked
+        If My.Settings.EnableNetwork = 1 Then
+            If CheckForInternetConnection() = True Then
+                WebView21.CoreWebView2.Navigate("https://discord.com/app")
+                WebView21.Visible = True
+                VisCordSettings.Visible = False
+                OfflinePanel.Visible = False
+                HelpButton.Enabled = True
+                ContentTimer.Start()
+                NotifTimer.Start()
+                FixTitle.Start()
+            End If
+        Else
+
+        End If
     End Sub
 #End Region
 #Region "System Tray"
@@ -216,6 +257,38 @@ Public Class Main
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub UserSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserSettingsToolStripMenuItem.Click
+        Try
+            OpenDiscordSettingsAsync()
+        Catch
+            MsgBox("Discord is not initialised, please wait to access user settings.")
+        End Try
+        Try
+            Me.Visible = True
+            Me.WindowState = FormWindowState.Normal
+            SysTrayIcon.Visible = True
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub AboutVisCordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutVisCordToolStripMenuItem.Click
+        About.labelVersion.Text = "VisCord " + My.Application.Info.Version.ToString()
+        About.ShowDialog()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        If MsgBox("Would you like to exit VisCord?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            My.Settings.Save()
+            End
+        End If
+    End Sub
+
+    Private Sub LogOffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOffToolStripMenuItem.Click
+        WebView21.CoreWebView2.Profile.ClearBrowsingDataAsync()
+        WebView21.Reload()
     End Sub
 #End Region
 #Region "Timers"
@@ -261,6 +334,7 @@ Public Class Main
                 End If
             Else
             End If
+
             'Make sure title bar is visible.
             TitlePanel.Visible = True
 
@@ -404,6 +478,8 @@ Public Class Main
             WebView21.Visible = True
             VisCordSettings.Visible = False
             OfflinePanel.Visible = False
+            BackButton.Enabled = True
+            ForwardButton.Enabled = True
             HelpButton.Enabled = True
             ContentTimer.Start()
             NotifTimer.Start()
@@ -416,6 +492,8 @@ Public Class Main
             OfflinePanel.Visible = True
             Me.Text = "Offline Mode - VisCord"
             AreaLabel.Text = ""
+            BackButton.Enabled = False
+            ForwardButton.Enabled = False
             HelpButton.Enabled = False
             ContentTimer.Stop()
             NotifTimer.Stop()
@@ -635,45 +713,15 @@ Public Class Main
         OfflinePanel.Visible = True
         Me.Text = "Offline Mode - VisCord"
         AreaLabel.Text = ""
+        BackButton.Enabled = False
+        ForwardButton.Enabled = False
         HelpButton.Enabled = False
         ContentTimer.Stop()
         NotifTimer.Stop()
         FixTitle.Stop()
     End Sub
 #End Region
-
-    Private Sub UserSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserSettingsToolStripMenuItem.Click
-        Try
-            OpenDiscordSettingsAsync()
-        Catch
-            MsgBox("Discord is not initialised, please wait to access user settings.")
-        End Try
-        Try
-            Me.Visible = True
-            Me.WindowState = FormWindowState.Normal
-            SysTrayIcon.Visible = True
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub AboutVisCordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutVisCordToolStripMenuItem.Click
-        About.labelVersion.Text = "VisCord " + My.Application.Info.Version.ToString()
-        About.ShowDialog()
-    End Sub
-
-    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        If MsgBox("Would you like to exit VisCord?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            My.Settings.Save()
-            End
-        End If
-    End Sub
-
-    Private Sub LogOffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOffToolStripMenuItem.Click
-        WebView21.CoreWebView2.Profile.ClearBrowsingDataAsync()
-        WebView21.Reload()
-    End Sub
-
+#Region "Closing"
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If MsgBox("Would you like to exit VisCord?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             My.Settings.Save()
@@ -682,23 +730,5 @@ Public Class Main
             e.Cancel = True
         End If
     End Sub
-
-
-
-    Private Sub ReloadLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReloadLink.LinkClicked
-        If My.Settings.EnableNetwork = 1 Then
-            If CheckForInternetConnection() = True Then
-                WebView21.CoreWebView2.Navigate("https://discord.com/app")
-                WebView21.Visible = True
-                VisCordSettings.Visible = False
-                OfflinePanel.Visible = False
-                HelpButton.Enabled = True
-                ContentTimer.Start()
-                NotifTimer.Start()
-                FixTitle.Start()
-            End If
-        Else
-
-        End If
-    End Sub
+#End Region
 End Class

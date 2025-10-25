@@ -86,12 +86,10 @@ Partial Class Main
         Me.ClearOutboxLink = New System.Windows.Forms.LinkLabel()
         Me.DeleteMessageLink = New System.Windows.Forms.LinkLabel()
         Me.NewMessageLink = New System.Windows.Forms.LinkLabel()
-        Me.OutboxLabel = New System.Windows.Forms.Label()
         Me.ContentLabel = New System.Windows.Forms.Label()
         Me.InternetTimer = New System.Windows.Forms.Timer(Me.components)
         Me.OutboxView = New System.Windows.Forms.ListView()
-        Me.Sendee = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Message = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Outbox = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
@@ -315,14 +313,15 @@ Partial Class Main
         Me.OfflineMessageLink.TabIndex = 20
         Me.OfflineMessageLink.TabStop = True
         Me.OfflineMessageLink.Text = "Send a message (offline)..."
-        Me.ToolTip1.SetToolTip(Me.OfflineMessageLink, "Send a message to a Discord contact offline." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "When you go back online, the mess" &
-        "ages you've sent" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "offline will outbox to any contact you click on.")
+        Me.ToolTip1.SetToolTip(Me.OfflineMessageLink, "Send a message offline." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "When you go back online, you can send the messages" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "to" &
+        " anyone you desire.")
         '
         'ReloadLink
         '
         Me.ReloadLink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.ReloadLink.AutoSize = True
         Me.ReloadLink.BackColor = System.Drawing.Color.Transparent
+        Me.ReloadLink.Enabled = False
         Me.ReloadLink.LinkColor = System.Drawing.Color.White
         Me.ReloadLink.Location = New System.Drawing.Point(178, 287)
         Me.ReloadLink.Name = "ReloadLink"
@@ -755,7 +754,6 @@ Partial Class Main
         Me.ToolPanel.Controls.Add(Me.ClearOutboxLink)
         Me.ToolPanel.Controls.Add(Me.DeleteMessageLink)
         Me.ToolPanel.Controls.Add(Me.NewMessageLink)
-        Me.ToolPanel.Controls.Add(Me.OutboxLabel)
         Me.ToolPanel.Controls.Add(Me.NSFWContentChecbox)
         Me.ToolPanel.Controls.Add(Me.ContentLabel)
         Me.ToolPanel.Controls.Add(Me.JSLabel)
@@ -777,6 +775,7 @@ Partial Class Main
         Me.ClearOutboxLink.TabIndex = 21
         Me.ClearOutboxLink.TabStop = True
         Me.ClearOutboxLink.Text = "Clear Outbox"
+        Me.ToolTip1.SetToolTip(Me.ClearOutboxLink, "Clear all messages from the outbox.")
         '
         'DeleteMessageLink
         '
@@ -789,6 +788,7 @@ Partial Class Main
         Me.DeleteMessageLink.TabIndex = 20
         Me.DeleteMessageLink.TabStop = True
         Me.DeleteMessageLink.Text = "Delete Message"
+        Me.ToolTip1.SetToolTip(Me.DeleteMessageLink, "Delete a message from the outbox.")
         '
         'NewMessageLink
         '
@@ -801,18 +801,8 @@ Partial Class Main
         Me.NewMessageLink.TabIndex = 19
         Me.NewMessageLink.TabStop = True
         Me.NewMessageLink.Text = "New Message..."
-        '
-        'OutboxLabel
-        '
-        Me.OutboxLabel.AutoSize = True
-        Me.OutboxLabel.BackColor = System.Drawing.Color.Transparent
-        Me.OutboxLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OutboxLabel.ForeColor = System.Drawing.Color.White
-        Me.OutboxLabel.Location = New System.Drawing.Point(219, 4)
-        Me.OutboxLabel.Name = "OutboxLabel"
-        Me.OutboxLabel.Size = New System.Drawing.Size(46, 13)
-        Me.OutboxLabel.TabIndex = 17
-        Me.OutboxLabel.Text = "Outbox"
+        Me.ToolTip1.SetToolTip(Me.NewMessageLink, "Send a message to the outbox." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "You can send the messages to anyone you desire l" &
+        "ater.")
         '
         'ContentLabel
         '
@@ -833,24 +823,20 @@ Partial Class Main
         '
         'OutboxView
         '
-        Me.OutboxView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Sendee, Me.Message})
+        Me.OutboxView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Outbox})
         Me.OutboxView.HideSelection = False
-        Me.OutboxView.Location = New System.Drawing.Point(222, 20)
+        Me.OutboxView.Location = New System.Drawing.Point(222, 7)
         Me.OutboxView.Name = "OutboxView"
-        Me.OutboxView.Size = New System.Drawing.Size(256, 59)
+        Me.OutboxView.Size = New System.Drawing.Size(256, 72)
         Me.OutboxView.TabIndex = 22
+        Me.ToolTip1.SetToolTip(Me.OutboxView, "Double click an outboxed message to copy it to the clipboard.")
         Me.OutboxView.UseCompatibleStateImageBehavior = False
         Me.OutboxView.View = System.Windows.Forms.View.Details
         '
-        'Sendee
+        'Outbox
         '
-        Me.Sendee.Text = "Send to"
-        Me.Sendee.Width = 85
-        '
-        'Message
-        '
-        Me.Message.Text = "Message"
-        Me.Message.Width = 166
+        Me.Outbox.Text = "Outbox"
+        Me.Outbox.Width = 251
         '
         'Main
         '
@@ -948,12 +934,10 @@ Partial Class Main
     Friend WithEvents ClearOutboxLink As LinkLabel
     Friend WithEvents DeleteMessageLink As LinkLabel
     Friend WithEvents NewMessageLink As LinkLabel
-    Friend WithEvents OutboxLabel As Label
     Friend WithEvents OfflineMessageLink As LinkLabel
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents InternetTimer As Timer
     Friend WithEvents ReloadLink As LinkLabel
     Friend WithEvents OutboxView As ListView
-    Friend WithEvents Sendee As ColumnHeader
-    Friend WithEvents Message As ColumnHeader
+    Friend WithEvents Outbox As ColumnHeader
 End Class

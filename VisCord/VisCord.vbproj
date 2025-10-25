@@ -124,10 +124,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Send Offline Message.Designer.vb">
-      <DependentUpon>Send Offline Message.vb</DependentUpon>
+    <Compile Include="SendOfflineMessage.Designer.vb">
+      <DependentUpon>SendOfflineMessage.vb</DependentUpon>
     </Compile>
-    <Compile Include="Send Offline Message.vb">
+    <Compile Include="SendOfflineMessage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WindowAPI.vb" />
@@ -148,8 +148,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Send Offline Message.resx">
-      <DependentUpon>Send Offline Message.vb</DependentUpon>
+    <EmbeddedResource Include="SendOfflineMessage.resx">
+      <DependentUpon>SendOfflineMessage.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
