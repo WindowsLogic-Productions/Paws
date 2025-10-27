@@ -43,6 +43,11 @@ Partial Class Main
         Me.NSFWContentChecbox = New System.Windows.Forms.CheckBox()
         Me.OfflineMessageLink = New System.Windows.Forms.LinkLabel()
         Me.ReloadLink = New System.Windows.Forms.LinkLabel()
+        Me.ClearOutboxLink = New System.Windows.Forms.LinkLabel()
+        Me.DeleteMessageLink = New System.Windows.Forms.LinkLabel()
+        Me.NewMessageLink = New System.Windows.Forms.LinkLabel()
+        Me.OutboxView = New System.Windows.Forms.ListView()
+        Me.Outbox = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
         Me.OtherLabel = New System.Windows.Forms.Label()
@@ -83,13 +88,8 @@ Partial Class Main
         Me.OfflineLabel = New System.Windows.Forms.Label()
         Me.IconPictureBox = New System.Windows.Forms.PictureBox()
         Me.ToolPanel = New System.Windows.Forms.Panel()
-        Me.ClearOutboxLink = New System.Windows.Forms.LinkLabel()
-        Me.DeleteMessageLink = New System.Windows.Forms.LinkLabel()
-        Me.NewMessageLink = New System.Windows.Forms.LinkLabel()
         Me.ContentLabel = New System.Windows.Forms.Label()
         Me.InternetTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.OutboxView = New System.Windows.Forms.ListView()
-        Me.Outbox = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
@@ -331,6 +331,66 @@ Partial Class Main
         Me.ReloadLink.Text = "Try loading again..."
         Me.ToolTip1.SetToolTip(Me.ReloadLink, "Discord is down or there is no connection available." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click here to try loading" &
         " Discord again.")
+        '
+        'ClearOutboxLink
+        '
+        Me.ClearOutboxLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.ClearOutboxLink.AutoSize = True
+        Me.ClearOutboxLink.BackColor = System.Drawing.Color.Transparent
+        Me.ClearOutboxLink.LinkColor = System.Drawing.Color.White
+        Me.ClearOutboxLink.Location = New System.Drawing.Point(403, 82)
+        Me.ClearOutboxLink.Name = "ClearOutboxLink"
+        Me.ClearOutboxLink.Size = New System.Drawing.Size(75, 13)
+        Me.ClearOutboxLink.TabIndex = 21
+        Me.ClearOutboxLink.TabStop = True
+        Me.ClearOutboxLink.Text = "Clear Outbox"
+        Me.ToolTip1.SetToolTip(Me.ClearOutboxLink, "Clear all messages from the outbox.")
+        '
+        'DeleteMessageLink
+        '
+        Me.DeleteMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.DeleteMessageLink.AutoSize = True
+        Me.DeleteMessageLink.BackColor = System.Drawing.Color.Transparent
+        Me.DeleteMessageLink.LinkColor = System.Drawing.Color.White
+        Me.DeleteMessageLink.Location = New System.Drawing.Point(312, 82)
+        Me.DeleteMessageLink.Name = "DeleteMessageLink"
+        Me.DeleteMessageLink.Size = New System.Drawing.Size(88, 13)
+        Me.DeleteMessageLink.TabIndex = 20
+        Me.DeleteMessageLink.TabStop = True
+        Me.DeleteMessageLink.Text = "Delete Message"
+        Me.ToolTip1.SetToolTip(Me.DeleteMessageLink, "Delete a message from the outbox.")
+        '
+        'NewMessageLink
+        '
+        Me.NewMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.NewMessageLink.AutoSize = True
+        Me.NewMessageLink.BackColor = System.Drawing.Color.Transparent
+        Me.NewMessageLink.LinkColor = System.Drawing.Color.White
+        Me.NewMessageLink.Location = New System.Drawing.Point(219, 82)
+        Me.NewMessageLink.Name = "NewMessageLink"
+        Me.NewMessageLink.Size = New System.Drawing.Size(87, 13)
+        Me.NewMessageLink.TabIndex = 19
+        Me.NewMessageLink.TabStop = True
+        Me.NewMessageLink.Text = "New Message..."
+        Me.ToolTip1.SetToolTip(Me.NewMessageLink, "Send a message to the outbox." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "You can send the messages to anyone you desire l" &
+        "ater.")
+        '
+        'OutboxView
+        '
+        Me.OutboxView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Outbox})
+        Me.OutboxView.HideSelection = False
+        Me.OutboxView.Location = New System.Drawing.Point(222, 7)
+        Me.OutboxView.Name = "OutboxView"
+        Me.OutboxView.Size = New System.Drawing.Size(256, 72)
+        Me.OutboxView.TabIndex = 22
+        Me.ToolTip1.SetToolTip(Me.OutboxView, "Double click an outboxed message to copy it to the clipboard.")
+        Me.OutboxView.UseCompatibleStateImageBehavior = False
+        Me.OutboxView.View = System.Windows.Forms.View.Details
+        '
+        'Outbox
+        '
+        Me.Outbox.Text = "Outbox"
+        Me.Outbox.Width = 251
         '
         'ContentTimer
         '
@@ -764,46 +824,6 @@ Partial Class Main
         Me.ToolPanel.TabIndex = 22
         Me.ToolPanel.Visible = False
         '
-        'ClearOutboxLink
-        '
-        Me.ClearOutboxLink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.ClearOutboxLink.AutoSize = True
-        Me.ClearOutboxLink.LinkColor = System.Drawing.Color.White
-        Me.ClearOutboxLink.Location = New System.Drawing.Point(403, 82)
-        Me.ClearOutboxLink.Name = "ClearOutboxLink"
-        Me.ClearOutboxLink.Size = New System.Drawing.Size(75, 13)
-        Me.ClearOutboxLink.TabIndex = 21
-        Me.ClearOutboxLink.TabStop = True
-        Me.ClearOutboxLink.Text = "Clear Outbox"
-        Me.ToolTip1.SetToolTip(Me.ClearOutboxLink, "Clear all messages from the outbox.")
-        '
-        'DeleteMessageLink
-        '
-        Me.DeleteMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.DeleteMessageLink.AutoSize = True
-        Me.DeleteMessageLink.LinkColor = System.Drawing.Color.White
-        Me.DeleteMessageLink.Location = New System.Drawing.Point(312, 82)
-        Me.DeleteMessageLink.Name = "DeleteMessageLink"
-        Me.DeleteMessageLink.Size = New System.Drawing.Size(88, 13)
-        Me.DeleteMessageLink.TabIndex = 20
-        Me.DeleteMessageLink.TabStop = True
-        Me.DeleteMessageLink.Text = "Delete Message"
-        Me.ToolTip1.SetToolTip(Me.DeleteMessageLink, "Delete a message from the outbox.")
-        '
-        'NewMessageLink
-        '
-        Me.NewMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.NewMessageLink.AutoSize = True
-        Me.NewMessageLink.LinkColor = System.Drawing.Color.White
-        Me.NewMessageLink.Location = New System.Drawing.Point(219, 82)
-        Me.NewMessageLink.Name = "NewMessageLink"
-        Me.NewMessageLink.Size = New System.Drawing.Size(87, 13)
-        Me.NewMessageLink.TabIndex = 19
-        Me.NewMessageLink.TabStop = True
-        Me.NewMessageLink.Text = "New Message..."
-        Me.ToolTip1.SetToolTip(Me.NewMessageLink, "Send a message to the outbox." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "You can send the messages to anyone you desire l" &
-        "ater.")
-        '
         'ContentLabel
         '
         Me.ContentLabel.AutoSize = True
@@ -820,23 +840,6 @@ Partial Class Main
         '
         Me.InternetTimer.Enabled = True
         Me.InternetTimer.Interval = 1000
-        '
-        'OutboxView
-        '
-        Me.OutboxView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Outbox})
-        Me.OutboxView.HideSelection = False
-        Me.OutboxView.Location = New System.Drawing.Point(222, 7)
-        Me.OutboxView.Name = "OutboxView"
-        Me.OutboxView.Size = New System.Drawing.Size(256, 72)
-        Me.OutboxView.TabIndex = 22
-        Me.ToolTip1.SetToolTip(Me.OutboxView, "Double click an outboxed message to copy it to the clipboard.")
-        Me.OutboxView.UseCompatibleStateImageBehavior = False
-        Me.OutboxView.View = System.Windows.Forms.View.Details
-        '
-        'Outbox
-        '
-        Me.Outbox.Text = "Outbox"
-        Me.Outbox.Width = 251
         '
         'Main
         '

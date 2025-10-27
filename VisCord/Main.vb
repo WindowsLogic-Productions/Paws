@@ -80,7 +80,7 @@ Public Class Main
         WebView21.CoreWebView2.Settings.AreDefaultScriptDialogsEnabled = False
         WebView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = False
         WebView21.CoreWebView2.Settings.AreDefaultContextMenusEnabled = True
-        WebView21.CoreWebView2.Settings.AreDevToolsEnabled = False
+        WebView21.CoreWebView2.Settings.AreDevToolsEnabled = True
         If My.Settings.HA = 0 Then
             Dim options As New CoreWebView2EnvironmentOptions()
             options.AdditionalBrowserArguments = "--disable-gpu"
@@ -196,7 +196,14 @@ Public Class Main
     End Sub
 
     Private Sub DeleteMessageLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles DeleteMessageLink.LinkClicked
-        OutboxView.SelectedItems.Clear()
+        Dim obi As ListViewItem
+        Dim obn As String
+        For Each obi In OutboxView.Items
+            If obi.Text = obn Then
+                OutboxView.Items.Remove(obi)
+                Exit For
+            End If
+        Next
     End Sub
 
     Private Sub ClearOutboxLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ClearOutboxLink.LinkClicked
@@ -373,7 +380,7 @@ Public Class Main
     Private Sub FixTitle_Tick(sender As Object, e As EventArgs) Handles FixTitle.Tick
         Try
             If Me.WindowState = FormWindowState.Minimized = False Then
-                If Me.Text.Contains("Discord") Then
+                If Me.Text.Contains("•") Then
                     UpdateIcon()
                     ContentTimer.Start()
                 End If
