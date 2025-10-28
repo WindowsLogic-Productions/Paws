@@ -171,6 +171,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MissingWebView() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MissingWebView", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
         Friend ReadOnly Property PDiscord() As System.Drawing.Icon
@@ -197,6 +207,16 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("PDiscord_Notif", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property SplashPone() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SplashPone", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

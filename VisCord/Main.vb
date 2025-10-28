@@ -73,6 +73,41 @@ Public Class Main
 
         'Load correct icon.
         UpdateIcon()
+
+        'Load random tip.
+        If My.Settings.AleTips = 1 Then
+            TipCheckBox.Checked = True
+            PictureBox1.Visible = True
+            TipLabel.Visible = True
+            Dim rand As New Random
+            Select Case rand.Next(1, 6)
+                Case 1
+                    TipLabel.Text = "Tip: If VisCord isn't running as fast as it used to, you can clear cache via the VisCord Settings."
+                Case 2
+                    TipLabel.Text = "Tip: You can set custom JavaScript to run at startup via the VisCord Toolbox."
+                Case 3
+                    TipLabel.Text = "Tip: You can access your Discord user settings via the system tray menu."
+                Case 4
+                    TipLabel.Text = "Tip: Choose from a selection of app icons to use in the VisCord Settings."
+                Case 5
+                    TipLabel.Text = "Tip: You can send important messages to the outbox when offline."
+                Case Else
+
+            End Select
+        Else
+            TipCheckBox.Checked = False
+            PictureBox1.Visible = False
+            TipLabel.Visible = False
+        End If
+
+        'Check Windows version.
+        If My.Computer.Info.OSVersion.Contains("6.1") Then
+            Me.Hide()
+            MsgBox("This version of VisCord is incompatible with Windows 7 due to Chromium no longer being updated for Windows 7." + vbNewLine + vbNewLine + "Please use the Windows 7 version of VisCord.")
+            End
+        Else
+
+        End If
     End Sub
 #End Region
 #Region "WebView2"
@@ -80,7 +115,7 @@ Public Class Main
         WebView21.CoreWebView2.Settings.AreDefaultScriptDialogsEnabled = False
         WebView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = False
         WebView21.CoreWebView2.Settings.AreDefaultContextMenusEnabled = True
-        WebView21.CoreWebView2.Settings.AreDevToolsEnabled = True
+        WebView21.CoreWebView2.Settings.AreDevToolsEnabled = False
         If My.Settings.HA = 0 Then
             Dim options As New CoreWebView2EnvironmentOptions()
             options.AdditionalBrowserArguments = "--disable-gpu"
@@ -233,15 +268,6 @@ Public Class Main
     End Sub
 #End Region
 #Region "System Tray"
-    Private Sub SysTrayIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles SysTrayIcon.MouseDoubleClick
-        Try
-            Me.Visible = True
-            Me.WindowState = FormWindowState.Normal
-            SysTrayIcon.Visible = True
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
 
     Private Sub Main_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If My.Settings.SysTray = 1 Then
@@ -307,7 +333,6 @@ Public Class Main
                 WebView21.Visible = False
                 Me.Text = "Initialising... - VisCord"
                 SysTrayIcon.Text = "Initialising... - VisCord"
-                Thread.Sleep(1000)
             Else
                 WebView21.Visible = True
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
@@ -316,7 +341,6 @@ Public Class Main
                 Else
                     AreaLabel.Text = "- " + WebView21.CoreWebView2.DocumentTitle
                 End If
-
             End If
 
             'Check if user is on the settings area of Discord.
@@ -735,6 +759,35 @@ Public Class Main
             End
         Else
             e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub SysTrayIcon_Click(sender As Object, e As EventArgs) Handles SysTrayIcon.Click
+        Try
+            Me.Visible = True
+            Me.WindowState = FormWindowState.Normal
+            SysTrayIcon.Visible = True
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub GetWVLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles GetWVLink.LinkClicked
+        Process.Start("https://developer.microsoft.com/en-us/microsoft-edge/webview2/consumer/")
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If Me.Text.Contains("Initialising...") Then
+            NoWVPanel.Visible = True
+            NoWVPanel.BringToFront()
+        End If
+    End Sub
+
+    Private Sub TipCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles TipCheckBox.CheckedChanged
+        If TipCheckBox.Checked = True Then
+            My.Settings.AleTips = 1
+        Else
+            My.Settings.AleTips = 0
         End If
     End Sub
 #End Region

@@ -48,6 +48,7 @@ Partial Class Main
         Me.NewMessageLink = New System.Windows.Forms.LinkLabel()
         Me.OutboxView = New System.Windows.Forms.ListView()
         Me.Outbox = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.GetWVLink = New System.Windows.Forms.LinkLabel()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
         Me.OtherLabel = New System.Windows.Forms.Label()
@@ -90,6 +91,14 @@ Partial Class Main
         Me.ToolPanel = New System.Windows.Forms.Panel()
         Me.ContentLabel = New System.Windows.Forms.Label()
         Me.InternetTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.NoWVPanel = New System.Windows.Forms.Panel()
+        Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
+        Me.NoWVLabel = New System.Windows.Forms.Label()
+        Me.NoVWPic = New System.Windows.Forms.PictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.TipLabel = New System.Windows.Forms.Label()
+        Me.TipCheckBox = New System.Windows.Forms.CheckBox()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
@@ -99,6 +108,9 @@ Partial Class Main
         Me.OfflinePanel.SuspendLayout()
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolPanel.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.NoWVPanel.SuspendLayout()
+        CType(Me.NoVWPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'WebView21
@@ -130,7 +142,7 @@ Partial Class Main
         '
         Me.SysTrayCheckbox.AutoSize = True
         Me.SysTrayCheckbox.ForeColor = System.Drawing.Color.White
-        Me.SysTrayCheckbox.Location = New System.Drawing.Point(13, 110)
+        Me.SysTrayCheckbox.Location = New System.Drawing.Point(12, 127)
         Me.SysTrayCheckbox.Name = "SysTrayCheckbox"
         Me.SysTrayCheckbox.Size = New System.Drawing.Size(145, 17)
         Me.SysTrayCheckbox.TabIndex = 4
@@ -154,7 +166,7 @@ Partial Class Main
         '
         Me.NotifyCheckbox.AutoSize = True
         Me.NotifyCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NotifyCheckbox.Location = New System.Drawing.Point(13, 146)
+        Me.NotifyCheckbox.Location = New System.Drawing.Point(12, 163)
         Me.NotifyCheckbox.Name = "NotifyCheckbox"
         Me.NotifyCheckbox.Size = New System.Drawing.Size(156, 17)
         Me.NotifyCheckbox.TabIndex = 6
@@ -165,7 +177,7 @@ Partial Class Main
         '
         'CacheButton
         '
-        Me.CacheButton.Location = New System.Drawing.Point(13, 241)
+        Me.CacheButton.Location = New System.Drawing.Point(12, 258)
         Me.CacheButton.Name = "CacheButton"
         Me.CacheButton.Size = New System.Drawing.Size(111, 23)
         Me.CacheButton.TabIndex = 9
@@ -176,7 +188,7 @@ Partial Class Main
         '
         'DataButton
         '
-        Me.DataButton.Location = New System.Drawing.Point(13, 270)
+        Me.DataButton.Location = New System.Drawing.Point(12, 287)
         Me.DataButton.Name = "DataButton"
         Me.DataButton.Size = New System.Drawing.Size(111, 23)
         Me.DataButton.TabIndex = 10
@@ -189,7 +201,7 @@ Partial Class Main
         '
         Me.HardwareCheckbox.AutoSize = True
         Me.HardwareCheckbox.ForeColor = System.Drawing.Color.White
-        Me.HardwareCheckbox.Location = New System.Drawing.Point(13, 218)
+        Me.HardwareCheckbox.Location = New System.Drawing.Point(12, 235)
         Me.HardwareCheckbox.Name = "HardwareCheckbox"
         Me.HardwareCheckbox.Size = New System.Drawing.Size(141, 17)
         Me.HardwareCheckbox.TabIndex = 8
@@ -202,7 +214,7 @@ Partial Class Main
         '
         Me.NavCheckbox.AutoSize = True
         Me.NavCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NavCheckbox.Location = New System.Drawing.Point(13, 182)
+        Me.NavCheckbox.Location = New System.Drawing.Point(12, 199)
         Me.NavCheckbox.Name = "NavCheckbox"
         Me.NavCheckbox.Size = New System.Drawing.Size(149, 17)
         Me.NavCheckbox.TabIndex = 7
@@ -254,7 +266,7 @@ Partial Class Main
         '
         Me.NetworkCheckbox.AutoSize = True
         Me.NetworkCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NetworkCheckbox.Location = New System.Drawing.Point(12, 329)
+        Me.NetworkCheckbox.Location = New System.Drawing.Point(11, 346)
         Me.NetworkCheckbox.Name = "NetworkCheckbox"
         Me.NetworkCheckbox.Size = New System.Drawing.Size(129, 17)
         Me.NetworkCheckbox.TabIndex = 15
@@ -267,7 +279,7 @@ Partial Class Main
         '
         Me.NSFWCheckbox.AutoSize = True
         Me.NSFWCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NSFWCheckbox.Location = New System.Drawing.Point(13, 462)
+        Me.NSFWCheckbox.Location = New System.Drawing.Point(12, 479)
         Me.NSFWCheckbox.Name = "NSFWCheckbox"
         Me.NSFWCheckbox.Size = New System.Drawing.Size(87, 17)
         Me.NSFWCheckbox.TabIndex = 17
@@ -392,6 +404,21 @@ Partial Class Main
         Me.Outbox.Text = "Outbox"
         Me.Outbox.Width = 251
         '
+        'GetWVLink
+        '
+        Me.GetWVLink.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.GetWVLink.AutoSize = True
+        Me.GetWVLink.BackColor = System.Drawing.Color.Transparent
+        Me.GetWVLink.LinkColor = System.Drawing.Color.White
+        Me.GetWVLink.Location = New System.Drawing.Point(74, 286)
+        Me.GetWVLink.Name = "GetWVLink"
+        Me.GetWVLink.Size = New System.Drawing.Size(165, 13)
+        Me.GetWVLink.TabIndex = 20
+        Me.GetWVLink.TabStop = True
+        Me.GetWVLink.Text = "Download WebView2 Runtime"
+        Me.ToolTip1.SetToolTip(Me.GetWVLink, "Open the download page for WebView2." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WebView2 is required for VisCord to load " &
+        "the Discord interface.")
+        '
         'ContentTimer
         '
         Me.ContentTimer.Enabled = True
@@ -401,6 +428,7 @@ Partial Class Main
         '
         Me.VisCordSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.VisCordSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(61, Byte), Integer))
+        Me.VisCordSettings.Controls.Add(Me.TipCheckBox)
         Me.VisCordSettings.Controls.Add(Me.OtherLabel)
         Me.VisCordSettings.Controls.Add(Me.NSFWCheckbox)
         Me.VisCordSettings.Controls.Add(Me.IconBox)
@@ -433,7 +461,7 @@ Partial Class Main
         Me.OtherLabel.AutoSize = True
         Me.OtherLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OtherLabel.ForeColor = System.Drawing.Color.White
-        Me.OtherLabel.Location = New System.Drawing.Point(10, 349)
+        Me.OtherLabel.Location = New System.Drawing.Point(9, 366)
         Me.OtherLabel.Name = "OtherLabel"
         Me.OtherLabel.Size = New System.Drawing.Size(37, 13)
         Me.OtherLabel.TabIndex = 18
@@ -448,7 +476,7 @@ Partial Class Main
         Me.IconBox.Controls.Add(Me.PokemonButton)
         Me.IconBox.Controls.Add(Me.DiscordButton)
         Me.IconBox.ForeColor = System.Drawing.Color.White
-        Me.IconBox.Location = New System.Drawing.Point(13, 365)
+        Me.IconBox.Location = New System.Drawing.Point(12, 382)
         Me.IconBox.Name = "IconBox"
         Me.IconBox.Size = New System.Drawing.Size(157, 91)
         Me.IconBox.TabIndex = 16
@@ -526,7 +554,7 @@ Partial Class Main
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(9, 313)
+        Me.Label6.Location = New System.Drawing.Point(8, 330)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(41, 13)
         Me.Label6.TabIndex = 14
@@ -537,7 +565,7 @@ Partial Class Main
         Me.CFULink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.CFULink.AutoSize = True
         Me.CFULink.LinkColor = System.Drawing.Color.White
-        Me.CFULink.Location = New System.Drawing.Point(10, 296)
+        Me.CFULink.Location = New System.Drawing.Point(9, 313)
         Me.CFULink.Name = "CFULink"
         Me.CFULink.Size = New System.Drawing.Size(110, 13)
         Me.CFULink.TabIndex = 11
@@ -561,7 +589,7 @@ Partial Class Main
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(10, 166)
+        Me.Label5.Location = New System.Drawing.Point(9, 183)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(63, 13)
         Me.Label5.TabIndex = 13
@@ -572,7 +600,7 @@ Partial Class Main
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(10, 202)
+        Me.Label4.Location = New System.Drawing.Point(9, 219)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(117, 13)
         Me.Label4.TabIndex = 12
@@ -583,7 +611,7 @@ Partial Class Main
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(10, 130)
+        Me.Label2.Location = New System.Drawing.Point(9, 147)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(73, 13)
         Me.Label2.TabIndex = 5
@@ -594,7 +622,7 @@ Partial Class Main
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(10, 94)
+        Me.Label1.Location = New System.Drawing.Point(9, 111)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(64, 13)
         Me.Label1.TabIndex = 4
@@ -730,7 +758,7 @@ Partial Class Main
         Me.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.TitlePanel.Location = New System.Drawing.Point(0, 0)
         Me.TitlePanel.Name = "TitlePanel"
-        Me.TitlePanel.Size = New System.Drawing.Size(1264, 30)
+        Me.TitlePanel.Size = New System.Drawing.Size(1264, 32)
         Me.TitlePanel.TabIndex = 20
         '
         'AreaLabel
@@ -818,7 +846,7 @@ Partial Class Main
         Me.ToolPanel.Controls.Add(Me.ContentLabel)
         Me.ToolPanel.Controls.Add(Me.JSLabel)
         Me.ToolPanel.Controls.Add(Me.JSButton)
-        Me.ToolPanel.Location = New System.Drawing.Point(577, 29)
+        Me.ToolPanel.Location = New System.Drawing.Point(577, 31)
         Me.ToolPanel.Name = "ToolPanel"
         Me.ToolPanel.Size = New System.Drawing.Size(658, 95)
         Me.ToolPanel.TabIndex = 22
@@ -841,6 +869,100 @@ Partial Class Main
         Me.InternetTimer.Enabled = True
         Me.InternetTimer.Interval = 1000
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.VisCord.My.Resources.Resources.SplashPone
+        Me.PictureBox1.Location = New System.Drawing.Point(-103, 176)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(576, 612)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 23
+        Me.PictureBox1.TabStop = False
+        '
+        'NoWVPanel
+        '
+        Me.NoWVPanel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.NoWVPanel.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
+        Me.NoWVPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.NoWVPanel.Controls.Add(Me.LinkLabel3)
+        Me.NoWVPanel.Controls.Add(Me.GetWVLink)
+        Me.NoWVPanel.Controls.Add(Me.NoWVLabel)
+        Me.NoWVPanel.Controls.Add(Me.NoVWPic)
+        Me.NoWVPanel.Location = New System.Drawing.Point(476, 173)
+        Me.NoWVPanel.Name = "NoWVPanel"
+        Me.NoWVPanel.Size = New System.Drawing.Size(312, 315)
+        Me.NoWVPanel.TabIndex = 23
+        Me.NoWVPanel.Visible = False
+        '
+        'LinkLabel3
+        '
+        Me.LinkLabel3.ActiveLinkColor = System.Drawing.Color.Aqua
+        Me.LinkLabel3.AutoSize = True
+        Me.LinkLabel3.LinkColor = System.Drawing.Color.White
+        Me.LinkLabel3.Location = New System.Drawing.Point(164, 286)
+        Me.LinkLabel3.Name = "LinkLabel3"
+        Me.LinkLabel3.Size = New System.Drawing.Size(0, 13)
+        Me.LinkLabel3.TabIndex = 21
+        '
+        'NoWVLabel
+        '
+        Me.NoWVLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NoWVLabel.AutoSize = True
+        Me.NoWVLabel.BackColor = System.Drawing.Color.Transparent
+        Me.NoWVLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NoWVLabel.ForeColor = System.Drawing.Color.White
+        Me.NoWVLabel.Location = New System.Drawing.Point(18, 258)
+        Me.NoWVLabel.Name = "NoWVLabel"
+        Me.NoWVLabel.Size = New System.Drawing.Size(276, 17)
+        Me.NoWVLabel.TabIndex = 1
+        Me.NoWVLabel.Text = "VisCord cannot find the WebView2 Runtime."
+        Me.NoWVLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'NoVWPic
+        '
+        Me.NoVWPic.BackColor = System.Drawing.Color.Transparent
+        Me.NoVWPic.Image = Global.VisCord.My.Resources.Resources.MissingWebView
+        Me.NoVWPic.Location = New System.Drawing.Point(81, 82)
+        Me.NoVWPic.Name = "NoVWPic"
+        Me.NoVWPic.Size = New System.Drawing.Size(150, 150)
+        Me.NoVWPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.NoVWPic.TabIndex = 0
+        Me.NoVWPic.TabStop = False
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 2500
+        '
+        'TipLabel
+        '
+        Me.TipLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TipLabel.AutoSize = True
+        Me.TipLabel.BackColor = System.Drawing.Color.Transparent
+        Me.TipLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TipLabel.ForeColor = System.Drawing.Color.White
+        Me.TipLabel.Location = New System.Drawing.Point(354, 635)
+        Me.TipLabel.Name = "TipLabel"
+        Me.TipLabel.Size = New System.Drawing.Size(533, 17)
+        Me.TipLabel.TabIndex = 23
+        Me.TipLabel.Text = "Tip: The VisCord Toolbox contains useful features which enhance how you use Disco" &
+    "rd."
+        Me.TipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TipCheckBox
+        '
+        Me.TipCheckBox.AutoSize = True
+        Me.TipCheckBox.ForeColor = System.Drawing.Color.White
+        Me.TipCheckBox.Location = New System.Drawing.Point(13, 91)
+        Me.TipCheckBox.Name = "TipCheckBox"
+        Me.TipCheckBox.Size = New System.Drawing.Size(133, 17)
+        Me.TipCheckBox.TabIndex = 19
+        Me.TipCheckBox.Text = "Enable Alethila's tips"
+        Me.ToolTip1.SetToolTip(Me.TipCheckBox, "Before WebView2 fully starts, show Alethila (pony) and useful tips.")
+        Me.TipCheckBox.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -848,11 +970,14 @@ Partial Class Main
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1264, 661)
+        Me.Controls.Add(Me.VisCordSettings)
         Me.Controls.Add(Me.ToolPanel)
         Me.Controls.Add(Me.OfflinePanel)
-        Me.Controls.Add(Me.VisCordSettings)
         Me.Controls.Add(Me.TitlePanel)
         Me.Controls.Add(Me.WebView21)
+        Me.Controls.Add(Me.NoWVPanel)
+        Me.Controls.Add(Me.TipLabel)
+        Me.Controls.Add(Me.PictureBox1)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -873,7 +998,12 @@ Partial Class Main
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolPanel.ResumeLayout(False)
         Me.ToolPanel.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.NoWVPanel.ResumeLayout(False)
+        Me.NoWVPanel.PerformLayout()
+        CType(Me.NoVWPic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -943,4 +1073,13 @@ Partial Class Main
     Friend WithEvents ReloadLink As LinkLabel
     Friend WithEvents OutboxView As ListView
     Friend WithEvents Outbox As ColumnHeader
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents NoWVPanel As Panel
+    Friend WithEvents LinkLabel3 As LinkLabel
+    Friend WithEvents GetWVLink As LinkLabel
+    Friend WithEvents NoWVLabel As Label
+    Friend WithEvents NoVWPic As PictureBox
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents TipLabel As Label
+    Friend WithEvents TipCheckBox As CheckBox
 End Class

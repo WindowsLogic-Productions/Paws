@@ -171,6 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Discord.ico" />
+    <None Include="Resources\SplashPone.png" />
+    <None Include="Resources\MissingWebView.png" />
     <None Include="Resources\gradient.png" />
     <None Include="Resources\VeloVag_Notif.ico" />
     <None Include="Resources\VeloVag.ico" />
