@@ -77,7 +77,7 @@ Public Class Main
         'Load random tip.
         If My.Settings.AleTips = 1 Then
             TipCheckBox.Checked = True
-            PictureBox1.Visible = True
+            TipPic.Visible = True
             TipLabel.Visible = True
             Dim rand As New Random
             Select Case rand.Next(1, 6)
@@ -96,7 +96,7 @@ Public Class Main
             End Select
         Else
             TipCheckBox.Checked = False
-            PictureBox1.Visible = False
+            TipPic.Visible = False
             TipLabel.Visible = False
         End If
 
@@ -234,10 +234,8 @@ Public Class Main
         Dim obi As ListViewItem
         Dim obn As String
         For Each obi In OutboxView.Items
-            If obi.Text = obn Then
-                OutboxView.Items.Remove(obi)
-                Exit For
-            End If
+            OutboxView.Items.Remove(obi)
+            Exit For
         Next
     End Sub
 
@@ -338,6 +336,7 @@ Public Class Main
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                 If WebView21.CoreWebView2.DocumentTitle = "Discord" Then
                     AreaLabel.Text = ""
+                    NoWVPanel.Visible = False
                 Else
                     AreaLabel.Text = "- " + WebView21.CoreWebView2.DocumentTitle
                 End If

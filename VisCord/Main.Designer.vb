@@ -49,6 +49,7 @@ Partial Class Main
         Me.OutboxView = New System.Windows.Forms.ListView()
         Me.Outbox = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GetWVLink = New System.Windows.Forms.LinkLabel()
+        Me.TipCheckBox = New System.Windows.Forms.CheckBox()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
         Me.OtherLabel = New System.Windows.Forms.Label()
@@ -91,14 +92,13 @@ Partial Class Main
         Me.ToolPanel = New System.Windows.Forms.Panel()
         Me.ContentLabel = New System.Windows.Forms.Label()
         Me.InternetTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TipPic = New System.Windows.Forms.PictureBox()
         Me.NoWVPanel = New System.Windows.Forms.Panel()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.NoWVLabel = New System.Windows.Forms.Label()
         Me.NoVWPic = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TipLabel = New System.Windows.Forms.Label()
-        Me.TipCheckBox = New System.Windows.Forms.CheckBox()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
@@ -108,7 +108,7 @@ Partial Class Main
         Me.OfflinePanel.SuspendLayout()
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolPanel.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TipPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NoWVPanel.SuspendLayout()
         CType(Me.NoVWPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -418,6 +418,18 @@ Partial Class Main
         Me.GetWVLink.Text = "Download WebView2 Runtime"
         Me.ToolTip1.SetToolTip(Me.GetWVLink, "Open the download page for WebView2." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WebView2 is required for VisCord to load " &
         "the Discord interface.")
+        '
+        'TipCheckBox
+        '
+        Me.TipCheckBox.AutoSize = True
+        Me.TipCheckBox.ForeColor = System.Drawing.Color.White
+        Me.TipCheckBox.Location = New System.Drawing.Point(13, 91)
+        Me.TipCheckBox.Name = "TipCheckBox"
+        Me.TipCheckBox.Size = New System.Drawing.Size(133, 17)
+        Me.TipCheckBox.TabIndex = 19
+        Me.TipCheckBox.Text = "Enable Alethila's tips"
+        Me.ToolTip1.SetToolTip(Me.TipCheckBox, "Before WebView2 fully starts, show Alethila (pony) and useful tips.")
+        Me.TipCheckBox.UseVisualStyleBackColor = True
         '
         'ContentTimer
         '
@@ -869,15 +881,16 @@ Partial Class Main
         Me.InternetTimer.Enabled = True
         Me.InternetTimer.Interval = 1000
         '
-        'PictureBox1
+        'TipPic
         '
-        Me.PictureBox1.Image = Global.VisCord.My.Resources.Resources.SplashPone
-        Me.PictureBox1.Location = New System.Drawing.Point(-103, 176)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(576, 612)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 23
-        Me.PictureBox1.TabStop = False
+        Me.TipPic.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.TipPic.Image = Global.VisCord.My.Resources.Resources.SplashPone
+        Me.TipPic.Location = New System.Drawing.Point(-103, 176)
+        Me.TipPic.Name = "TipPic"
+        Me.TipPic.Size = New System.Drawing.Size(576, 612)
+        Me.TipPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.TipPic.TabIndex = 23
+        Me.TipPic.TabStop = False
         '
         'NoWVPanel
         '
@@ -951,18 +964,6 @@ Partial Class Main
     "rd."
         Me.TipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TipCheckBox
-        '
-        Me.TipCheckBox.AutoSize = True
-        Me.TipCheckBox.ForeColor = System.Drawing.Color.White
-        Me.TipCheckBox.Location = New System.Drawing.Point(13, 91)
-        Me.TipCheckBox.Name = "TipCheckBox"
-        Me.TipCheckBox.Size = New System.Drawing.Size(133, 17)
-        Me.TipCheckBox.TabIndex = 19
-        Me.TipCheckBox.Text = "Enable Alethila's tips"
-        Me.ToolTip1.SetToolTip(Me.TipCheckBox, "Before WebView2 fully starts, show Alethila (pony) and useful tips.")
-        Me.TipCheckBox.UseVisualStyleBackColor = True
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -977,7 +978,7 @@ Partial Class Main
         Me.Controls.Add(Me.WebView21)
         Me.Controls.Add(Me.NoWVPanel)
         Me.Controls.Add(Me.TipLabel)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.TipPic)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -998,7 +999,7 @@ Partial Class Main
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolPanel.ResumeLayout(False)
         Me.ToolPanel.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TipPic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NoWVPanel.ResumeLayout(False)
         Me.NoWVPanel.PerformLayout()
         CType(Me.NoVWPic, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1073,7 +1074,7 @@ Partial Class Main
     Friend WithEvents ReloadLink As LinkLabel
     Friend WithEvents OutboxView As ListView
     Friend WithEvents Outbox As ColumnHeader
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents TipPic As PictureBox
     Friend WithEvents NoWVPanel As Panel
     Friend WithEvents LinkLabel3 As LinkLabel
     Friend WithEvents GetWVLink As LinkLabel
