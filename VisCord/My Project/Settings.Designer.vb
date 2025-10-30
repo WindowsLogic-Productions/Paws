@@ -165,12 +165,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property NSFWIcon() As Integer
+        Public Property NSFWFeatures() As Integer
             Get
-                Return CType(Me("NSFWIcon"),Integer)
+                Return CType(Me("NSFWFeatures"),Integer)
             End Get
             Set
-                Me("NSFWIcon") = value
+                Me("NSFWFeatures") = value
             End Set
         End Property
         

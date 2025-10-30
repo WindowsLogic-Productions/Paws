@@ -281,11 +281,11 @@ Partial Class Main
         Me.NSFWCheckbox.ForeColor = System.Drawing.Color.White
         Me.NSFWCheckbox.Location = New System.Drawing.Point(12, 479)
         Me.NSFWCheckbox.Name = "NSFWCheckbox"
-        Me.NSFWCheckbox.Size = New System.Drawing.Size(87, 17)
+        Me.NSFWCheckbox.Size = New System.Drawing.Size(140, 17)
         Me.NSFWCheckbox.TabIndex = 17
-        Me.NSFWCheckbox.Text = "NSFW icons"
-        Me.ToolTip1.SetToolTip(Me.NSFWCheckbox, "Enable access to 18+ icons." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Warning: this option contains lewd pony/furry flui" &
-        "ds.")
+        Me.NSFWCheckbox.Text = "Enable NSFW features"
+        Me.ToolTip1.SetToolTip(Me.NSFWCheckbox, "Enable access to 18+ icons and pony tips." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Warning: this option contains lewd p" &
+        "ony/furry fluids" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "as well as turns tips into lewd facts.")
         Me.NSFWCheckbox.UseVisualStyleBackColor = True
         '
         'ToolboxButton

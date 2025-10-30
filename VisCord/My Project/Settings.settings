@@ -29,7 +29,7 @@
     <Setting Name="Icon" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="NSFWIcon" Type="System.Int32" Scope="User">
+    <Setting Name="NSFWFeatures" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="AddNavJS" Type="System.String" Scope="User">

@@ -54,7 +54,7 @@ Public Class Main
         End If
 
         'Load NSFW icon settings.
-        If My.Settings.NSFWIcon = 1 Then
+        If My.Settings.NSFWFeatures = 1 Then
             NSFWCheckbox.Checked = True
             AleNSFWButton.Enabled = True
             VeloNSFWButton.Enabled = True
@@ -79,21 +79,39 @@ Public Class Main
             TipCheckBox.Checked = True
             TipPic.Visible = True
             TipLabel.Visible = True
-            Dim rand As New Random
-            Select Case rand.Next(1, 6)
-                Case 1
-                    TipLabel.Text = "Tip: If VisCord isn't running as fast as it used to, you can clear cache via the VisCord Settings."
-                Case 2
-                    TipLabel.Text = "Tip: You can set custom JavaScript to run at startup via the VisCord Toolbox."
-                Case 3
-                    TipLabel.Text = "Tip: You can access your Discord user settings via the system tray menu."
-                Case 4
-                    TipLabel.Text = "Tip: Choose from a selection of app icons to use in the VisCord Settings."
-                Case 5
-                    TipLabel.Text = "Tip: You can send important messages to the outbox when offline."
-                Case Else
+            If My.Settings.NSFWFeatures = 1 Then
+                Dim lewdrand As New Random
+                Select Case lewdrand.Next(1, 6)
+                    Case 1
+                        TipLabel.Text = "A single human male produces enough sperm in two weeks to impregnate every fertile woman on the planet."
+                    Case 2
+                        TipLabel.Text = "A single sperm contains 37.5 MB of DNA information. One ejaculation represents a data transfer of 15,875 GB."
+                    Case 3
+                        TipLabel.Text = "The clitoris is the only organ in the body solely dedicated to pleasure."
+                    Case 4
+                        TipLabel.Text = "84 percent of women have sex to get their guy to do more around the house."
+                    Case 5
+                        TipLabel.Text = "Cumming is better for your brain than a game of Sudoku."
+                    Case Else
+                        TipLabel.Text = "1 of 4 acts of vaginal intercourse are condom protected."
+                End Select
+            Else
+                Dim rand As New Random
+                Select Case rand.Next(1, 6)
+                    Case 1
+                        TipLabel.Text = "Tip: If VisCord isn't running as fast as it used to, you can clear cache via the VisCord Settings."
+                    Case 2
+                        TipLabel.Text = "Tip: You can set custom JavaScript to run at startup via the VisCord Toolbox."
+                    Case 3
+                        TipLabel.Text = "Tip: You can access your Discord user settings via the system tray menu."
+                    Case 4
+                        TipLabel.Text = "Tip: Choose from a selection of app icons to use in the VisCord Settings."
+                    Case 5
+                        TipLabel.Text = "Tip: You can send important messages to the outbox when offline."
+                    Case Else
 
-            End Select
+                End Select
+            End If
         Else
             TipCheckBox.Checked = False
             TipPic.Visible = False
@@ -579,11 +597,11 @@ Public Class Main
 
     Private Sub NSFWCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles NSFWCheckbox.CheckedChanged
         If NSFWCheckbox.Checked = True Then
-            My.Settings.NSFWIcon = 1
+            My.Settings.NSFWFeatures = 1
             AleNSFWButton.Enabled = True
             VeloNSFWButton.Enabled = True
         Else
-            My.Settings.NSFWIcon = 0
+            My.Settings.NSFWFeatures = 0
             AleNSFWButton.Enabled = False
             VeloNSFWButton.Enabled = False
         End If
