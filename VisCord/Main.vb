@@ -121,7 +121,7 @@ Public Class Main
         'Check Windows version.
         If My.Computer.Info.OSVersion.Contains("6.1") Then
             Me.Hide()
-            MsgBox("This version of VisCord is incompatible with Windows 7 due to Chromium no longer being updated for Windows 7." + vbNewLine + vbNewLine + "Please use the Windows 7 version of VisCord.")
+            MsgBox("This version of VisCord is incompatible with Windows 7 due to WebView2 no longer being updated for Windows 7." + vbNewLine + vbNewLine + "Please use the Windows 7 version of VisCord.")
             End
         Else
 
@@ -351,6 +351,8 @@ Public Class Main
                 SysTrayIcon.Text = "Initialising... - VisCord"
             Else
                 WebView21.Visible = True
+                WebView21.BringToFront()
+                WebView21.SendToBack()
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                 If WebView21.CoreWebView2.DocumentTitle = "Discord" Then
                     AreaLabel.Text = ""

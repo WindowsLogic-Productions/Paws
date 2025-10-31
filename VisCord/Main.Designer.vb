@@ -24,7 +24,6 @@ Partial Class Main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
-        Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.StartupCheckbox = New System.Windows.Forms.CheckBox()
         Me.SysTrayCheckbox = New System.Windows.Forms.CheckBox()
@@ -99,7 +98,7 @@ Partial Class Main
         Me.NoVWPic = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TipLabel = New System.Windows.Forms.Label()
-        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
         Me.SysTrayMenu.SuspendLayout()
@@ -111,20 +110,8 @@ Partial Class Main
         CType(Me.TipPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NoWVPanel.SuspendLayout()
         CType(Me.NoVWPic, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'WebView21
-        '
-        Me.WebView21.AllowExternalDrop = True
-        Me.WebView21.CreationProperties = Nothing
-        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.Transparent
-        Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebView21.Location = New System.Drawing.Point(0, 0)
-        Me.WebView21.Name = "WebView21"
-        Me.WebView21.Size = New System.Drawing.Size(1264, 661)
-        Me.WebView21.Source = New System.Uri("https://discord.com/app", System.UriKind.Absolute)
-        Me.WebView21.TabIndex = 0
-        Me.WebView21.ZoomFactor = 1.0R
         '
         'StartupCheckbox
         '
@@ -434,7 +421,6 @@ Partial Class Main
         'ContentTimer
         '
         Me.ContentTimer.Enabled = True
-        Me.ContentTimer.Interval = 10
         '
         'VisCordSettings
         '
@@ -964,6 +950,19 @@ Partial Class Main
     "rd."
         Me.TipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'WebView21
+        '
+        Me.WebView21.AllowExternalDrop = True
+        Me.WebView21.CreationProperties = Nothing
+        Me.WebView21.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebView21.Location = New System.Drawing.Point(0, 0)
+        Me.WebView21.Name = "WebView21"
+        Me.WebView21.Size = New System.Drawing.Size(1264, 661)
+        Me.WebView21.Source = New System.Uri("https://discord.com/app", System.UriKind.Absolute)
+        Me.WebView21.TabIndex = 24
+        Me.WebView21.ZoomFactor = 1.0R
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -975,8 +974,8 @@ Partial Class Main
         Me.Controls.Add(Me.ToolPanel)
         Me.Controls.Add(Me.OfflinePanel)
         Me.Controls.Add(Me.TitlePanel)
-        Me.Controls.Add(Me.WebView21)
         Me.Controls.Add(Me.NoWVPanel)
+        Me.Controls.Add(Me.WebView21)
         Me.Controls.Add(Me.TipLabel)
         Me.Controls.Add(Me.TipPic)
         Me.DoubleBuffered = True
@@ -985,7 +984,6 @@ Partial Class Main
         Me.MinimumSize = New System.Drawing.Size(1280, 700)
         Me.Name = "Main"
         Me.Text = "VisCord"
-        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VisCordSettings.ResumeLayout(False)
         Me.VisCordSettings.PerformLayout()
         Me.IconBox.ResumeLayout(False)
@@ -1003,12 +1001,11 @@ Partial Class Main
         Me.NoWVPanel.ResumeLayout(False)
         Me.NoWVPanel.PerformLayout()
         CType(Me.NoVWPic, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents ContentTimer As Timer
     Friend WithEvents VisCordSettings As Panel
@@ -1083,4 +1080,5 @@ Partial Class Main
     Friend WithEvents Timer1 As Timer
     Friend WithEvents TipLabel As Label
     Friend WithEvents TipCheckBox As CheckBox
+    Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
 End Class
