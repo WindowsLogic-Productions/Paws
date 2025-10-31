@@ -421,6 +421,7 @@ Partial Class Main
         'ContentTimer
         '
         Me.ContentTimer.Enabled = True
+        Me.ContentTimer.Interval = 10
         '
         'VisCordSettings
         '

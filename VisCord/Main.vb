@@ -152,6 +152,7 @@ Public Class Main
             ReloadLink.Enabled = False
         End If
 
+        NoWVPanel.Visible = False
         LoadJS()
     End Sub
 
@@ -349,14 +350,12 @@ Public Class Main
                 WebView21.Visible = False
                 Me.Text = "Initialising... - VisCord"
                 SysTrayIcon.Text = "Initialising... - VisCord"
-            Else
+                Thread.Sleep(1000)
                 WebView21.Visible = True
-                WebView21.BringToFront()
-                WebView21.SendToBack()
+            Else
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                 If WebView21.CoreWebView2.DocumentTitle = "Discord" Then
                     AreaLabel.Text = ""
-                    NoWVPanel.Visible = False
                 Else
                     AreaLabel.Text = "- " + WebView21.CoreWebView2.DocumentTitle
                 End If
