@@ -3,3 +3,6 @@ VisCord/bin/Debug/VisCord.exe.WebView2
 *.zip
 VisCord/bin/Release/VisCord.exe.WebView2
 VisCord/bin/x64/Debug/Data
+VisCord/bin/Debug/Data
+VisCord/bin/x64/Release/Data
+VisCord/bin/Release/Data

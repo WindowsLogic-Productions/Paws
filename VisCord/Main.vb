@@ -134,6 +134,7 @@ Public Class Main
         WebView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = False
         WebView21.CoreWebView2.Settings.AreDefaultContextMenusEnabled = True
         WebView21.CoreWebView2.Settings.AreDevToolsEnabled = False
+        WebView21.CoreWebView2.Settings.IsStatusBarEnabled = False
         If My.Settings.HA = 0 Then
             Dim options As New CoreWebView2EnvironmentOptions()
             options.AdditionalBrowserArguments = "--disable-gpu"
@@ -356,13 +357,16 @@ Public Class Main
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                 If WebView21.CoreWebView2.DocumentTitle = "Discord" Then
                     AreaLabel.Text = ""
+                    WebView21.Visible = True
                 Else
                     AreaLabel.Text = "- " + WebView21.CoreWebView2.DocumentTitle
                 End If
             End If
 
             'Check if user is on the settings area of Discord.
-            If Me.Text.Contains("User Settings") Then
+            If Me.Text.Contains("Profiles") Then
+                VisCordSettings.Visible = False
+            ElseIf Me.Text.Contains("User Settings") Then
                 VisCordSettings.Visible = True
             Else
                 VisCordSettings.Visible = False
@@ -406,14 +410,14 @@ Public Class Main
 
     Private Sub NotifTimer_Tick(sender As Object, e As EventArgs) Handles NotifTimer.Tick
         Try
-            If Me.Text.Contains("(") Then
+            If Me.WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
                 UpdateBadge()
             End If
         Catch
         End Try
 
         If Me.Focused = True Then
-            If Not Me.Text.Contains("(") Then
+            If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
                 ContentTimer.Start()
             End If
         End If
@@ -422,7 +426,7 @@ Public Class Main
     Private Sub FixTitle_Tick(sender As Object, e As EventArgs) Handles FixTitle.Tick
         Try
             If Me.WindowState = FormWindowState.Minimized = False Then
-                If Me.Text.Contains("•") Then
+                If Me.WebView21.CoreWebView2.DocumentTitle.Contains("•") Then
                     UpdateIcon()
                     ContentTimer.Start()
                 End If
@@ -658,6 +662,8 @@ Public Class Main
                 If My.Settings.NotifBadge = 1 Then
                     UpdateBadge()
                 End If
+            ElseIf Not WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+                Exit For
             End If
             If val = 1 Then
                 ContentTimer.Stop()

@@ -158,8 +158,7 @@ Partial Class Main
         Me.NotifyCheckbox.Size = New System.Drawing.Size(156, 17)
         Me.NotifyCheckbox.TabIndex = 6
         Me.NotifyCheckbox.Text = "Notify on communication"
-        Me.ToolTip1.SetToolTip(Me.NotifyCheckbox, "Send a real-time notification when communication is detected." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Notifications do" &
-        " not work if VisCord is minimised.")
+        Me.ToolTip1.SetToolTip(Me.NotifyCheckbox, "Send a real-time notification when communication is detected.")
         Me.NotifyCheckbox.UseVisualStyleBackColor = True
         '
         'CacheButton
