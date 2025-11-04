@@ -23,3 +23,5 @@ J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbproj.CopyComplete
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.exe
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.xml
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.pdb
+J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Pins.resources
+J:\Projects\VisCord\VisCord\obj\Debug\VisCord.AddPins.resources

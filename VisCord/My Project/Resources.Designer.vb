@@ -213,6 +213,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Pins() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Pins", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property SplashPone() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("SplashPone", resourceCulture)
@@ -313,6 +323,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property WinBin() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("WinBin", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property WinClose() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("WinClose", resourceCulture)
@@ -336,6 +356,16 @@ Namespace My.Resources
         Friend ReadOnly Property WinHelp() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("WinHelp", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property WinLess() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("WinLess", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

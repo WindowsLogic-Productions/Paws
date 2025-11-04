@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Imports System.IO
+Imports System.Net
 Imports System.Threading
 Imports Microsoft.Web.WebView2.Core
 
@@ -126,6 +127,56 @@ Public Class Main
         Else
 
         End If
+
+        'Load settings from INI file.
+        Try
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(2).ToString()
+
+            My.Settings.Startup = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(3).ToString()
+
+            My.Settings.NotifBadge = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(4).ToString()
+
+            My.Settings.AleTips = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(6).ToString()
+
+            My.Settings.SysTray = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(8).ToString()
+
+            My.Settings.Notify = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(10).ToString()
+
+            My.Settings.OpenExternal = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(12).ToString()
+
+            My.Settings.HA = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(14).ToString()
+
+            My.Settings.EnableNetwork = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(16).ToString()
+
+            My.Settings.Icon = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(17).ToString()
+
+            My.Settings.NSFWFeatures = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(18).ToString()
+
+            My.Settings.NSFWContent = (Convert.ToInt32(TextBox1.Text))
+        Catch
+
+        End Try
     End Sub
 #End Region
 #Region "WebView2"
@@ -378,6 +429,13 @@ Public Class Main
                 If Me.WindowState = FormWindowState.Minimized Then
                     Ping()
                 End If
+            End If
+
+            'Check if user is on friends or DMs.
+            If WebView21.CoreWebView2.Source.Contains("@me") Then
+                PinsButton.Visible = True
+            Else
+                PinsButton.Visible = False
             End If
 
             'Check if user is on a NSFW area.
@@ -779,7 +837,38 @@ Public Class Main
 #Region "Closing"
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If MsgBox("Would you like to exit VisCord?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            'Save all user settings to application settings.
             My.Settings.Save()
+
+            'Save all user settings to INI file.
+            File.Create(Application.StartupPath & "\VisCord.ini").Dispose()
+
+            System.IO.File.WriteAllText(Application.StartupPath & "\VisCord.ini", "")
+
+            Dim objWriter As New System.IO.StreamWriter(Application.StartupPath & "\VisCord.ini", True)
+
+            objWriter.WriteLine("[VisCord User Data - " & My.Application.Info.Version.ToString & "]")
+            objWriter.WriteLine("[General]")
+            objWriter.WriteLine(My.Settings.Startup.ToString())
+            objWriter.WriteLine(My.Settings.NotifBadge.ToString())
+            objWriter.WriteLine(My.Settings.AleTips.ToString())
+            objWriter.WriteLine("[System Tray]")
+            objWriter.WriteLine(My.Settings.SysTray.ToString())
+            objWriter.WriteLine("[Notifications]")
+            objWriter.WriteLine(My.Settings.Notify.ToString())
+            objWriter.WriteLine("[Navigation]")
+            objWriter.WriteLine(My.Settings.OpenExternal.ToString())
+            objWriter.WriteLine("[Performance / Cache]")
+            objWriter.WriteLine(My.Settings.HA.ToString())
+            objWriter.WriteLine("[Privacy]")
+            objWriter.WriteLine(My.Settings.EnableNetwork.ToString())
+            objWriter.WriteLine("[Other]")
+            objWriter.WriteLine(My.Settings.Icon.ToString())
+            objWriter.WriteLine(My.Settings.NSFWFeatures.ToString())
+            objWriter.WriteLine(My.Settings.NSFWContent.ToString())
+
+            objWriter.Close()
+
             End
         Else
             e.Cancel = True
@@ -813,6 +902,10 @@ Public Class Main
         Else
             My.Settings.AleTips = 0
         End If
+    End Sub
+
+    Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles PinsButton.Click
+        Pins.ShowDialog()
     End Sub
 #End Region
 End Class

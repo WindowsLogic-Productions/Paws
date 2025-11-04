@@ -46,25 +46,33 @@ Partial Class SendOfflineMessage
         Me.TextBox2.MaxLength = 256
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(228, 22)
-        Me.TextBox2.TabIndex = 1
+        Me.TextBox2.TabIndex = 0
         '
         'CancelButton
         '
+        Me.CancelButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.CancelButton.FlatAppearance.BorderSize = 0
+        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CancelButton.ForeColor = System.Drawing.Color.White
         Me.CancelButton.Location = New System.Drawing.Point(165, 53)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(75, 23)
-        Me.CancelButton.TabIndex = 3
+        Me.CancelButton.TabIndex = 2
         Me.CancelButton.Text = "Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = True
+        Me.CancelButton.UseVisualStyleBackColor = False
         '
         'OKButton
         '
+        Me.OKButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.OKButton.FlatAppearance.BorderSize = 0
+        Me.OKButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.OKButton.ForeColor = System.Drawing.Color.White
         Me.OKButton.Location = New System.Drawing.Point(84, 53)
         Me.OKButton.Name = "OKButton"
         Me.OKButton.Size = New System.Drawing.Size(75, 23)
-        Me.OKButton.TabIndex = 2
+        Me.OKButton.TabIndex = 1
         Me.OKButton.Text = "OK"
-        Me.OKButton.UseVisualStyleBackColor = True
+        Me.OKButton.UseVisualStyleBackColor = False
         '
         'SendOfflineMessage
         '
