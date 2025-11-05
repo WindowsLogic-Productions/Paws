@@ -89,6 +89,7 @@ Partial Class Pins
         '
         Me.List1Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenameListToolStripMenuItem})
         Me.List1Menu.Name = "List1Menu"
+        Me.List1Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
         Me.List1Menu.Size = New System.Drawing.Size(145, 26)
         '
         'RenameListToolStripMenuItem
@@ -198,7 +199,7 @@ Partial Class Pins
         'PinView2
         '
         Me.PinView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader3, Me.ColumnHeader4})
-        Me.PinView2.ContextMenuStrip = Me.List1Menu
+        Me.PinView2.ContextMenuStrip = Me.List2Menu
         Me.PinView2.HideSelection = False
         Me.PinView2.Location = New System.Drawing.Point(291, 37)
         Me.PinView2.Name = "PinView2"
@@ -219,7 +220,7 @@ Partial Class Pins
         'PinView3
         '
         Me.PinView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
-        Me.PinView3.ContextMenuStrip = Me.List1Menu
+        Me.PinView3.ContextMenuStrip = Me.List3Menu
         Me.PinView3.HideSelection = False
         Me.PinView3.Location = New System.Drawing.Point(535, 37)
         Me.PinView3.Name = "PinView3"
@@ -241,6 +242,7 @@ Partial Class Pins
         '
         Me.List2Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
         Me.List2Menu.Name = "List1Menu"
+        Me.List2Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
         Me.List2Menu.Size = New System.Drawing.Size(145, 26)
         '
         'ToolStripMenuItem1
@@ -253,12 +255,13 @@ Partial Class Pins
         '
         Me.List3Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2})
         Me.List3Menu.Name = "List1Menu"
-        Me.List3Menu.Size = New System.Drawing.Size(145, 26)
+        Me.List3Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.List3Menu.Size = New System.Drawing.Size(181, 48)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(144, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem2.Text = "Rename list..."
         '
         'Pins
@@ -282,9 +285,7 @@ Partial Class Pins
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.Name = "Pins"
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Pinned Friends"
         Me.List1Menu.ResumeLayout(False)

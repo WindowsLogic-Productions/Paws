@@ -165,13 +165,25 @@ Public Class Main
 
             TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(16).ToString()
 
-            My.Settings.Icon = (Convert.ToInt32(TextBox1.Text))
+            My.Settings.PinList1Name = TextBox1.Text
 
             TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(17).ToString()
 
-            My.Settings.NSFWFeatures = (Convert.ToInt32(TextBox1.Text))
+            My.Settings.PinList2Name = TextBox1.Text
 
             TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(18).ToString()
+
+            My.Settings.PinList3Name = TextBox1.Text
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(20).ToString()
+
+            My.Settings.Icon = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(21).ToString()
+
+            My.Settings.NSFWFeatures = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(22).ToString()
 
             My.Settings.NSFWContent = (Convert.ToInt32(TextBox1.Text))
         Catch
@@ -213,6 +225,8 @@ Public Class Main
             e.Cancel = True
             OpenInExternalBrowser(e.Uri)
         End If
+
+        NoWVPanel.Visible = False
     End Sub
 
     Private Sub OpenInExternalBrowser(url As String)
@@ -862,6 +876,10 @@ Public Class Main
             objWriter.WriteLine(My.Settings.HA.ToString())
             objWriter.WriteLine("[Privacy]")
             objWriter.WriteLine(My.Settings.EnableNetwork.ToString())
+            objWriter.WriteLine("[Pin List Names]")
+            objWriter.WriteLine(My.Settings.PinList1Name)
+            objWriter.WriteLine(My.Settings.PinList2Name)
+            objWriter.WriteLine(My.Settings.PinList3Name)
             objWriter.WriteLine("[Other]")
             objWriter.WriteLine(My.Settings.Icon.ToString())
             objWriter.WriteLine(My.Settings.NSFWFeatures.ToString())
@@ -905,7 +923,7 @@ Public Class Main
     End Sub
 
     Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles PinsButton.Click
-        Pins.ShowDialog()
+        Pins.Show()
     End Sub
 #End Region
 End Class

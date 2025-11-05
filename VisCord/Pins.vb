@@ -3,6 +3,11 @@
 Public Class Pins
 #Region "Load Settings"
     Private Sub Pins_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Get custom pin list names.
+        PinView1.Columns(0).Text = My.Settings.PinList1Name
+        PinView2.Columns(0).Text = My.Settings.PinList2Name
+        PinView3.Columns(0).Text = My.Settings.PinList3Name
+
         'Get pin list data from external files in case of update.
         Try
             My.Settings.PinList1 = File.ReadAllText(Application.StartupPath & "\PinList1.vcp").ToString()
@@ -237,6 +242,12 @@ Public Class Pins
 
         'Save pin lists to external files.
         SaveListsToFile()
+
+        'Save pin list names to settings.
+        My.Settings.PinList1Name = PinView1.Columns(0).Text
+        My.Settings.PinList2Name = PinView2.Columns(0).Text
+        My.Settings.PinList3Name = PinView3.Columns(0).Text
+        My.Settings.Save()
     End Sub
 
     Private Sub DelList1_Click(sender As Object, e As EventArgs) Handles DelList1.Click
@@ -282,6 +293,22 @@ Public Class Pins
         End If
     End Sub
 
+    Private Sub RenameListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenameListToolStripMenuItem.Click
+        AddPins.Text = "Rename: " + PinView1.Columns(0).Text
+        AddPins.Label2.Text = "Choose a new name for the selected list."
+        AddPins.ShowDialog()
+    End Sub
 
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        AddPins.Text = "Rename: " + PinView2.Columns(0).Text
+        AddPins.Label2.Text = "Choose a new name for the selected list."
+        AddPins.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        AddPins.Text = "Rename: " + PinView3.Columns(0).Text
+        AddPins.Label2.Text = "Choose a new name for the selected list."
+        AddPins.ShowDialog()
+    End Sub
 #End Region
 End Class

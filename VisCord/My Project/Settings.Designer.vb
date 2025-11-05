@@ -245,6 +245,42 @@ Namespace My
                 Me("PinList3") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property PinList1Name() As String
+            Get
+                Return CType(Me("PinList1Name"),String)
+            End Get
+            Set
+                Me("PinList1Name") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property PinList2Name() As String
+            Get
+                Return CType(Me("PinList2Name"),String)
+            End Get
+            Set
+                Me("PinList2Name") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property PinList3Name() As String
+            Get
+                Return CType(Me("PinList3Name"),String)
+            End Get
+            Set
+                Me("PinList3Name") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
