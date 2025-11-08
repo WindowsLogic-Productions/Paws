@@ -229,6 +229,7 @@ Public Class Pins
 #Region "Buttons"
     Private Sub AddList1_Click(sender As Object, e As EventArgs) Handles AddList1.Click
         AddPins.Text = "Add To List: " + PinView1.Columns(0).Text
+        AddPins.Label2.Text = "Specify a custom name for the pin."
         AddPins.ShowDialog()
     End Sub
 
@@ -260,6 +261,7 @@ Public Class Pins
 
     Private Sub AddList2_Click(sender As Object, e As EventArgs) Handles AddList2.Click
         AddPins.Text = "Add To List: " + PinView2.Columns(0).Text
+        AddPins.Label2.Text = "Specify a custom name for the pin."
         AddPins.ShowDialog()
     End Sub
 
@@ -273,6 +275,7 @@ Public Class Pins
 
     Private Sub AddList3_Click(sender As Object, e As EventArgs) Handles AddList3.Click
         AddPins.Text = "Add To List: " + PinView3.Columns(0).Text
+        AddPins.Label2.Text = "Specify a custom name for the pin."
         AddPins.ShowDialog()
     End Sub
 
@@ -309,6 +312,81 @@ Public Class Pins
         AddPins.Text = "Rename: " + PinView3.Columns(0).Text
         AddPins.Label2.Text = "Choose a new name for the selected list."
         AddPins.ShowDialog()
+    End Sub
+
+    Private Sub ExportList1_Click(sender As Object, e As EventArgs) Handles ExportList1.Click
+        Try
+            Dim MyStreamReader As System.IO.StreamReader
+            MyStreamReader = System.IO.File.OpenText(Application.StartupPath & "\PinList1.vcp")
+            ExportBox.Text = MyStreamReader.ReadToEnd()
+            MyStreamReader.Close()
+        Catch
+            ExportBox.Text = "Data has not yet been created."
+            ExportList1.Enabled = False
+        End Try
+
+        Dim Saveas As New SaveFileDialog()
+        Dim myStreamWriter As System.IO.StreamWriter
+        Saveas.Filter = "Pin List (*.vcp)|*.vcp"
+        Saveas.CheckPathExists = True
+        Saveas.Title = "Export Pin List 1..."
+        Saveas.ShowDialog(Me)
+        Try
+            myStreamWriter = System.IO.File.AppendText(Saveas.FileName)
+            myStreamWriter.Write(ExportBox.Text)
+            myStreamWriter.Flush()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ExportList2_Click(sender As Object, e As EventArgs) Handles ExportList2.Click
+        Try
+            Dim MyStreamReader As System.IO.StreamReader
+            MyStreamReader = System.IO.File.OpenText(Application.StartupPath & "\PinList2.vcp")
+            ExportBox.Text = MyStreamReader.ReadToEnd()
+            MyStreamReader.Close()
+        Catch
+            ExportBox.Text = "Data has not yet been created."
+            ExportList2.Enabled = False
+        End Try
+
+        Dim Saveas As New SaveFileDialog()
+        Dim myStreamWriter As System.IO.StreamWriter
+        Saveas.Filter = "Pin List (*.vcp)|*.vcp"
+        Saveas.CheckPathExists = True
+        Saveas.Title = "Export Pin List 2..."
+        Saveas.ShowDialog(Me)
+        Try
+            myStreamWriter = System.IO.File.AppendText(Saveas.FileName)
+            myStreamWriter.Write(ExportBox.Text)
+            myStreamWriter.Flush()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ExportList3_Click(sender As Object, e As EventArgs) Handles ExportList3.Click
+        Try
+            Dim MyStreamReader As System.IO.StreamReader
+            MyStreamReader = System.IO.File.OpenText(Application.StartupPath & "\PinList3.vcp")
+            ExportBox.Text = MyStreamReader.ReadToEnd()
+            MyStreamReader.Close()
+        Catch
+            ExportBox.Text = "Data has not yet been created."
+            ExportList3.Enabled = False
+        End Try
+
+        Dim Saveas As New SaveFileDialog()
+        Dim myStreamWriter As System.IO.StreamWriter
+        Saveas.Filter = "Pin List (*.vcp)|*.vcp"
+        Saveas.CheckPathExists = True
+        Saveas.Title = "Export Pin List 3..."
+        Saveas.ShowDialog(Me)
+        Try
+            myStreamWriter = System.IO.File.AppendText(Saveas.FileName)
+            myStreamWriter.Write(ExportBox.Text)
+            myStreamWriter.Flush()
+        Catch ex As Exception
+        End Try
     End Sub
 #End Region
 End Class

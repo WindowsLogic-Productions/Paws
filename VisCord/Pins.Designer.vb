@@ -41,13 +41,17 @@ Partial Class Pins
         Me.PinView2 = New System.Windows.Forms.ListView()
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.List2Menu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PinView3 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.List2Menu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.List3Menu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportList1 = New System.Windows.Forms.Button()
+        Me.ExportBox = New System.Windows.Forms.TextBox()
+        Me.ExportList2 = New System.Windows.Forms.Button()
+        Me.ExportList3 = New System.Windows.Forms.Button()
         Me.List1Menu.SuspendLayout()
         Me.List2Menu.SuspendLayout()
         Me.List3Menu.SuspendLayout()
@@ -217,6 +221,19 @@ Partial Class Pins
         '
         Me.ColumnHeader4.Text = "URL"
         '
+        'List2Menu
+        '
+        Me.List2Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.List2Menu.Name = "List1Menu"
+        Me.List2Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.List2Menu.Size = New System.Drawing.Size(145, 26)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
+        Me.ToolStripMenuItem1.Text = "Rename list..."
+        '
         'PinView3
         '
         Me.PinView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
@@ -238,31 +255,69 @@ Partial Class Pins
         '
         Me.ColumnHeader2.Text = "URL"
         '
-        'List2Menu
-        '
-        Me.List2Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
-        Me.List2Menu.Name = "List1Menu"
-        Me.List2Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.List2Menu.Size = New System.Drawing.Size(145, 26)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
-        Me.ToolStripMenuItem1.Text = "Rename list..."
-        '
         'List3Menu
         '
         Me.List3Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2})
         Me.List3Menu.Name = "List1Menu"
         Me.List3Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.List3Menu.Size = New System.Drawing.Size(181, 48)
+        Me.List3Menu.Size = New System.Drawing.Size(145, 26)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(144, 22)
         Me.ToolStripMenuItem2.Text = "Rename list..."
+        '
+        'ExportList1
+        '
+        Me.ExportList1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ExportList1.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ExportList1.FlatAppearance.BorderSize = 0
+        Me.ExportList1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ExportList1.Image = Global.VisCord.My.Resources.Resources.WinForward
+        Me.ExportList1.Location = New System.Drawing.Point(115, 410)
+        Me.ExportList1.Name = "ExportList1"
+        Me.ExportList1.Size = New System.Drawing.Size(28, 28)
+        Me.ExportList1.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.ExportList1, "Export list 1.")
+        Me.ExportList1.UseVisualStyleBackColor = False
+        '
+        'ExportBox
+        '
+        Me.ExportBox.Location = New System.Drawing.Point(166, 416)
+        Me.ExportBox.Multiline = True
+        Me.ExportBox.Name = "ExportBox"
+        Me.ExportBox.Size = New System.Drawing.Size(100, 20)
+        Me.ExportBox.TabIndex = 11
+        Me.ExportBox.Visible = False
+        '
+        'ExportList2
+        '
+        Me.ExportList2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ExportList2.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ExportList2.FlatAppearance.BorderSize = 0
+        Me.ExportList2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ExportList2.Image = Global.VisCord.My.Resources.Resources.WinForward
+        Me.ExportList2.Location = New System.Drawing.Point(359, 410)
+        Me.ExportList2.Name = "ExportList2"
+        Me.ExportList2.Size = New System.Drawing.Size(28, 28)
+        Me.ExportList2.TabIndex = 12
+        Me.ToolTip1.SetToolTip(Me.ExportList2, "Export list 2.")
+        Me.ExportList2.UseVisualStyleBackColor = False
+        '
+        'ExportList3
+        '
+        Me.ExportList3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ExportList3.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ExportList3.FlatAppearance.BorderSize = 0
+        Me.ExportList3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ExportList3.Image = Global.VisCord.My.Resources.Resources.WinForward
+        Me.ExportList3.Location = New System.Drawing.Point(603, 410)
+        Me.ExportList3.Name = "ExportList3"
+        Me.ExportList3.Size = New System.Drawing.Size(28, 28)
+        Me.ExportList3.TabIndex = 13
+        Me.ToolTip1.SetToolTip(Me.ExportList3, "Export list 3.")
+        Me.ExportList3.UseVisualStyleBackColor = False
         '
         'Pins
         '
@@ -270,6 +325,10 @@ Partial Class Pins
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ExportList3)
+        Me.Controls.Add(Me.ExportList2)
+        Me.Controls.Add(Me.ExportBox)
+        Me.Controls.Add(Me.ExportList1)
         Me.Controls.Add(Me.PinView3)
         Me.Controls.Add(Me.PinView2)
         Me.Controls.Add(Me.DelList3)
@@ -320,4 +379,8 @@ Partial Class Pins
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents List3Menu As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ExportList1 As Button
+    Friend WithEvents ExportBox As TextBox
+    Friend WithEvents ExportList2 As Button
+    Friend WithEvents ExportList3 As Button
 End Class

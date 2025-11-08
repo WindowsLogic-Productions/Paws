@@ -281,6 +281,18 @@ Namespace My
                 Me("PinList3Name") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property Updates() As Integer
+            Get
+                Return CType(Me("Updates"),Integer)
+            End Get
+            Set
+                Me("Updates") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

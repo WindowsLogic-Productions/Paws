@@ -25,3 +25,4 @@ J:\Projects\VisCord\VisCord\obj\Debug\VisCord.xml
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.pdb
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Pins.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.AddPins.resources
+J:\Projects\VisCord\VisCord\obj\Debug\VisCord.UpdaterPrompt.resources

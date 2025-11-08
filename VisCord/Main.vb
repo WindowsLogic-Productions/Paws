@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 Imports System.Net
 Imports System.Threading
 Imports Microsoft.Web.WebView2.Core
@@ -6,6 +7,10 @@ Imports Microsoft.Web.WebView2.Core
 Public Class Main
 #Region "Load Settings"
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Check for updates.
+        CheckForIllegalCrossThreadCalls = False
+        Variables.Update_Settings()
 
         'Load Startup settings.
         If My.Settings.Startup = 0 Then
@@ -52,6 +57,13 @@ Public Class Main
         Else
             NetworkCheckbox.Checked = False
 
+        End If
+
+        'Load update settings.
+        If My.Settings.Updates = 1 Then
+            UpdatesCheckbox.Checked = True
+        Else
+            UpdatesCheckbox.Checked = False
         End If
 
         'Load NSFW icon settings.
@@ -592,8 +604,16 @@ Public Class Main
         End If
     End Sub
 
+    Private Sub UpdatesCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles UpdatesCheckbox.CheckedChanged
+        If UpdatesCheckbox.Checked = True Then
+            My.Settings.Updates = 1
+        Else
+            My.Settings.Updates = 0
+        End If
+    End Sub
+
     Private Sub CFULink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CFULink.LinkClicked
-        Process.Start("https://github.com/windowslogic/VisCord/releases")
+        Variables.Update_Settings()
     End Sub
 #End Region
 #Region "Privacy"
@@ -846,6 +866,87 @@ Public Class Main
         ContentTimer.Stop()
         NotifTimer.Stop()
         FixTitle.Stop()
+    End Sub
+#End Region
+#Region "Updater"
+    Private Sub Updater_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles Updater.DoWork
+        Try
+            BackButton.Enabled = False
+            ForwardButton.Enabled = False
+            ToolboxButton.Enabled = False
+            HelpButton.Enabled = False
+            UDLabel.Visible = True
+            ProgressBar1.Visible = True
+            Dim saveAs As String = "update.exe"
+            Dim theResponse As HttpWebResponse
+            Dim theRequest As HttpWebRequest
+            Try 'Checks if the file exist
+                theRequest = WebRequest.Create(Variables.setup)
+                theResponse = theRequest.GetResponse
+            Catch ex As Exception
+                MsgBox("Unable to update at this time.", MsgBoxStyle.Information, "Update Error")
+                Exit Sub
+            End Try
+            Dim length As Long = theResponse.ContentLength
+            Dim writeStream As New IO.FileStream(saveAs, IO.FileMode.Create)
+            Dim nRead As Long
+
+            Dim speedtimer As New Stopwatch
+            Dim currentspeed As Double = -1
+            Dim readings As Integer = 0
+            Dim speed As String
+            Dim updatesize As String
+
+            Do
+                speedtimer.Start()
+                Dim readBytes(4095) As Byte
+                Dim bytesread As Integer = theResponse.GetResponseStream.Read(readBytes, 0, 4096)
+                nRead += bytesread
+
+                Dim percent As Long = (nRead * 100) / length
+
+
+                If bytesread = 0 Then Exit Do
+                writeStream.Write(readBytes, 0, bytesread)
+
+                speedtimer.Stop()
+
+                readings += 1
+                If readings >= 5 Then
+                    currentspeed = 20480 / (speedtimer.ElapsedMilliseconds / 1000)
+                    'speed = Math.Round((currentspeed / 1048576), 2) & " MB/s"
+                    updatesize = Math.Round((length / 1048576), 2) & " MB"
+                    Label1.Text = "Downloading update... " & percent & "% of " & updatesize
+                    Updater.ReportProgress(percent)
+                    Label1.Refresh()
+                    speedtimer.Reset()
+                    readings = 0
+                End If
+            Loop
+            theResponse.GetResponseStream.Close()
+            writeStream.Close()
+        Catch
+            MsgBox("Connection to the update server has been lost. Please check your Internet connections and/or proxy settings.", MsgBoxStyle.Critical, "Connection Error")
+        End Try
+    End Sub
+
+    Private Sub Updater_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles Updater.RunWorkerCompleted
+        Try
+            Process.Start("update.exe")
+        Catch
+            MsgBox("Error starting update process, make sure that the update downloaded properly or any anti-virus hasn't deleted the file.", MsgBoxStyle.Critical, "Update Error")
+        End Try
+        BackButton.Enabled = True
+        ForwardButton.Enabled = True
+        ToolboxButton.Enabled = True
+        HelpButton.Enabled = True
+        Label1.Visible = False
+        ProgressBar1.Visible = False
+        Me.Close()
+    End Sub
+
+    Private Sub Updater_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles Updater.ProgressChanged
+        ProgressBar1.Value = e.ProgressPercentage
     End Sub
 #End Region
 #Region "Closing"

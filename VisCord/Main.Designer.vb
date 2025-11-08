@@ -83,6 +83,7 @@ Partial Class Main
         Me.JSButton = New System.Windows.Forms.Button()
         Me.JSLabel = New System.Windows.Forms.Label()
         Me.TitlePanel = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.AreaLabel = New System.Windows.Forms.Label()
         Me.VisCordPic = New System.Windows.Forms.PictureBox()
         Me.OfflinePanel = New System.Windows.Forms.Panel()
@@ -100,7 +101,10 @@ Partial Class Main
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TipLabel = New System.Windows.Forms.Label()
         Me.WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Updater = New System.ComponentModel.BackgroundWorker()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.UDLabel = New System.Windows.Forms.Label()
+        Me.UpdatesCheckbox = New System.Windows.Forms.CheckBox()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
         Me.SysTrayMenu.SuspendLayout()
@@ -452,6 +456,7 @@ Partial Class Main
         Me.VisCordSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.VisCordSettings.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
         Me.VisCordSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.VisCordSettings.Controls.Add(Me.UpdatesCheckbox)
         Me.VisCordSettings.Controls.Add(Me.TipCheckBox)
         Me.VisCordSettings.Controls.Add(Me.OtherLabel)
         Me.VisCordSettings.Controls.Add(Me.NSFWCheckbox)
@@ -589,7 +594,7 @@ Partial Class Main
         Me.CFULink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.CFULink.AutoSize = True
         Me.CFULink.LinkColor = System.Drawing.Color.White
-        Me.CFULink.Location = New System.Drawing.Point(9, 313)
+        Me.CFULink.Location = New System.Drawing.Point(28, 309)
         Me.CFULink.Name = "CFULink"
         Me.CFULink.Size = New System.Drawing.Size(110, 13)
         Me.CFULink.TabIndex = 20
@@ -789,6 +794,15 @@ Partial Class Main
         Me.TitlePanel.Name = "TitlePanel"
         Me.TitlePanel.Size = New System.Drawing.Size(1264, 32)
         Me.TitlePanel.TabIndex = 20
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(373, 6)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 22
+        Me.TextBox1.Visible = False
         '
         'AreaLabel
         '
@@ -992,16 +1006,44 @@ Partial Class Main
         Me.WebView21.Size = New System.Drawing.Size(1264, 661)
         Me.WebView21.Source = New System.Uri("https://discord.com/app", System.UriKind.Absolute)
         Me.WebView21.TabIndex = 24
+        Me.WebView21.Visible = False
         Me.WebView21.ZoomFactor = 1.0R
         '
-        'TextBox1
+        'Updater
         '
-        Me.TextBox1.Location = New System.Drawing.Point(373, 6)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 22
-        Me.TextBox1.Visible = False
+        Me.Updater.WorkerReportsProgress = True
+        Me.Updater.WorkerSupportsCancellation = True
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ProgressBar1.Location = New System.Drawing.Point(0, 651)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(1264, 10)
+        Me.ProgressBar1.TabIndex = 25
+        Me.ProgressBar1.Visible = False
+        '
+        'UDLabel
+        '
+        Me.UDLabel.AutoSize = True
+        Me.UDLabel.ForeColor = System.Drawing.Color.White
+        Me.UDLabel.Location = New System.Drawing.Point(2, 636)
+        Me.UDLabel.Name = "UDLabel"
+        Me.UDLabel.Size = New System.Drawing.Size(40, 13)
+        Me.UDLabel.TabIndex = 26
+        Me.UDLabel.Text = "Label3"
+        Me.UDLabel.Visible = False
+        '
+        'UpdatesCheckbox
+        '
+        Me.UpdatesCheckbox.AutoSize = True
+        Me.UpdatesCheckbox.ForeColor = System.Drawing.Color.White
+        Me.UpdatesCheckbox.Location = New System.Drawing.Point(11, 309)
+        Me.UpdatesCheckbox.Name = "UpdatesCheckbox"
+        Me.UpdatesCheckbox.Size = New System.Drawing.Size(15, 14)
+        Me.UpdatesCheckbox.TabIndex = 30
+        Me.ToolTip1.SetToolTip(Me.UpdatesCheckbox, "Set if VisCord should check for updates at startup.")
+        Me.UpdatesCheckbox.UseVisualStyleBackColor = True
         '
         'Main
         '
@@ -1010,6 +1052,8 @@ Partial Class Main
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1264, 661)
+        Me.Controls.Add(Me.UDLabel)
+        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.VisCordSettings)
         Me.Controls.Add(Me.ToolPanel)
         Me.Controls.Add(Me.OfflinePanel)
@@ -1123,4 +1167,8 @@ Partial Class Main
     Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents PinsButton As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Updater As System.ComponentModel.BackgroundWorker
+    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents UDLabel As Label
+    Friend WithEvents UpdatesCheckbox As CheckBox
 End Class

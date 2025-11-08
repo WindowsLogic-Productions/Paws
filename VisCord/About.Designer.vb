@@ -82,7 +82,7 @@ Partial Class About
         'AppPic
         '
         Me.AppPic.BackColor = System.Drawing.Color.Transparent
-        Me.AppPic.Image = Global.VisCord.My.Resources.Resources.Discord
+        Me.AppPic.Image = Global.VisCord.My.Resources.Resources.Discord_Big
         Me.AppPic.Location = New System.Drawing.Point(97, 14)
         Me.AppPic.Name = "AppPic"
         Me.AppPic.Size = New System.Drawing.Size(48, 48)

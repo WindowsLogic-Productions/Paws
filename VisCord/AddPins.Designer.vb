@@ -72,7 +72,7 @@ Partial Class AddPins
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(184, 13)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Specify a custom name for the pin:"
+        Me.Label2.Text = "Specify a custom name for the pin."
         '
         'AddPins
         '
