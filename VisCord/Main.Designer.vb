@@ -50,6 +50,7 @@ Partial Class Main
         Me.GetWVLink = New System.Windows.Forms.LinkLabel()
         Me.TipCheckBox = New System.Windows.Forms.CheckBox()
         Me.PinsButton = New System.Windows.Forms.Button()
+        Me.UpdatesCheckbox = New System.Windows.Forms.CheckBox()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.VisCordSettings = New System.Windows.Forms.Panel()
         Me.OtherLabel = New System.Windows.Forms.Label()
@@ -104,7 +105,6 @@ Partial Class Main
         Me.Updater = New System.ComponentModel.BackgroundWorker()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.UDLabel = New System.Windows.Forms.Label()
-        Me.UpdatesCheckbox = New System.Windows.Forms.CheckBox()
         Me.VisCordSettings.SuspendLayout()
         Me.IconBox.SuspendLayout()
         Me.SysTrayMenu.SuspendLayout()
@@ -444,6 +444,17 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.PinsButton, "Pinned Friends")
         Me.PinsButton.UseVisualStyleBackColor = False
         Me.PinsButton.Visible = False
+        '
+        'UpdatesCheckbox
+        '
+        Me.UpdatesCheckbox.AutoSize = True
+        Me.UpdatesCheckbox.ForeColor = System.Drawing.Color.White
+        Me.UpdatesCheckbox.Location = New System.Drawing.Point(11, 309)
+        Me.UpdatesCheckbox.Name = "UpdatesCheckbox"
+        Me.UpdatesCheckbox.Size = New System.Drawing.Size(15, 14)
+        Me.UpdatesCheckbox.TabIndex = 30
+        Me.ToolTip1.SetToolTip(Me.UpdatesCheckbox, "Set if VisCord should check for updates at startup.")
+        Me.UpdatesCheckbox.UseVisualStyleBackColor = True
         '
         'ContentTimer
         '
@@ -1033,17 +1044,6 @@ Partial Class Main
         Me.UDLabel.TabIndex = 26
         Me.UDLabel.Text = "Label3"
         Me.UDLabel.Visible = False
-        '
-        'UpdatesCheckbox
-        '
-        Me.UpdatesCheckbox.AutoSize = True
-        Me.UpdatesCheckbox.ForeColor = System.Drawing.Color.White
-        Me.UpdatesCheckbox.Location = New System.Drawing.Point(11, 309)
-        Me.UpdatesCheckbox.Name = "UpdatesCheckbox"
-        Me.UpdatesCheckbox.Size = New System.Drawing.Size(15, 14)
-        Me.UpdatesCheckbox.TabIndex = 30
-        Me.ToolTip1.SetToolTip(Me.UpdatesCheckbox, "Set if VisCord should check for updates at startup.")
-        Me.UpdatesCheckbox.UseVisualStyleBackColor = True
         '
         'Main
         '

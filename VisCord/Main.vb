@@ -84,6 +84,34 @@ Public Class Main
             NSFWContentChecbox.Checked = False
         End If
 
+        'Load outbox items.
+        OutboxView.Items.Clear()
+
+        Dim savedData As String = My.Settings.OutboxList
+
+        If Not String.IsNullOrEmpty(savedData) Then
+            Dim OutboxItems As String() = savedData.Split(";"c)
+
+            For Each OutboxItem As String In OutboxItems
+                Dim OutboxParts As String() = OutboxItem.Split("|"c)
+
+                If OutboxParts.Length > 0 Then
+                    Dim listItem As New ListViewItem(OutboxParts(0))
+
+                    If OutboxParts.Length > 1 Then
+                        Dim subItems As String() = OutboxParts(1).Split(";"c)
+
+                        For Each subItem As String In subItems
+                            listItem.SubItems.Add(subItem.Trim())
+                        Next
+                    End If
+
+                    OutboxView.Items.Add(listItem)
+                End If
+            Next
+        Else
+        End If
+
         'Load correct icon.
         UpdateIcon()
 
@@ -140,6 +168,12 @@ Public Class Main
 
         End If
 
+        'Load outbox data from external file.
+        Try
+            My.Settings.PinList1 = File.ReadAllText(Application.StartupPath & "\Outbox.vco").ToString()
+        Catch
+        End Try
+
         'Load settings from INI file.
         Try
 
@@ -171,31 +205,35 @@ Public Class Main
 
             My.Settings.HA = (Convert.ToInt32(TextBox1.Text))
 
-            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(14).ToString()
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(13).ToString()
+
+            My.Settings.Updates = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(15).ToString()
 
             My.Settings.EnableNetwork = (Convert.ToInt32(TextBox1.Text))
 
-            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(16).ToString()
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(17).ToString()
 
             My.Settings.PinList1Name = TextBox1.Text
 
-            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(17).ToString()
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(18).ToString()
 
             My.Settings.PinList2Name = TextBox1.Text
 
-            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(18).ToString()
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(19).ToString()
 
             My.Settings.PinList3Name = TextBox1.Text
 
-            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(20).ToString()
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(21).ToString()
 
             My.Settings.Icon = (Convert.ToInt32(TextBox1.Text))
 
-            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(21).ToString()
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(22).ToString()
 
             My.Settings.NSFWFeatures = (Convert.ToInt32(TextBox1.Text))
 
-            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(22).ToString()
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(23).ToString()
 
             My.Settings.NSFWContent = (Convert.ToInt32(TextBox1.Text))
         Catch
@@ -613,7 +651,22 @@ Public Class Main
     End Sub
 
     Private Sub CFULink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CFULink.LinkClicked
-        Variables.Update_Settings()
+        Try
+            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create(vertext)
+            Dim response As System.Net.HttpWebResponse = request.GetResponse()
+            Dim sr As System.IO.StreamReader = New System.IO.StreamReader(response.GetResponseStream())
+            Dim newestversion As String = sr.ReadToEnd()
+            Dim currentversion As String = Application.ProductVersion
+            If newestversion.Contains(currentversion) Then
+                MsgBox("You're on the latest version.")
+            Else
+                UpdaterPrompt.ShowDialog()
+            End If
+
+        Catch
+            'errordiag.Label1.Text = "No connection to the update server."
+            'errordiag.ShowDialog()
+        End Try
     End Sub
 #End Region
 #Region "Privacy"
@@ -955,6 +1008,14 @@ Public Class Main
             'Save all user settings to application settings.
             My.Settings.Save()
 
+            'Save outbox to file.
+            File.Create(Application.StartupPath & "\Outbox.vco").Dispose()
+            System.IO.File.WriteAllText(Application.StartupPath & "\Outbox.vco", "")
+            Dim objWriter1 As New System.IO.StreamWriter(Application.StartupPath & "\Outbox.vco", True)
+            objWriter1.Write(My.Settings.OutboxList)
+
+            objWriter1.Close()
+
             'Save all user settings to INI file.
             File.Create(Application.StartupPath & "\VisCord.ini").Dispose()
 
@@ -973,8 +1034,9 @@ Public Class Main
             objWriter.WriteLine(My.Settings.Notify.ToString())
             objWriter.WriteLine("[Navigation]")
             objWriter.WriteLine(My.Settings.OpenExternal.ToString())
-            objWriter.WriteLine("[Performance / Cache]")
+            objWriter.WriteLine("[Performance / Cache / Updates]")
             objWriter.WriteLine(My.Settings.HA.ToString())
+            objWriter.WriteLine(My.Settings.Updates.ToString())
             objWriter.WriteLine("[Privacy]")
             objWriter.WriteLine(My.Settings.EnableNetwork.ToString())
             objWriter.WriteLine("[Pin List Names]")

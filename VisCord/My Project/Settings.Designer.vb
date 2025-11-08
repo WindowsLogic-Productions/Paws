@@ -293,6 +293,18 @@ Namespace My
                 Me("Updates") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property OutboxList() As String
+            Get
+                Return CType(Me("OutboxList"),String)
+            End Get
+            Set
+                Me("OutboxList") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
