@@ -505,7 +505,95 @@ Public Class Main
             'Check if user is on a NSFW area.
             If My.Settings.NSFWContent = 1 Then
                 If Me.Text.Contains("nsfw") Then
-                    WebView21.CoreWebView2.Navigate("https://discord.com/app")
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("lewd") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("horny") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("dungeon") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("adult") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("boobs") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("pussy") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("anal") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("sex") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("hentai") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("yaoi") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("bisexual") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("futa") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("yuri") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("cum") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("squirting") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("tit") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("solo") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("duo") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("shaved") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("milf") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("latina") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("gangbang") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("porn") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("alternative") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("asian") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("bbc") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("bbw") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("ass") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("arse") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("creampie") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("penetration") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("ebony") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("piss") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("bdsm") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("furry") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("breeding") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("cuck") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("hairy") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("pegging") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("femdom") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("pregnant") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("oral") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("feet") Then
+                    WebView21.CoreWebView2.GoBack()
+                ElseIf Me.Text.Contains("naughty") Then
+                    WebView21.CoreWebView2.GoBack()
                 End If
             Else
             End If
@@ -532,14 +620,14 @@ Public Class Main
 
     Private Sub NotifTimer_Tick(sender As Object, e As EventArgs) Handles NotifTimer.Tick
         Try
-            If Me.WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+            If Me.WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                 UpdateBadge()
             End If
         Catch
         End Try
 
         If Me.Focused = True Then
-            If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+            If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                 ContentTimer.Start()
             End If
         End If
@@ -553,7 +641,7 @@ Public Class Main
                     ContentTimer.Start()
                 End If
 
-                If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+                If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                     Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                     SysTrayIcon.Text = "VisCord"
                     UpdateIcon()
@@ -652,7 +740,7 @@ Public Class Main
 
     Private Sub CFULink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CFULink.LinkClicked
         Try
-            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create(vertext)
+            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create(Variables.vertext)
             Dim response As System.Net.HttpWebResponse = request.GetResponse()
             Dim sr As System.IO.StreamReader = New System.IO.StreamReader(response.GetResponseStream())
             Dim newestversion As String = sr.ReadToEnd()
@@ -799,7 +887,7 @@ Public Class Main
 
     Private Sub Ping()
         For val As Integer = 0 To 1
-            If WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+            If WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                 SysTrayIcon.ShowBalloonTip(1, "VisCord - Notification", "You have unread messages.", ToolTipIcon.Info)
                 Me.Text = "New messages - VisCord"
@@ -807,7 +895,7 @@ Public Class Main
                 If My.Settings.NotifBadge = 1 Then
                     UpdateBadge()
                 End If
-            ElseIf Not WebView21.CoreWebView2.DocumentTitle.Contains("(") Then
+            ElseIf Not WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                 Exit For
             End If
             If val = 1 Then
