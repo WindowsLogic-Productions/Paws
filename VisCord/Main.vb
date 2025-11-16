@@ -887,7 +887,9 @@ Public Class Main
 
     Private Sub Ping()
         For val As Integer = 0 To 1
-            If WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
+            If WebView21.CoreWebView2.DocumentTitle.Contains("❀") Then
+                Exit For
+            ElseIf WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                 Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                 SysTrayIcon.ShowBalloonTip(1, "VisCord - Notification", "You have unread messages.", ToolTipIcon.Info)
                 Me.Text = "New messages - VisCord"
