@@ -303,35 +303,11 @@ Public Class Main
     End Sub
 
     Private Sub ToolboxButton_Click(sender As Object, e As EventArgs) Handles ToolboxButton.Click
-        If ToolPanel.Visible = True Then
-            ToolPanel.Visible = False
+        If VisCordSettings.Visible = True Then
+            VisCordSettings.Visible = False
         Else
-            ToolPanel.Visible = True
+            VisCordSettings.Visible = True
         End If
-    End Sub
-
-    Private Sub WebView21_Click(sender As Object, e As EventArgs) Handles WebView21.Click
-        ToolPanel.Visible = False
-    End Sub
-
-    Private Sub TitlePanel_Click(sender As Object, e As EventArgs) Handles TitlePanel.Click
-        ToolPanel.Visible = False
-    End Sub
-
-    Private Sub Main_Click(sender As Object, e As EventArgs) Handles MyBase.Click
-        ToolPanel.Visible = False
-    End Sub
-
-    Private Sub IconPictureBox_Click(sender As Object, e As EventArgs) Handles IconPictureBox.Click
-        ToolPanel.Visible = False
-    End Sub
-
-    Private Sub OfflinePanel_Click(sender As Object, e As EventArgs) Handles OfflinePanel.Click
-        ToolPanel.Visible = False
-    End Sub
-
-    Private Sub OfflineLabel_Click(sender As Object, e As EventArgs) Handles OfflineLabel.Click
-        ToolPanel.Visible = False
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
@@ -340,7 +316,7 @@ Public Class Main
 #End Region
 #Region "Toolbox"
     Private Sub JSButton_Click(sender As Object, e As EventArgs) Handles JSButton.Click
-        ToolPanel.Visible = False
+        VisCordSettings.Visible = False
         Injection.ShowDialog()
     End Sub
 
@@ -476,15 +452,6 @@ Public Class Main
                 Else
                     AreaLabel.Text = "- " + WebView21.CoreWebView2.DocumentTitle
                 End If
-            End If
-
-            'Check if user is on the settings area of Discord.
-            If Me.Text.Contains("Profiles") Then
-                VisCordSettings.Visible = False
-            ElseIf Me.Text.Contains("User Settings") Then
-                VisCordSettings.Visible = True
-            Else
-                VisCordSettings.Visible = False
             End If
 
             'Ping user if message is detected.
@@ -770,11 +737,10 @@ Public Class Main
             ContentTimer.Start()
             NotifTimer.Start()
             FixTitle.Start()
-            OpenDiscordSettingsAsync()
         Else
             My.Settings.EnableNetwork = 0
             WebView21.Visible = False
-            VisCordSettings.Visible = True
+            VisCordSettings.Visible = False
             OfflinePanel.Visible = True
             Me.Text = "Offline Mode - VisCord"
             AreaLabel.Text = ""
@@ -1177,6 +1143,10 @@ Public Class Main
 
     Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles PinsButton.Click
         Pins.Show()
+    End Sub
+
+    Private Sub VSCloseButton_Click(sender As Object, e As EventArgs) Handles VSCloseButton.Click
+        VisCordSettings.Hide()
     End Sub
 #End Region
 End Class
