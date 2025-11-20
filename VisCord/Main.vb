@@ -1148,5 +1148,9 @@ Public Class Main
     Private Sub VSCloseButton_Click(sender As Object, e As EventArgs) Handles VSCloseButton.Click
         VisCordSettings.Hide()
     End Sub
+
+    Private Sub NoWVCloseButton_Click(sender As Object, e As EventArgs) Handles NoWVCloseButton.Click
+        NoWVPanel.Hide()
+    End Sub
 #End Region
 End Class
