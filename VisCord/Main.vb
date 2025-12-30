@@ -245,7 +245,6 @@ Public Class Main
     End Sub
 #End Region
 #Region "System Tray"
-
     Private Sub Main_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If My.Settings.SysTray = 1 Then
             If WindowState = FormWindowState.Minimized Then
@@ -260,21 +259,6 @@ Public Class Main
     End Sub
 
     Private Sub RestoreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreToolStripMenuItem.Click
-        Try
-            Me.Visible = True
-            Me.WindowState = FormWindowState.Normal
-            SysTrayIcon.Visible = True
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub UserSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserSettingsToolStripMenuItem.Click
-        Try
-            OpenDiscordSettingsAsync()
-        Catch
-            MsgBox("Discord is not initialised, please wait to access user settings.")
-        End Try
         Try
             Me.Visible = True
             Me.WindowState = FormWindowState.Normal
@@ -519,23 +503,6 @@ Public Class Main
         Next
     End Sub
 
-    Private Async Function OpenDiscordSettingsAsync() As Task
-        Await Task.Delay(0)
-        Dim js As String = "
-    (function(){
-      try {
-        var sel = '[aria-label=""User Settings""] button, [data-list-item-id=""user-settings""], button[aria-label*=""Settings""]';
-        var btn = document.querySelector(sel);
-        if(btn){ btn.click(); return 'clicked'; }
-        // fallback: try hash route
-        location.hash = '/settings';
-        return 'fallback';
-      } catch(e){ return 'error:'+e.message; }
-    })();
-    "
-        Dim resultJson As String = Await WebView21.CoreWebView2.ExecuteScriptAsync(js)
-    End Function
-
     Public Shared Function CheckForInternetConnection() As Boolean
         Try
             Using client = New WebClient()
@@ -726,6 +693,10 @@ Public Class Main
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        Settings.ShowDialog()
     End Sub
 #End Region
 End Class

@@ -39,7 +39,6 @@ Partial Class Main
         Me.SysTrayMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.UserSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutVisCordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.LogOffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,6 +65,7 @@ Partial Class Main
         Me.Updater = New System.ComponentModel.BackgroundWorker()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.UDLabel = New System.Windows.Forms.Label()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SysTrayMenu.SuspendLayout()
         Me.TitlePanel.SuspendLayout()
         CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -219,51 +219,43 @@ Partial Class Main
         '
         'SysTrayMenu
         '
-        Me.SysTrayMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RestoreToolStripMenuItem, Me.ToolStripSeparator1, Me.UserSettingsToolStripMenuItem, Me.AboutVisCordToolStripMenuItem, Me.ToolStripSeparator2, Me.LogOffToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.SysTrayMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RestoreToolStripMenuItem, Me.ToolStripSeparator1, Me.SettingsToolStripMenuItem, Me.AboutVisCordToolStripMenuItem, Me.ToolStripSeparator2, Me.LogOffToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.SysTrayMenu.Name = "SysTrayMenu"
         Me.SysTrayMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.SysTrayMenu.Size = New System.Drawing.Size(170, 176)
+        Me.SysTrayMenu.Size = New System.Drawing.Size(190, 198)
         '
         'RestoreToolStripMenuItem
         '
         Me.RestoreToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinRefresh
         Me.RestoreToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
-        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
+        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
         Me.RestoreToolStripMenuItem.Text = "Restore"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(166, 6)
-        '
-        'UserSettingsToolStripMenuItem
-        '
-        Me.UserSettingsToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinAccount
-        Me.UserSettingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.UserSettingsToolStripMenuItem.Name = "UserSettingsToolStripMenuItem"
-        Me.UserSettingsToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
-        Me.UserSettingsToolStripMenuItem.Text = "User settings..."
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(186, 6)
         '
         'AboutVisCordToolStripMenuItem
         '
         Me.AboutVisCordToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinMore
         Me.AboutVisCordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.AboutVisCordToolStripMenuItem.Name = "AboutVisCordToolStripMenuItem"
-        Me.AboutVisCordToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
+        Me.AboutVisCordToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
         Me.AboutVisCordToolStripMenuItem.Text = "About VisCord..."
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(166, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(186, 6)
         '
         'LogOffToolStripMenuItem
         '
         Me.LogOffToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinForward
         Me.LogOffToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.LogOffToolStripMenuItem.Name = "LogOffToolStripMenuItem"
-        Me.LogOffToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
+        Me.LogOffToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
         Me.LogOffToolStripMenuItem.Text = "Log off"
         '
         'ExitToolStripMenuItem
@@ -271,7 +263,7 @@ Partial Class Main
         Me.ExitToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinClose
         Me.ExitToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'NotifTimer
@@ -511,6 +503,14 @@ Partial Class Main
         Me.UDLabel.Text = "UDLabel"
         Me.UDLabel.Visible = False
         '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinAccount
+        Me.SettingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
+        Me.SettingsToolStripMenuItem.Text = "Settings..."
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -556,7 +556,6 @@ Partial Class Main
     Friend WithEvents SysTrayMenu As ContextMenuStrip
     Friend WithEvents RestoreToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents UserSettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutVisCordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
@@ -590,4 +589,5 @@ Partial Class Main
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents UDLabel As Label
     Friend WithEvents NoWVCloseButton As Button
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
 End Class
