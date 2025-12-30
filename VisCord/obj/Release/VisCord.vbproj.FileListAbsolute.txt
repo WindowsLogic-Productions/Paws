@@ -26,3 +26,4 @@ J:\Projects\VisCord\VisCord\obj\Release\VisCord.SendOfflineMessage.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.AddPins.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.Pins.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.UpdaterPrompt.resources
+J:\Projects\VisCord\VisCord\obj\Release\VisCord.Settings.resources

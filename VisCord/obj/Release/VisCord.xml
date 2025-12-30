@@ -77,6 +77,11 @@ VisCord
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:VisCord.My.Resources.Resources.GreyLine">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:VisCord.My.Resources.Resources.MissingWebView">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
