@@ -3,12 +3,12 @@
         If TextBox2.Text = "" Then
             MsgBox("Your message cannot be blank.")
         Else
-            Main.OutboxView.Items.Add(TextBox2.Text)
+            Settings.OutboxView.Items.Add(TextBox2.Text)
 
             'Save outbox messages to settings.
             Dim OutboxItems As New List(Of String)()
 
-            For Each OutboxItem As ListViewItem In Main.OutboxView.Items
+            For Each OutboxItem As ListViewItem In Settings.OutboxView.Items
                 Dim mainItem As String = OutboxItem.Text
 
                 Dim pinList1SubItems As New List(Of String)()

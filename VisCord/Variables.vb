@@ -41,32 +41,32 @@
                 Main.IconPictureBox.Image = My.Resources.Discord_Big
                 Main.Icon = My.Resources.Discord1
                 Main.SysTrayIcon.Icon = My.Resources.Discord1
-                Main.DiscordButton.Checked = True
+                Settings.DiscordButton.Checked = True
             Case 1
                 Main.IconPictureBox.Image = My.Resources.PDiscord_Big
                 Main.Icon = My.Resources.PDiscord
                 Main.SysTrayIcon.Icon = My.Resources.PDiscord
-                Main.PokemonButton.Checked = True
+                Settings.PokemonButton.Checked = True
             Case 2
                 Main.IconPictureBox.Image = My.Resources.Alethila_Big
                 Main.Icon = My.Resources.Alethila_Discord
                 Main.SysTrayIcon.Icon = My.Resources.Alethila_Discord
-                Main.AleButton.Checked = True
+                Settings.AleButton.Checked = True
             Case 3
                 Main.IconPictureBox.Image = My.Resources.Velo_Big
                 Main.Icon = My.Resources.Velo
                 Main.SysTrayIcon.Icon = My.Resources.Velo
-                Main.VeloButton.Checked = True
+                Settings.VeloButton.Checked = True
             Case 4
                 Main.IconPictureBox.Image = My.Resources.AleVag_Big
                 Main.Icon = My.Resources.AleVag
                 Main.SysTrayIcon.Icon = My.Resources.AleVag
-                Main.AleNSFWButton.Checked = True
+                Settings.AleNSFWButton.Checked = True
             Case 5
                 Main.IconPictureBox.Image = My.Resources.VeloVag_Big
                 Main.Icon = My.Resources.VeloVag
                 Main.SysTrayIcon.Icon = My.Resources.VeloVag
-                Main.VeloNSFWButton.Checked = True
+                Settings.VeloNSFWButton.Checked = True
         End Select
     End Sub
 #Region "Updater"

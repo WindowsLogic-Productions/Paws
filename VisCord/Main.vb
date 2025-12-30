@@ -229,7 +229,6 @@ Public Class Main
             If CheckForInternetConnection() = True Then
                 WebView21.CoreWebView2.Navigate("https://discord.com/app")
                 WebView21.Visible = True
-                VisCordSettings.Visible = False
                 OfflinePanel.Visible = False
                 HelpButton.Enabled = True
                 ContentTimer.Start()
@@ -541,13 +540,11 @@ Public Class Main
             End Using
         Catch
             Return False
-            Main.VisCordSettings.Visible = True
         End Try
     End Function
 
     Private Sub Offline()
         WebView21.Visible = False
-        VisCordSettings.Visible = True
         OfflinePanel.Visible = True
         Me.Text = "Offline Mode - VisCord"
         AreaLabel.Text = ""
@@ -607,9 +604,9 @@ Public Class Main
                     currentspeed = 20480 / (speedtimer.ElapsedMilliseconds / 1000)
                     'speed = Math.Round((currentspeed / 1048576), 2) & " MB/s"
                     updatesize = Math.Round((length / 1048576), 2) & " MB"
-                    Label1.Text = "Downloading update... " & percent & "% of " & updatesize
+                    UDLabel.Text = "Downloading update... " & percent & "% of " & updatesize
                     Updater.ReportProgress(percent)
-                    Label1.Refresh()
+                    UDLabel.Refresh()
                     speedtimer.Reset()
                     readings = 0
                 End If
@@ -631,7 +628,7 @@ Public Class Main
         ForwardButton.Enabled = True
         ToolboxButton.Enabled = True
         HelpButton.Enabled = True
-        Label1.Visible = False
+        UDLabel.Visible = False
         ProgressBar1.Visible = False
         Me.Close()
     End Sub
@@ -716,22 +713,12 @@ Public Class Main
         End If
     End Sub
 
-
-
     Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles PinsButton.Click
         Pins.Show()
     End Sub
 
-    Private Sub VSCloseButton_Click(sender As Object, e As EventArgs)
-        VisCordSettings.Hide()
-    End Sub
-
     Private Sub NoWVCloseButton_Click(sender As Object, e As EventArgs) Handles NoWVCloseButton.Click
         NoWVPanel.Hide()
-    End Sub
-
-    Private Sub HideBarButton_Click(sender As Object, e As EventArgs)
-        TitlePanel.Hide()
     End Sub
 #End Region
 End Class
