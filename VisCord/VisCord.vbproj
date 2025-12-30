@@ -142,6 +142,12 @@
     <Compile Include="SendOfflineMessage.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Settings.Designer.vb">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UpdaterPrompt.Designer.vb">
       <DependentUpon>UpdaterPrompt.vb</DependentUpon>
     </Compile>
@@ -176,6 +182,9 @@
     <EmbeddedResource Include="SendOfflineMessage.resx">
       <DependentUpon>SendOfflineMessage.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdaterPrompt.resx">
       <DependentUpon>UpdaterPrompt.vb</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Discord.ico" />
+    <None Include="Resources\GreyLine.png" />
     <None Include="Resources\Updates New.ico" />
     <None Include="Resources\WarningGradient.png" />
     <None Include="Resources\WinLess.png" />

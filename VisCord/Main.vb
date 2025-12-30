@@ -12,112 +12,18 @@ Public Class Main
         CheckForIllegalCrossThreadCalls = False
         Variables.Update_Settings()
 
-        'Load Startup settings.
-        If My.Settings.Startup = 0 Then
-            StartupCheckbox.Checked = False
-        Else
-            StartupCheckbox.Checked = True
-        End If
-
-        'Load System Tray Settings.
-        If My.Settings.SysTray = 0 Then
-            SysTrayCheckbox.Checked = False
-        Else
-            SysTrayCheckbox.Checked = True
-        End If
-
-        'Load Notification Badge settings.
-        If My.Settings.NotifBadge = 0 Then
-            BadgeCheckbox.Checked = False
-        Else
-            BadgeCheckbox.Checked = True
-        End If
-
-        'Load Notification settings.
-        If My.Settings.Notify = 0 Then
-            NotifyCheckbox.Checked = False
-        Else
-            NotifyCheckbox.Checked = True
-        End If
-
-        If My.Settings.HA = 1 Then
-            HardwareCheckbox.Checked = True
-        Else
-            HardwareCheckbox.Checked = False
-        End If
-
-        If My.Settings.OpenExternal = 1 Then
-            NavCheckbox.Checked = True
-        Else
-            NavCheckbox.Checked = False
-        End If
-
-        If My.Settings.EnableNetwork = 1 Then
-            NetworkCheckbox.Checked = True
-        Else
-            NetworkCheckbox.Checked = False
-
-        End If
-
-        'Load update settings.
-        If My.Settings.Updates = 1 Then
-            UpdatesCheckbox.Checked = True
-        Else
-            UpdatesCheckbox.Checked = False
-        End If
-
-        'Load NSFW icon settings.
-        If My.Settings.NSFWFeatures = 1 Then
-            NSFWCheckbox.Checked = True
-            AleNSFWButton.Enabled = True
-            VeloNSFWButton.Enabled = True
-        Else
-            NSFWCheckbox.Checked = False
-            AleNSFWButton.Enabled = False
-            VeloNSFWButton.Enabled = False
-        End If
-
-        'Load NSFW content settings.
-        If My.Settings.NSFWContent = 1 Then
-            NSFWContentChecbox.Checked = True
-        Else
-            NSFWContentChecbox.Checked = False
-        End If
-
-        'Load outbox items.
-        OutboxView.Items.Clear()
-
-        Dim savedData As String = My.Settings.OutboxList
-
-        If Not String.IsNullOrEmpty(savedData) Then
-            Dim OutboxItems As String() = savedData.Split(";"c)
-
-            For Each OutboxItem As String In OutboxItems
-                Dim OutboxParts As String() = OutboxItem.Split("|"c)
-
-                If OutboxParts.Length > 0 Then
-                    Dim listItem As New ListViewItem(OutboxParts(0))
-
-                    If OutboxParts.Length > 1 Then
-                        Dim subItems As String() = OutboxParts(1).Split(";"c)
-
-                        For Each subItem As String In subItems
-                            listItem.SubItems.Add(subItem.Trim())
-                        Next
-                    End If
-
-                    OutboxView.Items.Add(listItem)
-                End If
-            Next
-        Else
-        End If
-
         'Load correct icon.
-        UpdateIcon()
+        Variables.UpdateIcon()
+
+        'Preload hardware support.
+        If My.Settings.HA = 1 Then
+            Settings.HardwareCheckbox.Checked = True
+        Else
+            Settings.HardwareCheckbox.Checked = False
+        End If
 
         'Load random tip.
         If My.Settings.AleTips = 1 Then
-            TipCheckBox.Checked = True
             TipPic.Visible = True
             TipLabel.Visible = True
             If My.Settings.NSFWFeatures = 1 Then
@@ -154,7 +60,6 @@ Public Class Main
                 End Select
             End If
         Else
-            TipCheckBox.Checked = False
             TipPic.Visible = False
             TipLabel.Visible = False
         End If
@@ -170,7 +75,7 @@ Public Class Main
 
         'Load outbox data from external file.
         Try
-            My.Settings.PinList1 = File.ReadAllText(Application.StartupPath & "\Outbox.vco").ToString()
+            My.Settings.OutboxList = File.ReadAllText(Application.StartupPath & "\Outbox.vco").ToString()
         Catch
         End Try
 
@@ -236,6 +141,10 @@ Public Class Main
             TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(23).ToString()
 
             My.Settings.NSFWContent = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(24).ToString()
+
+            My.Settings.HideNav = (Convert.ToInt32(TextBox1.Text))
         Catch
 
         End Try
@@ -303,55 +212,11 @@ Public Class Main
     End Sub
 
     Private Sub ToolboxButton_Click(sender As Object, e As EventArgs) Handles ToolboxButton.Click
-        If VisCordSettings.Visible = True Then
-            VisCordSettings.Visible = False
-        Else
-            VisCordSettings.Visible = True
-        End If
+        Settings.ShowDialog()
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Process.Start("https://support.discord.com/")
-    End Sub
-#End Region
-#Region "Toolbox"
-    Private Sub JSButton_Click(sender As Object, e As EventArgs) Handles JSButton.Click
-        VisCordSettings.Visible = False
-        Injection.ShowDialog()
-    End Sub
-
-    Private Sub NSFWContentChecbox_CheckedChanged(sender As Object, e As EventArgs) Handles NSFWContentChecbox.CheckedChanged
-        If NSFWContentChecbox.Checked = True Then
-            My.Settings.NSFWContent = 1
-        Else
-            My.Settings.NSFWContent = 0
-        End If
-    End Sub
-
-    Private Sub OutboxView_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles OutboxView.MouseDoubleClick
-        Dim lvi As ListViewItem = OutboxView.HitTest(e.Location).Item
-        If lvi IsNot Nothing Then
-            Dim ItemText As String
-            ItemText = OutboxView.Items(OutboxView.FocusedItem.Index).SubItems(0).Text
-            Clipboard.SetText(ItemText)
-        End If
-    End Sub
-
-    Private Sub NewMessageLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles NewMessageLink.LinkClicked
-        SendOfflineMessage.ShowDialog()
-    End Sub
-
-    Private Sub DeleteMessageLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles DeleteMessageLink.LinkClicked
-        Dim obi As ListViewItem
-        Dim obn As String
-        For Each obi In OutboxView.Items
-            OutboxView.Items.Remove(obi)
-            Exit For
-        Next
-    End Sub
-
-    Private Sub ClearOutboxLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ClearOutboxLink.LinkClicked
-        OutboxView.Items.Clear()
     End Sub
 #End Region
 #Region "Offline Mode"
@@ -565,8 +430,11 @@ Public Class Main
             Else
             End If
 
-            'Make sure title bar is visible.
-            TitlePanel.Visible = True
+            'Make sure title bar is following user settings.
+            If My.Settings.HideNav = 1 Then
+            Else
+                TitlePanel.Visible = True
+            End If
 
             'Check WebView2 history for back/forward buttons.
             If WebView21.CoreWebView2.CanGoBack = True Then
@@ -588,7 +456,7 @@ Public Class Main
     Private Sub NotifTimer_Tick(sender As Object, e As EventArgs) Handles NotifTimer.Tick
         Try
             If Me.WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
-                UpdateBadge()
+                Variables.UpdateBadge()
             End If
         Catch
         End Try
@@ -604,245 +472,19 @@ Public Class Main
         Try
             If Me.WindowState = FormWindowState.Minimized = False Then
                 If Me.WebView21.CoreWebView2.DocumentTitle.Contains("•") Then
-                    UpdateIcon()
+                    Variables.UpdateIcon()
                     ContentTimer.Start()
                 End If
 
                 If Not Me.WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                     Me.Text = WebView21.CoreWebView2.DocumentTitle + " - VisCord"
                     SysTrayIcon.Text = "VisCord"
-                    UpdateIcon()
+                    Variables.UpdateIcon()
                 End If
             End If
         Catch
         End Try
     End Sub
-#End Region
-#Region "Settings"
-#Region "General"
-    Private Sub StartupCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles StartupCheckbox.CheckedChanged
-        If StartupCheckbox.Checked = True Then
-            My.Computer.Registry.LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True).SetValue(Application.ProductName, Application.ExecutablePath)
-            My.Settings.Startup = 1
-        Else
-            My.Computer.Registry.LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True).DeleteValue(Application.ProductName)
-            My.Settings.Startup = 0
-        End If
-    End Sub
-
-    Private Sub BadgeCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles BadgeCheckbox.CheckedChanged
-        If BadgeCheckbox.Checked = True Then
-            My.Settings.NotifBadge = 1
-            If Me.Text.Contains("(") Then
-                UpdateBadge()
-            End If
-        Else
-            My.Settings.NotifBadge = 0
-            UpdateIcon()
-        End If
-    End Sub
-#End Region
-#Region "System Tray"
-    Private Sub SysTrayCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles SysTrayCheckbox.CheckedChanged
-        If SysTrayCheckbox.Checked = True Then
-            My.Settings.SysTray = 1
-        Else
-            My.Settings.SysTray = 0
-        End If
-    End Sub
-#End Region
-#Region "Notifications"
-    Private Sub NotifyCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles NotifyCheckbox.CheckedChanged
-        If NotifyCheckbox.Checked = True Then
-            My.Settings.Notify = 1
-        Else
-            My.Settings.Notify = 0
-        End If
-    End Sub
-#End Region
-#Region "Navigation"
-    Private Sub NavCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles NavCheckbox.CheckedChanged
-        If NavCheckbox.Checked = True Then
-            My.Settings.OpenExternal = 1
-        Else
-            My.Settings.OpenExternal = 0
-        End If
-    End Sub
-
-#End Region
-#Region "Performance & Cache"
-    Private Sub HardwareCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles HardwareCheckbox.CheckedChanged
-        Try
-            If HardwareCheckbox.Checked = True Then
-                My.Settings.HA = 1
-                WebView21.Reload()
-            Else
-                My.Settings.HA = 0
-                WebView21.Reload()
-            End If
-        Catch
-        End Try
-    End Sub
-    Private Sub CacheButton_Click(sender As Object, e As EventArgs) Handles CacheButton.Click
-        If MsgBox("Would you like to clear VisCord's cache? It may take a while for VisCord to reload fully and you may be logged out of Discord.", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            WebView21.CoreWebView2.Profile.ClearBrowsingDataAsync()
-            WebView21.Reload()
-        End If
-    End Sub
-
-    Private Sub DataButton_Click(sender As Object, e As EventArgs) Handles DataButton.Click
-        If MsgBox("Would you like to clear VisCord's user data? You may be logged out of Discord.", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            WebView21.CoreWebView2.ExecuteScriptAsync("javascript:localStorage.clear()")
-            WebView21.Reload()
-        End If
-    End Sub
-
-    Private Sub UpdatesCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles UpdatesCheckbox.CheckedChanged
-        If UpdatesCheckbox.Checked = True Then
-            My.Settings.Updates = 1
-        Else
-            My.Settings.Updates = 0
-        End If
-    End Sub
-
-    Private Sub CFULink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CFULink.LinkClicked
-        Try
-            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create(Variables.vertext)
-            Dim response As System.Net.HttpWebResponse = request.GetResponse()
-            Dim sr As System.IO.StreamReader = New System.IO.StreamReader(response.GetResponseStream())
-            Dim newestversion As String = sr.ReadToEnd()
-            Dim currentversion As String = Application.ProductVersion
-            If newestversion.Contains(currentversion) Then
-                MsgBox("You're on the latest version.")
-            Else
-                UpdaterPrompt.ShowDialog()
-            End If
-
-        Catch
-            'errordiag.Label1.Text = "No connection to the update server."
-            'errordiag.ShowDialog()
-        End Try
-    End Sub
-#End Region
-#Region "Privacy"
-    Private Sub NetworkCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles NetworkCheckbox.CheckedChanged
-        If NetworkCheckbox.Checked = True Then
-            My.Settings.EnableNetwork = 1
-            WebView21.Visible = True
-            VisCordSettings.Visible = False
-            OfflinePanel.Visible = False
-            BackButton.Enabled = True
-            ForwardButton.Enabled = True
-            HelpButton.Enabled = True
-            ContentTimer.Start()
-            NotifTimer.Start()
-            FixTitle.Start()
-        Else
-            My.Settings.EnableNetwork = 0
-            WebView21.Visible = False
-            VisCordSettings.Visible = False
-            OfflinePanel.Visible = True
-            Me.Text = "Offline Mode - VisCord"
-            AreaLabel.Text = ""
-            BackButton.Enabled = False
-            ForwardButton.Enabled = False
-            HelpButton.Enabled = False
-            ContentTimer.Stop()
-            NotifTimer.Stop()
-            FixTitle.Stop()
-            If CheckForInternetConnection() = True Then
-                ReloadLink.Enabled = False
-            End If
-        End If
-    End Sub
-#End Region
-#Region "Other"
-    Private Sub DiscordButton_CheckedChanged(sender As Object, e As EventArgs) Handles DiscordButton.CheckedChanged
-        If DiscordButton.Checked = True Then
-            My.Settings.Icon = 0
-            UpdateIcon()
-        End If
-    End Sub
-
-    Private Sub PokemonButton_CheckedChanged(sender As Object, e As EventArgs) Handles PokemonButton.CheckedChanged
-        If PokemonButton.Checked = True Then
-            My.Settings.Icon = 1
-            UpdateIcon()
-        End If
-    End Sub
-
-    Private Sub AleButton_CheckedChanged(sender As Object, e As EventArgs) Handles AleButton.CheckedChanged
-        If AleButton.Checked = True Then
-            My.Settings.Icon = 2
-            UpdateIcon()
-        End If
-    End Sub
-
-    Private Sub VeloButton_CheckedChanged(sender As Object, e As EventArgs) Handles VeloButton.CheckedChanged
-        If VeloButton.Checked = True Then
-            My.Settings.Icon = 3
-            UpdateIcon()
-        End If
-    End Sub
-
-    Private Sub AleNSFWButton_CheckedChanged(sender As Object, e As EventArgs) Handles AleNSFWButton.CheckedChanged
-        If AleNSFWButton.Checked = True Then
-            My.Settings.Icon = 4
-            UpdateIcon()
-        End If
-    End Sub
-
-    Private Sub VeloNSFWButton_CheckedChanged(sender As Object, e As EventArgs) Handles VeloNSFWButton.CheckedChanged
-        If VeloNSFWButton.Checked = True Then
-            My.Settings.Icon = 5
-            UpdateIcon()
-        End If
-    End Sub
-
-    Private Sub NSFWCheckbox_CheckedChanged(sender As Object, e As EventArgs) Handles NSFWCheckbox.CheckedChanged
-        If NSFWCheckbox.Checked = True Then
-            My.Settings.NSFWFeatures = 1
-            AleNSFWButton.Enabled = True
-            VeloNSFWButton.Enabled = True
-        Else
-            My.Settings.NSFWFeatures = 0
-            AleNSFWButton.Enabled = False
-            VeloNSFWButton.Enabled = False
-        End If
-    End Sub
-
-    Private Sub AboutLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles AboutLink.LinkClicked
-        About.labelVersion.Text = "VisCord " + My.Application.Info.Version.ToString()
-        Select Case My.Settings.Icon
-            Case 0
-                Dim img As New Bitmap(My.Resources.Discord_Big)
-                About.AppPic.Image = img
-                About.Icon = My.Resources.Discord1
-            Case 1
-                Dim img As New Bitmap(My.Resources.PDiscord_Big)
-                About.AppPic.Image = img
-                About.Icon = My.Resources.PDiscord
-            Case 2
-                Dim img As New Bitmap(My.Resources.Alethila_Big)
-                About.AppPic.Image = img
-                About.Icon = My.Resources.Alethila_Discord
-            Case 3
-                Dim img As New Bitmap(My.Resources.Velo_Big)
-                About.AppPic.Image = img
-                About.Icon = My.Resources.Velo
-            Case 4
-                Dim img As New Bitmap(My.Resources.AleVag_Big)
-                About.AppPic.Image = img
-                About.Icon = My.Resources.AleVag
-            Case 5
-                Dim img As New Bitmap(My.Resources.VeloVag_Big)
-                About.AppPic.Image = img
-                About.Icon = My.Resources.VeloVag
-        End Select
-
-        About.ShowDialog()
-    End Sub
-#End Region
 #End Region
 #Region "Functions"
     Private Async Function LoadJS() As Task
@@ -861,7 +503,7 @@ Public Class Main
                 Me.Text = "New messages - VisCord"
                 SysTrayIcon.Text = "New messages - VisCord"
                 If My.Settings.NotifBadge = 1 Then
-                    UpdateBadge()
+                    Variables.UpdateBadge()
                 End If
             ElseIf Not WebView21.CoreWebView2.DocumentTitle.Contains("(1)") Then
                 Exit For
@@ -871,66 +513,6 @@ Public Class Main
                 Exit For
             End If
         Next
-    End Sub
-
-    Private Sub UpdateBadge()
-        If My.Settings.NotifBadge = 1 Then
-            Select Case My.Settings.Icon
-                Case 0
-                    SysTrayIcon.Icon = My.Resources.DiscordNotif
-                    Me.Icon = My.Resources.DiscordNotif
-                Case 1
-                    SysTrayIcon.Icon = My.Resources.PDiscord_Notif
-                    Me.Icon = My.Resources.PDiscord_Notif
-                Case 2
-                    SysTrayIcon.Icon = My.Resources.Alethila_Notif
-                    Me.Icon = My.Resources.Alethila_Notif
-                Case 3
-                    SysTrayIcon.Icon = My.Resources.Velo_Notif
-                    Me.Icon = My.Resources.Velo_Notif
-                Case 4
-                    SysTrayIcon.Icon = My.Resources.AleVag_Notif
-                    Me.Icon = My.Resources.AleVag_Notif
-                Case 5
-                    SysTrayIcon.Icon = My.Resources.VeloVag_Notif
-                    Me.Icon = My.Resources.VeloVag_Notif
-            End Select
-        End If
-    End Sub
-
-    Private Sub UpdateIcon()
-        Select Case My.Settings.Icon
-            Case 0
-                IconPictureBox.Image = My.Resources.Discord_Big
-                Me.Icon = My.Resources.Discord1
-                SysTrayIcon.Icon = My.Resources.Discord1
-                DiscordButton.Checked = True
-            Case 1
-                IconPictureBox.Image = My.Resources.PDiscord_Big
-                Me.Icon = My.Resources.PDiscord
-                SysTrayIcon.Icon = My.Resources.PDiscord
-                PokemonButton.Checked = True
-            Case 2
-                IconPictureBox.Image = My.Resources.Alethila_Big
-                Me.Icon = My.Resources.Alethila_Discord
-                SysTrayIcon.Icon = My.Resources.Alethila_Discord
-                AleButton.Checked = True
-            Case 3
-                IconPictureBox.Image = My.Resources.Velo_Big
-                Me.Icon = My.Resources.Velo
-                SysTrayIcon.Icon = My.Resources.Velo
-                VeloButton.Checked = True
-            Case 4
-                IconPictureBox.Image = My.Resources.AleVag_Big
-                Me.Icon = My.Resources.AleVag
-                SysTrayIcon.Icon = My.Resources.AleVag
-                AleNSFWButton.Checked = True
-            Case 5
-                IconPictureBox.Image = My.Resources.VeloVag_Big
-                Me.Icon = My.Resources.VeloVag
-                SysTrayIcon.Icon = My.Resources.VeloVag
-                VeloNSFWButton.Checked = True
-        End Select
     End Sub
 
     Private Async Function OpenDiscordSettingsAsync() As Task
@@ -1103,6 +685,7 @@ Public Class Main
             objWriter.WriteLine(My.Settings.Icon.ToString())
             objWriter.WriteLine(My.Settings.NSFWFeatures.ToString())
             objWriter.WriteLine(My.Settings.NSFWContent.ToString())
+            objWriter.WriteLine(My.Settings.HideNav.ToString())
 
             objWriter.Close()
 
@@ -1133,24 +716,22 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub TipCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles TipCheckBox.CheckedChanged
-        If TipCheckBox.Checked = True Then
-            My.Settings.AleTips = 1
-        Else
-            My.Settings.AleTips = 0
-        End If
-    End Sub
+
 
     Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles PinsButton.Click
         Pins.Show()
     End Sub
 
-    Private Sub VSCloseButton_Click(sender As Object, e As EventArgs) Handles VSCloseButton.Click
+    Private Sub VSCloseButton_Click(sender As Object, e As EventArgs)
         VisCordSettings.Hide()
     End Sub
 
     Private Sub NoWVCloseButton_Click(sender As Object, e As EventArgs) Handles NoWVCloseButton.Click
         NoWVPanel.Hide()
+    End Sub
+
+    Private Sub HideBarButton_Click(sender As Object, e As EventArgs)
+        TitlePanel.Hide()
     End Sub
 #End Region
 End Class

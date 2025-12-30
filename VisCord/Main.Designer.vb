@@ -25,55 +25,16 @@ Partial Class Main
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.StartupCheckbox = New System.Windows.Forms.CheckBox()
-        Me.SysTrayCheckbox = New System.Windows.Forms.CheckBox()
-        Me.BadgeCheckbox = New System.Windows.Forms.CheckBox()
-        Me.NotifyCheckbox = New System.Windows.Forms.CheckBox()
-        Me.CacheButton = New System.Windows.Forms.Button()
-        Me.DataButton = New System.Windows.Forms.Button()
-        Me.HardwareCheckbox = New System.Windows.Forms.CheckBox()
-        Me.NavCheckbox = New System.Windows.Forms.CheckBox()
         Me.BackButton = New System.Windows.Forms.Button()
         Me.ForwardButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
-        Me.NetworkCheckbox = New System.Windows.Forms.CheckBox()
-        Me.NSFWCheckbox = New System.Windows.Forms.CheckBox()
         Me.ToolboxButton = New System.Windows.Forms.Button()
-        Me.NSFWContentChecbox = New System.Windows.Forms.CheckBox()
         Me.OfflineMessageLink = New System.Windows.Forms.LinkLabel()
         Me.ReloadLink = New System.Windows.Forms.LinkLabel()
-        Me.ClearOutboxLink = New System.Windows.Forms.LinkLabel()
-        Me.DeleteMessageLink = New System.Windows.Forms.LinkLabel()
-        Me.NewMessageLink = New System.Windows.Forms.LinkLabel()
-        Me.OutboxView = New System.Windows.Forms.ListView()
-        Me.Outbox = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GetWVLink = New System.Windows.Forms.LinkLabel()
-        Me.TipCheckBox = New System.Windows.Forms.CheckBox()
         Me.PinsButton = New System.Windows.Forms.Button()
-        Me.UpdatesCheckbox = New System.Windows.Forms.CheckBox()
-        Me.VSCloseButton = New System.Windows.Forms.Button()
         Me.NoWVCloseButton = New System.Windows.Forms.Button()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.VisCordSettings = New System.Windows.Forms.Panel()
-        Me.IconBox = New System.Windows.Forms.GroupBox()
-        Me.VeloNSFWButton = New System.Windows.Forms.RadioButton()
-        Me.AleNSFWButton = New System.Windows.Forms.RadioButton()
-        Me.VeloButton = New System.Windows.Forms.RadioButton()
-        Me.AleButton = New System.Windows.Forms.RadioButton()
-        Me.PokemonButton = New System.Windows.Forms.RadioButton()
-        Me.DiscordButton = New System.Windows.Forms.RadioButton()
-        Me.JSLabel = New System.Windows.Forms.Label()
-        Me.JSButton = New System.Windows.Forms.Button()
-        Me.ContentLabel = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.CFULink = New System.Windows.Forms.LinkLabel()
-        Me.AboutLink = New System.Windows.Forms.LinkLabel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.GeneralTitle = New System.Windows.Forms.Label()
-        Me.VCSettingsTitle = New System.Windows.Forms.Label()
         Me.SysTrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.SysTrayMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -105,8 +66,6 @@ Partial Class Main
         Me.Updater = New System.ComponentModel.BackgroundWorker()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.UDLabel = New System.Windows.Forms.Label()
-        Me.VisCordSettings.SuspendLayout()
-        Me.IconBox.SuspendLayout()
         Me.SysTrayMenu.SuspendLayout()
         Me.TitlePanel.SuspendLayout()
         CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -117,108 +76,6 @@ Partial Class Main
         CType(Me.NoVWPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'StartupCheckbox
-        '
-        Me.StartupCheckbox.AutoSize = True
-        Me.StartupCheckbox.ForeColor = System.Drawing.Color.White
-        Me.StartupCheckbox.Location = New System.Drawing.Point(13, 51)
-        Me.StartupCheckbox.Name = "StartupCheckbox"
-        Me.StartupCheckbox.Size = New System.Drawing.Size(100, 17)
-        Me.StartupCheckbox.TabIndex = 5
-        Me.StartupCheckbox.Text = "Run at startup"
-        Me.ToolTip1.SetToolTip(Me.StartupCheckbox, "Automatically start VisCord on startup.")
-        Me.StartupCheckbox.UseVisualStyleBackColor = True
-        '
-        'SysTrayCheckbox
-        '
-        Me.SysTrayCheckbox.AutoSize = True
-        Me.SysTrayCheckbox.ForeColor = System.Drawing.Color.White
-        Me.SysTrayCheckbox.Location = New System.Drawing.Point(173, 51)
-        Me.SysTrayCheckbox.Name = "SysTrayCheckbox"
-        Me.SysTrayCheckbox.Size = New System.Drawing.Size(145, 17)
-        Me.SysTrayCheckbox.TabIndex = 13
-        Me.SysTrayCheckbox.Text = "Minimise to system tray"
-        Me.ToolTip1.SetToolTip(Me.SysTrayCheckbox, "Minimising will hide VisCord in the system tray.")
-        Me.SysTrayCheckbox.UseVisualStyleBackColor = True
-        '
-        'BadgeCheckbox
-        '
-        Me.BadgeCheckbox.AutoSize = True
-        Me.BadgeCheckbox.ForeColor = System.Drawing.Color.White
-        Me.BadgeCheckbox.Location = New System.Drawing.Point(13, 71)
-        Me.BadgeCheckbox.Name = "BadgeCheckbox"
-        Me.BadgeCheckbox.Size = New System.Drawing.Size(154, 17)
-        Me.BadgeCheckbox.TabIndex = 6
-        Me.BadgeCheckbox.Text = "Show notification badge"
-        Me.ToolTip1.SetToolTip(Me.BadgeCheckbox, "Show a notification badge on the system tray icon and taskbar icon.")
-        Me.BadgeCheckbox.UseVisualStyleBackColor = True
-        '
-        'NotifyCheckbox
-        '
-        Me.NotifyCheckbox.AutoSize = True
-        Me.NotifyCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NotifyCheckbox.Location = New System.Drawing.Point(327, 51)
-        Me.NotifyCheckbox.Name = "NotifyCheckbox"
-        Me.NotifyCheckbox.Size = New System.Drawing.Size(156, 17)
-        Me.NotifyCheckbox.TabIndex = 15
-        Me.NotifyCheckbox.Text = "Notify on communication"
-        Me.ToolTip1.SetToolTip(Me.NotifyCheckbox, "Send a real-time notification when communication is detected.")
-        Me.NotifyCheckbox.UseVisualStyleBackColor = True
-        '
-        'CacheButton
-        '
-        Me.CacheButton.FlatAppearance.BorderSize = 0
-        Me.CacheButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CacheButton.ForeColor = System.Drawing.Color.White
-        Me.CacheButton.Location = New System.Drawing.Point(13, 150)
-        Me.CacheButton.Name = "CacheButton"
-        Me.CacheButton.Size = New System.Drawing.Size(111, 23)
-        Me.CacheButton.TabIndex = 9
-        Me.CacheButton.Text = "Clear Cache"
-        Me.ToolTip1.SetToolTip(Me.CacheButton, "Clears cache and reloads VisCord." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Useful if VisCord is running slow or lagging" &
-        ".")
-        Me.CacheButton.UseVisualStyleBackColor = True
-        '
-        'DataButton
-        '
-        Me.DataButton.FlatAppearance.BorderSize = 0
-        Me.DataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.DataButton.ForeColor = System.Drawing.Color.White
-        Me.DataButton.Location = New System.Drawing.Point(13, 179)
-        Me.DataButton.Name = "DataButton"
-        Me.DataButton.Size = New System.Drawing.Size(111, 23)
-        Me.DataButton.TabIndex = 10
-        Me.DataButton.Text = "Clear User Data"
-        Me.ToolTip1.SetToolTip(Me.DataButton, "Clears user data and reloads VisCord." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Useful if VisCord is running slow or lag" &
-        "ging.")
-        Me.DataButton.UseVisualStyleBackColor = True
-        '
-        'HardwareCheckbox
-        '
-        Me.HardwareCheckbox.AutoSize = True
-        Me.HardwareCheckbox.ForeColor = System.Drawing.Color.White
-        Me.HardwareCheckbox.Location = New System.Drawing.Point(13, 127)
-        Me.HardwareCheckbox.Name = "HardwareCheckbox"
-        Me.HardwareCheckbox.Size = New System.Drawing.Size(141, 17)
-        Me.HardwareCheckbox.TabIndex = 8
-        Me.HardwareCheckbox.Text = "Hardware acceleration"
-        Me.ToolTip1.SetToolTip(Me.HardwareCheckbox, "Select whether to use your GPU or CPU to render Discord." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will reload t" &
-        "he page when this option is checked/unchecked.")
-        Me.HardwareCheckbox.UseVisualStyleBackColor = True
-        '
-        'NavCheckbox
-        '
-        Me.NavCheckbox.AutoSize = True
-        Me.NavCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NavCheckbox.Location = New System.Drawing.Point(489, 51)
-        Me.NavCheckbox.Name = "NavCheckbox"
-        Me.NavCheckbox.Size = New System.Drawing.Size(149, 17)
-        Me.NavCheckbox.TabIndex = 19
-        Me.NavCheckbox.Text = "Open links in a browser"
-        Me.ToolTip1.SetToolTip(Me.NavCheckbox, "Open links in an external browser." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord has to reload when opening an exter" &
-        "nal link." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "If unchecked, will open links in a new WebView2 window.")
-        Me.NavCheckbox.UseVisualStyleBackColor = True
         '
         'BackButton
         '
@@ -252,38 +109,12 @@ Partial Class Main
         Me.HelpButton.FlatAppearance.BorderSize = 0
         Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.HelpButton.Image = Global.VisCord.My.Resources.Resources.WinHelp
-        Me.HelpButton.Location = New System.Drawing.Point(1235, 1)
+        Me.HelpButton.Location = New System.Drawing.Point(1236, 0)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(28, 28)
         Me.HelpButton.TabIndex = 4
         Me.ToolTip1.SetToolTip(Me.HelpButton, "Help")
         Me.HelpButton.UseVisualStyleBackColor = True
-        '
-        'NetworkCheckbox
-        '
-        Me.NetworkCheckbox.AutoSize = True
-        Me.NetworkCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NetworkCheckbox.Location = New System.Drawing.Point(173, 127)
-        Me.NetworkCheckbox.Name = "NetworkCheckbox"
-        Me.NetworkCheckbox.Size = New System.Drawing.Size(129, 17)
-        Me.NetworkCheckbox.TabIndex = 14
-        Me.NetworkCheckbox.Text = "Enable online mode"
-        Me.ToolTip1.SetToolTip(Me.NetworkCheckbox, "Online mode connects VisCord to the Discord interface." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VisCord will not load t" &
-        "he Discord interface when disabled" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and will show your selected icon instead.")
-        Me.NetworkCheckbox.UseVisualStyleBackColor = True
-        '
-        'NSFWCheckbox
-        '
-        Me.NSFWCheckbox.AutoSize = True
-        Me.NSFWCheckbox.ForeColor = System.Drawing.Color.White
-        Me.NSFWCheckbox.Location = New System.Drawing.Point(327, 247)
-        Me.NSFWCheckbox.Name = "NSFWCheckbox"
-        Me.NSFWCheckbox.Size = New System.Drawing.Size(140, 17)
-        Me.NSFWCheckbox.TabIndex = 18
-        Me.NSFWCheckbox.Text = "Enable NSFW features"
-        Me.ToolTip1.SetToolTip(Me.NSFWCheckbox, "Enable access to 18+ icons and pony tips." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Warning: this option contains lewd p" &
-        "ony/furry fluids" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "as well as turns tips into lewd facts.")
-        Me.NSFWCheckbox.UseVisualStyleBackColor = True
         '
         'ToolboxButton
         '
@@ -292,24 +123,12 @@ Partial Class Main
         Me.ToolboxButton.FlatAppearance.BorderSize = 0
         Me.ToolboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ToolboxButton.Image = Global.VisCord.My.Resources.Resources.WinAccount
-        Me.ToolboxButton.Location = New System.Drawing.Point(1207, 1)
+        Me.ToolboxButton.Location = New System.Drawing.Point(1208, 0)
         Me.ToolboxButton.Name = "ToolboxButton"
         Me.ToolboxButton.Size = New System.Drawing.Size(28, 28)
         Me.ToolboxButton.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.ToolboxButton, "VisCord Settings")
         Me.ToolboxButton.UseVisualStyleBackColor = False
-        '
-        'NSFWContentChecbox
-        '
-        Me.NSFWContentChecbox.AutoSize = True
-        Me.NSFWContentChecbox.ForeColor = System.Drawing.Color.White
-        Me.NSFWContentChecbox.Location = New System.Drawing.Point(327, 127)
-        Me.NSFWContentChecbox.Name = "NSFWContentChecbox"
-        Me.NSFWContentChecbox.Size = New System.Drawing.Size(210, 17)
-        Me.NSFWContentChecbox.TabIndex = 16
-        Me.NSFWContentChecbox.Text = "Navigate away from NSFW channels"
-        Me.ToolTip1.SetToolTip(Me.NSFWContentChecbox, "When enabled, VisCord will not allow access to NSFW channels.")
-        Me.NSFWContentChecbox.UseVisualStyleBackColor = True
         '
         'OfflineMessageLink
         '
@@ -342,66 +161,6 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.ReloadLink, "Discord is down or there is no connection available." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click here to try loading" &
         " Discord again.")
         '
-        'ClearOutboxLink
-        '
-        Me.ClearOutboxLink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.ClearOutboxLink.AutoSize = True
-        Me.ClearOutboxLink.BackColor = System.Drawing.Color.Transparent
-        Me.ClearOutboxLink.LinkColor = System.Drawing.Color.White
-        Me.ClearOutboxLink.Location = New System.Drawing.Point(724, 205)
-        Me.ClearOutboxLink.Name = "ClearOutboxLink"
-        Me.ClearOutboxLink.Size = New System.Drawing.Size(75, 13)
-        Me.ClearOutboxLink.TabIndex = 24
-        Me.ClearOutboxLink.TabStop = True
-        Me.ClearOutboxLink.Text = "Clear Outbox"
-        Me.ToolTip1.SetToolTip(Me.ClearOutboxLink, "Clear all messages from the outbox.")
-        '
-        'DeleteMessageLink
-        '
-        Me.DeleteMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.DeleteMessageLink.AutoSize = True
-        Me.DeleteMessageLink.BackColor = System.Drawing.Color.Transparent
-        Me.DeleteMessageLink.LinkColor = System.Drawing.Color.White
-        Me.DeleteMessageLink.Location = New System.Drawing.Point(633, 205)
-        Me.DeleteMessageLink.Name = "DeleteMessageLink"
-        Me.DeleteMessageLink.Size = New System.Drawing.Size(88, 13)
-        Me.DeleteMessageLink.TabIndex = 23
-        Me.DeleteMessageLink.TabStop = True
-        Me.DeleteMessageLink.Text = "Delete Message"
-        Me.ToolTip1.SetToolTip(Me.DeleteMessageLink, "Delete a message from the outbox.")
-        '
-        'NewMessageLink
-        '
-        Me.NewMessageLink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.NewMessageLink.AutoSize = True
-        Me.NewMessageLink.BackColor = System.Drawing.Color.Transparent
-        Me.NewMessageLink.LinkColor = System.Drawing.Color.White
-        Me.NewMessageLink.Location = New System.Drawing.Point(540, 205)
-        Me.NewMessageLink.Name = "NewMessageLink"
-        Me.NewMessageLink.Size = New System.Drawing.Size(87, 13)
-        Me.NewMessageLink.TabIndex = 22
-        Me.NewMessageLink.TabStop = True
-        Me.NewMessageLink.Text = "New Message..."
-        Me.ToolTip1.SetToolTip(Me.NewMessageLink, "Send a message to the outbox." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "You can send the messages to anyone you desire l" &
-        "ater.")
-        '
-        'OutboxView
-        '
-        Me.OutboxView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Outbox})
-        Me.OutboxView.HideSelection = False
-        Me.OutboxView.Location = New System.Drawing.Point(543, 130)
-        Me.OutboxView.Name = "OutboxView"
-        Me.OutboxView.Size = New System.Drawing.Size(256, 72)
-        Me.OutboxView.TabIndex = 21
-        Me.ToolTip1.SetToolTip(Me.OutboxView, "Double click an outboxed message to copy it to the clipboard.")
-        Me.OutboxView.UseCompatibleStateImageBehavior = False
-        Me.OutboxView.View = System.Windows.Forms.View.Details
-        '
-        'Outbox
-        '
-        Me.Outbox.Text = "Outbox"
-        Me.Outbox.Width = 251
-        '
         'GetWVLink
         '
         Me.GetWVLink.ActiveLinkColor = System.Drawing.Color.Aqua
@@ -417,18 +176,6 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.GetWVLink, "Open the download page for WebView2." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WebView2 is required for VisCord to load " &
         "the Discord interface.")
         '
-        'TipCheckBox
-        '
-        Me.TipCheckBox.AutoSize = True
-        Me.TipCheckBox.ForeColor = System.Drawing.Color.White
-        Me.TipCheckBox.Location = New System.Drawing.Point(13, 91)
-        Me.TipCheckBox.Name = "TipCheckBox"
-        Me.TipCheckBox.Size = New System.Drawing.Size(133, 17)
-        Me.TipCheckBox.TabIndex = 7
-        Me.TipCheckBox.Text = "Enable Alethila's tips"
-        Me.ToolTip1.SetToolTip(Me.TipCheckBox, "Before WebView2 fully starts, show Alethila (pony) and useful tips.")
-        Me.TipCheckBox.UseVisualStyleBackColor = True
-        '
         'PinsButton
         '
         Me.PinsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -436,38 +183,13 @@ Partial Class Main
         Me.PinsButton.FlatAppearance.BorderSize = 0
         Me.PinsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.PinsButton.Image = Global.VisCord.My.Resources.Resources.Pins
-        Me.PinsButton.Location = New System.Drawing.Point(1179, 1)
+        Me.PinsButton.Location = New System.Drawing.Point(1180, 0)
         Me.PinsButton.Name = "PinsButton"
         Me.PinsButton.Size = New System.Drawing.Size(28, 28)
         Me.PinsButton.TabIndex = 2
         Me.ToolTip1.SetToolTip(Me.PinsButton, "Pinned Friends")
         Me.PinsButton.UseVisualStyleBackColor = False
         Me.PinsButton.Visible = False
-        '
-        'UpdatesCheckbox
-        '
-        Me.UpdatesCheckbox.AutoSize = True
-        Me.UpdatesCheckbox.ForeColor = System.Drawing.Color.White
-        Me.UpdatesCheckbox.Location = New System.Drawing.Point(11, 208)
-        Me.UpdatesCheckbox.Name = "UpdatesCheckbox"
-        Me.UpdatesCheckbox.Size = New System.Drawing.Size(15, 14)
-        Me.UpdatesCheckbox.TabIndex = 11
-        Me.ToolTip1.SetToolTip(Me.UpdatesCheckbox, "Set if VisCord should check for updates at startup.")
-        Me.UpdatesCheckbox.UseVisualStyleBackColor = True
-        '
-        'VSCloseButton
-        '
-        Me.VSCloseButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.VSCloseButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.VSCloseButton.FlatAppearance.BorderSize = 0
-        Me.VSCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.VSCloseButton.Image = Global.VisCord.My.Resources.Resources.WinClose
-        Me.VSCloseButton.Location = New System.Drawing.Point(783, 0)
-        Me.VSCloseButton.Name = "VSCloseButton"
-        Me.VSCloseButton.Size = New System.Drawing.Size(28, 28)
-        Me.VSCloseButton.TabIndex = 31
-        Me.ToolTip1.SetToolTip(Me.VSCloseButton, "Close")
-        Me.VSCloseButton.UseVisualStyleBackColor = False
         '
         'NoWVCloseButton
         '
@@ -487,269 +209,6 @@ Partial Class Main
         '
         Me.ContentTimer.Enabled = True
         Me.ContentTimer.Interval = 10
-        '
-        'VisCordSettings
-        '
-        Me.VisCordSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.VisCordSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.VisCordSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.VisCordSettings.Controls.Add(Me.VSCloseButton)
-        Me.VisCordSettings.Controls.Add(Me.OutboxView)
-        Me.VisCordSettings.Controls.Add(Me.ClearOutboxLink)
-        Me.VisCordSettings.Controls.Add(Me.UpdatesCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.DeleteMessageLink)
-        Me.VisCordSettings.Controls.Add(Me.TipCheckBox)
-        Me.VisCordSettings.Controls.Add(Me.NewMessageLink)
-        Me.VisCordSettings.Controls.Add(Me.NSFWCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.IconBox)
-        Me.VisCordSettings.Controls.Add(Me.JSLabel)
-        Me.VisCordSettings.Controls.Add(Me.JSButton)
-        Me.VisCordSettings.Controls.Add(Me.NSFWContentChecbox)
-        Me.VisCordSettings.Controls.Add(Me.ContentLabel)
-        Me.VisCordSettings.Controls.Add(Me.NetworkCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.Label6)
-        Me.VisCordSettings.Controls.Add(Me.CFULink)
-        Me.VisCordSettings.Controls.Add(Me.AboutLink)
-        Me.VisCordSettings.Controls.Add(Me.NavCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.Label5)
-        Me.VisCordSettings.Controls.Add(Me.Label4)
-        Me.VisCordSettings.Controls.Add(Me.HardwareCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.DataButton)
-        Me.VisCordSettings.Controls.Add(Me.CacheButton)
-        Me.VisCordSettings.Controls.Add(Me.NotifyCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.BadgeCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.Label2)
-        Me.VisCordSettings.Controls.Add(Me.Label1)
-        Me.VisCordSettings.Controls.Add(Me.GeneralTitle)
-        Me.VisCordSettings.Controls.Add(Me.SysTrayCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.StartupCheckbox)
-        Me.VisCordSettings.Controls.Add(Me.VCSettingsTitle)
-        Me.VisCordSettings.Location = New System.Drawing.Point(227, 52)
-        Me.VisCordSettings.Name = "VisCordSettings"
-        Me.VisCordSettings.Size = New System.Drawing.Size(811, 343)
-        Me.VisCordSettings.TabIndex = 2
-        Me.VisCordSettings.Visible = False
-        '
-        'IconBox
-        '
-        Me.IconBox.Controls.Add(Me.VeloNSFWButton)
-        Me.IconBox.Controls.Add(Me.AleNSFWButton)
-        Me.IconBox.Controls.Add(Me.VeloButton)
-        Me.IconBox.Controls.Add(Me.AleButton)
-        Me.IconBox.Controls.Add(Me.PokemonButton)
-        Me.IconBox.Controls.Add(Me.DiscordButton)
-        Me.IconBox.ForeColor = System.Drawing.Color.White
-        Me.IconBox.Location = New System.Drawing.Point(327, 150)
-        Me.IconBox.Name = "IconBox"
-        Me.IconBox.Size = New System.Drawing.Size(157, 91)
-        Me.IconBox.TabIndex = 17
-        Me.IconBox.TabStop = False
-        Me.IconBox.Text = "Icon"
-        '
-        'VeloNSFWButton
-        '
-        Me.VeloNSFWButton.AutoSize = True
-        Me.VeloNSFWButton.Location = New System.Drawing.Point(77, 67)
-        Me.VeloNSFWButton.Name = "VeloNSFWButton"
-        Me.VeloNSFWButton.Size = New System.Drawing.Size(75, 17)
-        Me.VeloNSFWButton.TabIndex = 27
-        Me.VeloNSFWButton.TabStop = True
-        Me.VeloNSFWButton.Text = "Velo lewd"
-        Me.VeloNSFWButton.UseVisualStyleBackColor = True
-        '
-        'AleNSFWButton
-        '
-        Me.AleNSFWButton.AutoSize = True
-        Me.AleNSFWButton.Location = New System.Drawing.Point(7, 67)
-        Me.AleNSFWButton.Name = "AleNSFWButton"
-        Me.AleNSFWButton.Size = New System.Drawing.Size(69, 17)
-        Me.AleNSFWButton.TabIndex = 26
-        Me.AleNSFWButton.TabStop = True
-        Me.AleNSFWButton.Text = "Ale lewd"
-        Me.AleNSFWButton.UseVisualStyleBackColor = True
-        '
-        'VeloButton
-        '
-        Me.VeloButton.AutoSize = True
-        Me.VeloButton.Location = New System.Drawing.Point(77, 44)
-        Me.VeloButton.Name = "VeloButton"
-        Me.VeloButton.Size = New System.Drawing.Size(47, 17)
-        Me.VeloButton.TabIndex = 25
-        Me.VeloButton.TabStop = True
-        Me.VeloButton.Text = "Velo"
-        Me.VeloButton.UseVisualStyleBackColor = True
-        '
-        'AleButton
-        '
-        Me.AleButton.AutoSize = True
-        Me.AleButton.Location = New System.Drawing.Point(7, 44)
-        Me.AleButton.Name = "AleButton"
-        Me.AleButton.Size = New System.Drawing.Size(64, 17)
-        Me.AleButton.TabIndex = 24
-        Me.AleButton.TabStop = True
-        Me.AleButton.Text = "Alethila"
-        Me.AleButton.UseVisualStyleBackColor = True
-        '
-        'PokemonButton
-        '
-        Me.PokemonButton.AutoSize = True
-        Me.PokemonButton.Location = New System.Drawing.Point(77, 21)
-        Me.PokemonButton.Name = "PokemonButton"
-        Me.PokemonButton.Size = New System.Drawing.Size(73, 17)
-        Me.PokemonButton.TabIndex = 23
-        Me.PokemonButton.TabStop = True
-        Me.PokemonButton.Text = "Pokemon"
-        Me.PokemonButton.UseVisualStyleBackColor = True
-        '
-        'DiscordButton
-        '
-        Me.DiscordButton.AutoSize = True
-        Me.DiscordButton.Location = New System.Drawing.Point(7, 21)
-        Me.DiscordButton.Name = "DiscordButton"
-        Me.DiscordButton.Size = New System.Drawing.Size(64, 17)
-        Me.DiscordButton.TabIndex = 22
-        Me.DiscordButton.TabStop = True
-        Me.DiscordButton.Text = "Discord"
-        Me.DiscordButton.UseVisualStyleBackColor = True
-        '
-        'JSLabel
-        '
-        Me.JSLabel.AutoSize = True
-        Me.JSLabel.BackColor = System.Drawing.Color.Transparent
-        Me.JSLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.JSLabel.ForeColor = System.Drawing.Color.White
-        Me.JSLabel.Location = New System.Drawing.Point(486, 71)
-        Me.JSLabel.Name = "JSLabel"
-        Me.JSLabel.Size = New System.Drawing.Size(127, 13)
-        Me.JSLabel.TabIndex = 3
-        Me.JSLabel.Text = "Load Custom JavaScript"
-        '
-        'JSButton
-        '
-        Me.JSButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.JSButton.FlatAppearance.BorderSize = 0
-        Me.JSButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.JSButton.ForeColor = System.Drawing.Color.White
-        Me.JSButton.Location = New System.Drawing.Point(487, 87)
-        Me.JSButton.Name = "JSButton"
-        Me.JSButton.Size = New System.Drawing.Size(126, 23)
-        Me.JSButton.TabIndex = 20
-        Me.JSButton.Text = "Edit JavaScript..."
-        Me.JSButton.UseVisualStyleBackColor = False
-        '
-        'ContentLabel
-        '
-        Me.ContentLabel.AutoSize = True
-        Me.ContentLabel.BackColor = System.Drawing.Color.Transparent
-        Me.ContentLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContentLabel.ForeColor = System.Drawing.Color.White
-        Me.ContentLabel.Location = New System.Drawing.Point(324, 111)
-        Me.ContentLabel.Name = "ContentLabel"
-        Me.ContentLabel.Size = New System.Drawing.Size(49, 13)
-        Me.ContentLabel.TabIndex = 10
-        Me.ContentLabel.Text = "Content"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(170, 111)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(41, 13)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Privacy"
-        '
-        'CFULink
-        '
-        Me.CFULink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.CFULink.AutoSize = True
-        Me.CFULink.LinkColor = System.Drawing.Color.White
-        Me.CFULink.Location = New System.Drawing.Point(28, 208)
-        Me.CFULink.Name = "CFULink"
-        Me.CFULink.Size = New System.Drawing.Size(110, 13)
-        Me.CFULink.TabIndex = 12
-        Me.CFULink.TabStop = True
-        Me.CFULink.Text = "Check for updates..."
-        '
-        'AboutLink
-        '
-        Me.AboutLink.ActiveLinkColor = System.Drawing.Color.Aqua
-        Me.AboutLink.AutoSize = True
-        Me.AboutLink.LinkColor = System.Drawing.Color.White
-        Me.AboutLink.Location = New System.Drawing.Point(10, 315)
-        Me.AboutLink.Name = "AboutLink"
-        Me.AboutLink.Size = New System.Drawing.Size(91, 13)
-        Me.AboutLink.TabIndex = 25
-        Me.AboutLink.TabStop = True
-        Me.AboutLink.Text = "About VisCord..."
-        Me.ToolTip1.SetToolTip(Me.AboutLink, "Learn more about VisCord.")
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(486, 35)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(63, 13)
-        Me.Label5.TabIndex = 13
-        Me.Label5.Text = "Navigation"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(10, 111)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(117, 13)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Performance && Cache"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(324, 35)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 13)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Notifications"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(170, 35)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "System Tray"
-        '
-        'GeneralTitle
-        '
-        Me.GeneralTitle.AutoSize = True
-        Me.GeneralTitle.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GeneralTitle.ForeColor = System.Drawing.Color.White
-        Me.GeneralTitle.Location = New System.Drawing.Point(10, 35)
-        Me.GeneralTitle.Name = "GeneralTitle"
-        Me.GeneralTitle.Size = New System.Drawing.Size(47, 13)
-        Me.GeneralTitle.TabIndex = 3
-        Me.GeneralTitle.Text = "General"
-        '
-        'VCSettingsTitle
-        '
-        Me.VCSettingsTitle.AutoSize = True
-        Me.VCSettingsTitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VCSettingsTitle.ForeColor = System.Drawing.Color.White
-        Me.VCSettingsTitle.Location = New System.Drawing.Point(9, 9)
-        Me.VCSettingsTitle.Name = "VCSettingsTitle"
-        Me.VCSettingsTitle.Size = New System.Drawing.Size(104, 17)
-        Me.VCSettingsTitle.TabIndex = 0
-        Me.VCSettingsTitle.Text = "VisCord Settings"
         '
         'SysTrayIcon
         '
@@ -1061,23 +520,18 @@ Partial Class Main
         Me.ClientSize = New System.Drawing.Size(1264, 661)
         Me.Controls.Add(Me.UDLabel)
         Me.Controls.Add(Me.ProgressBar1)
-        Me.Controls.Add(Me.VisCordSettings)
         Me.Controls.Add(Me.OfflinePanel)
         Me.Controls.Add(Me.TitlePanel)
         Me.Controls.Add(Me.NoWVPanel)
         Me.Controls.Add(Me.WebView21)
-        Me.Controls.Add(Me.TipPic)
         Me.Controls.Add(Me.TipLabel)
+        Me.Controls.Add(Me.TipPic)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1280, 700)
         Me.Name = "Main"
         Me.Text = "VisCord"
-        Me.VisCordSettings.ResumeLayout(False)
-        Me.VisCordSettings.PerformLayout()
-        Me.IconBox.ResumeLayout(False)
-        Me.IconBox.PerformLayout()
         Me.SysTrayMenu.ResumeLayout(False)
         Me.TitlePanel.ResumeLayout(False)
         Me.TitlePanel.PerformLayout()
@@ -1096,25 +550,9 @@ Partial Class Main
     End Sub
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents ContentTimer As Timer
-    Friend WithEvents VisCordSettings As Panel
-    Friend WithEvents StartupCheckbox As CheckBox
-    Friend WithEvents VCSettingsTitle As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents GeneralTitle As Label
-    Friend WithEvents SysTrayCheckbox As CheckBox
     Friend WithEvents SysTrayIcon As NotifyIcon
-    Friend WithEvents NotifyCheckbox As CheckBox
-    Friend WithEvents BadgeCheckbox As CheckBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents NotifTimer As Timer
     Friend WithEvents FixTitle As Timer
-    Friend WithEvents CacheButton As Button
-    Friend WithEvents DataButton As Button
-    Friend WithEvents HardwareCheckbox As CheckBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents NavCheckbox As CheckBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents AboutLink As LinkLabel
     Friend WithEvents SysTrayMenu As ContextMenuStrip
     Friend WithEvents RestoreToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
@@ -1123,40 +561,20 @@ Partial Class Main
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOffToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CFULink As LinkLabel
-    Friend WithEvents JSButton As Button
-    Friend WithEvents JSLabel As Label
     Friend WithEvents BackButton As Button
     Friend WithEvents ForwardButton As Button
     Friend WithEvents TitlePanel As Panel
     Friend WithEvents VisCordPic As PictureBox
     Friend WithEvents AreaLabel As Label
     Friend WithEvents HelpButton As Button
-    Friend WithEvents NetworkCheckbox As CheckBox
-    Friend WithEvents Label6 As Label
     Friend WithEvents OfflinePanel As Panel
-    Friend WithEvents IconBox As GroupBox
     Friend WithEvents IconPictureBox As PictureBox
     Friend WithEvents OfflineLabel As Label
-    Friend WithEvents AleButton As RadioButton
-    Friend WithEvents PokemonButton As RadioButton
-    Friend WithEvents DiscordButton As RadioButton
-    Friend WithEvents NSFWCheckbox As CheckBox
-    Friend WithEvents VeloButton As RadioButton
-    Friend WithEvents VeloNSFWButton As RadioButton
-    Friend WithEvents AleNSFWButton As RadioButton
     Friend WithEvents ToolboxButton As Button
-    Friend WithEvents NSFWContentChecbox As CheckBox
-    Friend WithEvents ContentLabel As Label
-    Friend WithEvents ClearOutboxLink As LinkLabel
-    Friend WithEvents DeleteMessageLink As LinkLabel
-    Friend WithEvents NewMessageLink As LinkLabel
     Friend WithEvents OfflineMessageLink As LinkLabel
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents InternetTimer As Timer
     Friend WithEvents ReloadLink As LinkLabel
-    Friend WithEvents OutboxView As ListView
-    Friend WithEvents Outbox As ColumnHeader
     Friend WithEvents TipPic As PictureBox
     Friend WithEvents NoWVPanel As Panel
     Friend WithEvents LinkLabel3 As LinkLabel
@@ -1165,14 +583,11 @@ Partial Class Main
     Friend WithEvents NoVWPic As PictureBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents TipLabel As Label
-    Friend WithEvents TipCheckBox As CheckBox
     Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents PinsButton As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Updater As System.ComponentModel.BackgroundWorker
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents UDLabel As Label
-    Friend WithEvents UpdatesCheckbox As CheckBox
-    Friend WithEvents VSCloseButton As Button
     Friend WithEvents NoWVCloseButton As Button
 End Class

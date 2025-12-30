@@ -305,6 +305,18 @@ Namespace My
                 Me("OutboxList") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property HideNav() As Integer
+            Get
+                Return CType(Me("HideNav"),Integer)
+            End Get
+            Set
+                Me("HideNav") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
