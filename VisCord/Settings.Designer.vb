@@ -92,6 +92,9 @@ Partial Class Settings
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.CMLabel = New System.Windows.Forms.Label()
+        Me.CMCheckBox = New System.Windows.Forms.CheckBox()
+        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
         Me.GeneralPanel.SuspendLayout()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,6 +111,7 @@ Partial Class Settings
         Me.AdvancedPanel.SuspendLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GeneralButton
@@ -130,6 +134,9 @@ Partial Class Settings
         '
         Me.GeneralPanel.AutoScroll = True
         Me.GeneralPanel.BackColor = System.Drawing.Color.Black
+        Me.GeneralPanel.Controls.Add(Me.CMLabel)
+        Me.GeneralPanel.Controls.Add(Me.CMCheckBox)
+        Me.GeneralPanel.Controls.Add(Me.PictureBox12)
         Me.GeneralPanel.Controls.Add(Me.Label16)
         Me.GeneralPanel.Controls.Add(Me.PictureBox10)
         Me.GeneralPanel.Controls.Add(Me.OutboxView)
@@ -177,7 +184,7 @@ Partial Class Settings
         Me.OutboxView.Location = New System.Drawing.Point(269, 272)
         Me.OutboxView.Name = "OutboxView"
         Me.OutboxView.Size = New System.Drawing.Size(256, 72)
-        Me.OutboxView.TabIndex = 25
+        Me.OutboxView.TabIndex = 4
         Me.OutboxView.UseCompatibleStateImageBehavior = False
         Me.OutboxView.View = System.Windows.Forms.View.Details
         '
@@ -196,7 +203,7 @@ Partial Class Settings
         Me.ClearOutboxLink.Location = New System.Drawing.Point(531, 327)
         Me.ClearOutboxLink.Name = "ClearOutboxLink"
         Me.ClearOutboxLink.Size = New System.Drawing.Size(85, 17)
-        Me.ClearOutboxLink.TabIndex = 28
+        Me.ClearOutboxLink.TabIndex = 7
         Me.ClearOutboxLink.TabStop = True
         Me.ClearOutboxLink.Text = "Clear Outbox"
         '
@@ -210,7 +217,7 @@ Partial Class Settings
         Me.DeleteMessageLink.Location = New System.Drawing.Point(531, 300)
         Me.DeleteMessageLink.Name = "DeleteMessageLink"
         Me.DeleteMessageLink.Size = New System.Drawing.Size(102, 17)
-        Me.DeleteMessageLink.TabIndex = 27
+        Me.DeleteMessageLink.TabIndex = 6
         Me.DeleteMessageLink.TabStop = True
         Me.DeleteMessageLink.Text = "Delete Message"
         '
@@ -224,7 +231,7 @@ Partial Class Settings
         Me.NewMessageLink.Location = New System.Drawing.Point(531, 272)
         Me.NewMessageLink.Name = "NewMessageLink"
         Me.NewMessageLink.Size = New System.Drawing.Size(100, 17)
-        Me.NewMessageLink.TabIndex = 26
+        Me.NewMessageLink.TabIndex = 5
         Me.NewMessageLink.TabStop = True
         Me.NewMessageLink.Text = "New Message..."
         '
@@ -974,6 +981,39 @@ Partial Class Settings
         Me.PictureBox7.TabIndex = 9
         Me.PictureBox7.TabStop = False
         '
+        'CMLabel
+        '
+        Me.CMLabel.AutoSize = True
+        Me.CMLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMLabel.ForeColor = System.Drawing.Color.White
+        Me.CMLabel.Location = New System.Drawing.Point(52, 404)
+        Me.CMLabel.Name = "CMLabel"
+        Me.CMLabel.Size = New System.Drawing.Size(403, 17)
+        Me.CMLabel.TabIndex = 33
+        Me.CMLabel.Text = "Clicking the close button (X) will minimise instead of exiting the app."
+        '
+        'CMCheckBox
+        '
+        Me.CMCheckBox.AutoSize = True
+        Me.CMCheckBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMCheckBox.ForeColor = System.Drawing.Color.White
+        Me.CMCheckBox.Location = New System.Drawing.Point(55, 380)
+        Me.CMCheckBox.Name = "CMCheckBox"
+        Me.CMCheckBox.Size = New System.Drawing.Size(139, 21)
+        Me.CMCheckBox.TabIndex = 8
+        Me.CMCheckBox.Text = "Minimise on close"
+        Me.CMCheckBox.UseVisualStyleBackColor = True
+        '
+        'PictureBox12
+        '
+        Me.PictureBox12.Image = Global.VisCord.My.Resources.Resources.GreyLine
+        Me.PictureBox12.Location = New System.Drawing.Point(43, 357)
+        Me.PictureBox12.Name = "PictureBox12"
+        Me.PictureBox12.Size = New System.Drawing.Size(590, 1)
+        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox12.TabIndex = 32
+        Me.PictureBox12.TabStop = False
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -987,11 +1027,11 @@ Partial Class Settings
         Me.Controls.Add(Me.AdvButton)
         Me.Controls.Add(Me.PersonaliseButton)
         Me.Controls.Add(Me.NavButton)
+        Me.Controls.Add(Me.GeneralPanel)
+        Me.Controls.Add(Me.AdvancedPanel)
         Me.Controls.Add(Me.PersonalisePanel)
         Me.Controls.Add(Me.NavigationPanel)
         Me.Controls.Add(Me.NotifPanel)
-        Me.Controls.Add(Me.GeneralPanel)
-        Me.Controls.Add(Me.AdvancedPanel)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1022,6 +1062,7 @@ Partial Class Settings
         Me.AdvancedPanel.PerformLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1096,4 +1137,7 @@ Partial Class Settings
     Friend WithEvents Label17 As Label
     Friend WithEvents PictureBox11 As PictureBox
     Friend WithEvents HideNavBarCheckBox As CheckBox
+    Friend WithEvents CMLabel As Label
+    Friend WithEvents CMCheckBox As CheckBox
+    Friend WithEvents PictureBox12 As PictureBox
 End Class

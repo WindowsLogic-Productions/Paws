@@ -19,6 +19,13 @@
             StartupCheckbox.Checked = True
         End If
 
+        'Load close button settings.
+        If My.Settings.CloseMinimise = 0 Then
+            CMCheckBox.Checked = False
+        Else
+            CMCheckBox.Checked = True
+        End If
+
         'Load online mode settings.
         If My.Settings.EnableNetwork = 0 Then
             NetworkCheckbox.Checked = False
@@ -473,6 +480,14 @@
         Catch
             MsgBox("No connection to update server.", MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub CMCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles CMCheckBox.CheckedChanged
+        If CMCheckBox.Checked = True Then
+            My.Settings.CloseMinimise = 1
+        Else
+            My.Settings.CloseMinimise = 0
+        End If
     End Sub
 #End Region
 End Class

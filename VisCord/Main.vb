@@ -145,6 +145,10 @@ Public Class Main
             TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(24).ToString()
 
             My.Settings.HideNav = (Convert.ToInt32(TextBox1.Text))
+
+            TextBox1.Text = File.ReadAllLines(Application.StartupPath & "\VisCord.ini").ElementAt(25).ToString()
+
+            My.Settings.CloseMinimise = (Convert.ToInt32(TextBox1.Text))
         Catch
 
         End Try
@@ -289,6 +293,7 @@ Public Class Main
         If MsgBox("Would you like to exit VisCord?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             My.Settings.Save()
             End
+        Else
         End If
     End Sub
 
@@ -639,7 +644,10 @@ Public Class Main
 #End Region
 #Region "Closing"
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MsgBox("Would you like to exit VisCord?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+        If My.Settings.CloseMinimise = 1 Then
+            Me.WindowState = FormWindowState.Minimized
+            e.Cancel = True
+        Else
             'Save all user settings to application settings.
             My.Settings.Save()
 
@@ -683,23 +691,12 @@ Public Class Main
             objWriter.WriteLine(My.Settings.NSFWFeatures.ToString())
             objWriter.WriteLine(My.Settings.NSFWContent.ToString())
             objWriter.WriteLine(My.Settings.HideNav.ToString())
+            objWriter.WriteLine(My.Settings.CloseMinimise.ToString())
 
             objWriter.Close()
 
             End
-        Else
-            e.Cancel = True
         End If
-    End Sub
-
-    Private Sub SysTrayIcon_Click(sender As Object, e As EventArgs) Handles SysTrayIcon.Click
-        Try
-            Me.Visible = True
-            Me.WindowState = FormWindowState.Normal
-            SysTrayIcon.Visible = True
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
     End Sub
 
     Private Sub GetWVLink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles GetWVLink.LinkClicked
@@ -719,6 +716,16 @@ Public Class Main
 
     Private Sub NoWVCloseButton_Click(sender As Object, e As EventArgs) Handles NoWVCloseButton.Click
         NoWVPanel.Hide()
+    End Sub
+
+    Private Sub SysTrayIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles SysTrayIcon.MouseDoubleClick
+        Try
+            Me.Visible = True
+            Me.WindowState = FormWindowState.Normal
+            SysTrayIcon.Visible = True
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 #End Region
 End Class
