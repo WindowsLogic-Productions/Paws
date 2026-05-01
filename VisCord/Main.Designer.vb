@@ -39,6 +39,7 @@ Partial Class Main
         Me.SysTrayMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutVisCordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.LogOffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,7 +66,6 @@ Partial Class Main
         Me.Updater = New System.ComponentModel.BackgroundWorker()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.UDLabel = New System.Windows.Forms.Label()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SysTrayMenu.SuspendLayout()
         Me.TitlePanel.SuspendLayout()
         CType(Me.VisCordPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -222,40 +222,48 @@ Partial Class Main
         Me.SysTrayMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RestoreToolStripMenuItem, Me.ToolStripSeparator1, Me.SettingsToolStripMenuItem, Me.AboutVisCordToolStripMenuItem, Me.ToolStripSeparator2, Me.LogOffToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.SysTrayMenu.Name = "SysTrayMenu"
         Me.SysTrayMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.SysTrayMenu.Size = New System.Drawing.Size(190, 198)
+        Me.SysTrayMenu.Size = New System.Drawing.Size(170, 176)
         '
         'RestoreToolStripMenuItem
         '
         Me.RestoreToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinRefresh
         Me.RestoreToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
-        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
+        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
         Me.RestoreToolStripMenuItem.Text = "Restore"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(186, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(166, 6)
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinAccount
+        Me.SettingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
+        Me.SettingsToolStripMenuItem.Text = "Settings..."
         '
         'AboutVisCordToolStripMenuItem
         '
         Me.AboutVisCordToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinMore
         Me.AboutVisCordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.AboutVisCordToolStripMenuItem.Name = "AboutVisCordToolStripMenuItem"
-        Me.AboutVisCordToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
+        Me.AboutVisCordToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
         Me.AboutVisCordToolStripMenuItem.Text = "About VisCord..."
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(186, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(166, 6)
         '
         'LogOffToolStripMenuItem
         '
         Me.LogOffToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinForward
         Me.LogOffToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.LogOffToolStripMenuItem.Name = "LogOffToolStripMenuItem"
-        Me.LogOffToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
+        Me.LogOffToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
         Me.LogOffToolStripMenuItem.Text = "Log off"
         '
         'ExitToolStripMenuItem
@@ -263,7 +271,7 @@ Partial Class Main
         Me.ExitToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinClose
         Me.ExitToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(169, 32)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'NotifTimer
@@ -295,7 +303,7 @@ Partial Class Main
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(373, 6)
+        Me.TextBox1.Location = New System.Drawing.Point(298, 6)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
@@ -332,7 +340,7 @@ Partial Class Main
         Me.OfflinePanel.Controls.Add(Me.OfflineMessageLink)
         Me.OfflinePanel.Controls.Add(Me.OfflineLabel)
         Me.OfflinePanel.Controls.Add(Me.IconPictureBox)
-        Me.OfflinePanel.Location = New System.Drawing.Point(476, 173)
+        Me.OfflinePanel.Location = New System.Drawing.Point(476, 183)
         Me.OfflinePanel.Name = "OfflinePanel"
         Me.OfflinePanel.Size = New System.Drawing.Size(312, 315)
         Me.OfflinePanel.TabIndex = 21
@@ -383,7 +391,7 @@ Partial Class Main
         '
         Me.TipPic.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TipPic.Image = Global.VisCord.My.Resources.Resources.SplashPone
-        Me.TipPic.Location = New System.Drawing.Point(-103, 176)
+        Me.TipPic.Location = New System.Drawing.Point(-103, 196)
         Me.TipPic.Name = "TipPic"
         Me.TipPic.Size = New System.Drawing.Size(576, 612)
         Me.TipPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -400,7 +408,7 @@ Partial Class Main
         Me.NoWVPanel.Controls.Add(Me.GetWVLink)
         Me.NoWVPanel.Controls.Add(Me.NoWVLabel)
         Me.NoWVPanel.Controls.Add(Me.NoVWPic)
-        Me.NoWVPanel.Location = New System.Drawing.Point(476, 173)
+        Me.NoWVPanel.Location = New System.Drawing.Point(476, 183)
         Me.NoWVPanel.Name = "NoWVPanel"
         Me.NoWVPanel.Size = New System.Drawing.Size(312, 315)
         Me.NoWVPanel.TabIndex = 23
@@ -455,7 +463,7 @@ Partial Class Main
         Me.TipLabel.BackColor = System.Drawing.Color.Transparent
         Me.TipLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TipLabel.ForeColor = System.Drawing.Color.White
-        Me.TipLabel.Location = New System.Drawing.Point(354, 635)
+        Me.TipLabel.Location = New System.Drawing.Point(354, 655)
         Me.TipLabel.Name = "TipLabel"
         Me.TipLabel.Size = New System.Drawing.Size(533, 17)
         Me.TipLabel.TabIndex = 23
@@ -471,7 +479,7 @@ Partial Class Main
         Me.WebView21.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebView21.Location = New System.Drawing.Point(0, 0)
         Me.WebView21.Name = "WebView21"
-        Me.WebView21.Size = New System.Drawing.Size(1264, 661)
+        Me.WebView21.Size = New System.Drawing.Size(1264, 681)
         Me.WebView21.Source = New System.Uri("https://discord.com/app", System.UriKind.Absolute)
         Me.WebView21.TabIndex = 24
         Me.WebView21.Visible = False
@@ -485,7 +493,7 @@ Partial Class Main
         'ProgressBar1
         '
         Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBar1.Location = New System.Drawing.Point(0, 651)
+        Me.ProgressBar1.Location = New System.Drawing.Point(0, 671)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(1264, 10)
         Me.ProgressBar1.TabIndex = 25
@@ -496,20 +504,12 @@ Partial Class Main
         Me.UDLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.UDLabel.AutoSize = True
         Me.UDLabel.ForeColor = System.Drawing.Color.White
-        Me.UDLabel.Location = New System.Drawing.Point(2, 636)
+        Me.UDLabel.Location = New System.Drawing.Point(2, 656)
         Me.UDLabel.Name = "UDLabel"
         Me.UDLabel.Size = New System.Drawing.Size(50, 13)
         Me.UDLabel.TabIndex = 26
         Me.UDLabel.Text = "UDLabel"
         Me.UDLabel.Visible = False
-        '
-        'SettingsToolStripMenuItem
-        '
-        Me.SettingsToolStripMenuItem.Image = Global.VisCord.My.Resources.Resources.WinAccount
-        Me.SettingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
-        Me.SettingsToolStripMenuItem.Text = "Settings..."
         '
         'Main
         '
@@ -517,7 +517,7 @@ Partial Class Main
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1264, 661)
+        Me.ClientSize = New System.Drawing.Size(1264, 681)
         Me.Controls.Add(Me.UDLabel)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.OfflinePanel)
@@ -529,7 +529,7 @@ Partial Class Main
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(1280, 700)
+        Me.MinimumSize = New System.Drawing.Size(500, 500)
         Me.Name = "Main"
         Me.Text = "VisCord"
         Me.SysTrayMenu.ResumeLayout(False)

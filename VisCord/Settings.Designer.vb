@@ -25,6 +25,9 @@ Partial Class Settings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Settings))
         Me.GeneralButton = New System.Windows.Forms.Button()
         Me.GeneralPanel = New System.Windows.Forms.Panel()
+        Me.CMLabel = New System.Windows.Forms.Label()
+        Me.CMCheckBox = New System.Windows.Forms.CheckBox()
+        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.OutboxView = New System.Windows.Forms.ListView()
@@ -92,10 +95,8 @@ Partial Class Settings
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.CMLabel = New System.Windows.Forms.Label()
-        Me.CMCheckBox = New System.Windows.Forms.CheckBox()
-        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
         Me.GeneralPanel.SuspendLayout()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +112,6 @@ Partial Class Settings
         Me.AdvancedPanel.SuspendLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GeneralButton
@@ -155,6 +155,39 @@ Partial Class Settings
         Me.GeneralPanel.Name = "GeneralPanel"
         Me.GeneralPanel.Size = New System.Drawing.Size(676, 361)
         Me.GeneralPanel.TabIndex = 2
+        '
+        'CMLabel
+        '
+        Me.CMLabel.AutoSize = True
+        Me.CMLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMLabel.ForeColor = System.Drawing.Color.White
+        Me.CMLabel.Location = New System.Drawing.Point(52, 404)
+        Me.CMLabel.Name = "CMLabel"
+        Me.CMLabel.Size = New System.Drawing.Size(403, 17)
+        Me.CMLabel.TabIndex = 33
+        Me.CMLabel.Text = "Clicking the close button (X) will minimise instead of exiting the app."
+        '
+        'CMCheckBox
+        '
+        Me.CMCheckBox.AutoSize = True
+        Me.CMCheckBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMCheckBox.ForeColor = System.Drawing.Color.White
+        Me.CMCheckBox.Location = New System.Drawing.Point(55, 380)
+        Me.CMCheckBox.Name = "CMCheckBox"
+        Me.CMCheckBox.Size = New System.Drawing.Size(139, 21)
+        Me.CMCheckBox.TabIndex = 8
+        Me.CMCheckBox.Text = "Minimise on close"
+        Me.CMCheckBox.UseVisualStyleBackColor = True
+        '
+        'PictureBox12
+        '
+        Me.PictureBox12.Image = Global.VisCord.My.Resources.Resources.GreyLine
+        Me.PictureBox12.Location = New System.Drawing.Point(43, 357)
+        Me.PictureBox12.Name = "PictureBox12"
+        Me.PictureBox12.Size = New System.Drawing.Size(590, 1)
+        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox12.TabIndex = 32
+        Me.PictureBox12.TabStop = False
         '
         'Label16
         '
@@ -427,6 +460,7 @@ Partial Class Settings
         '
         Me.AboutLink.ActiveLinkColor = System.Drawing.Color.Aqua
         Me.AboutLink.AutoSize = True
+        Me.AboutLink.BackColor = System.Drawing.Color.Transparent
         Me.AboutLink.LinkColor = System.Drawing.Color.White
         Me.AboutLink.Location = New System.Drawing.Point(12, 428)
         Me.AboutLink.Name = "AboutLink"
@@ -547,9 +581,10 @@ Partial Class Settings
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(52, 142)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(403, 17)
+        Me.Label5.Size = New System.Drawing.Size(509, 17)
         Me.Label5.TabIndex = 27
-        Me.Label5.Text = "Show a notification badge on the system tray icon and taskbar icon."
+        Me.Label5.Text = "All hyperlinks will open in your default browser, rather than VisCord's built-in " &
+    "browser."
         '
         'PictureBox4
         '
@@ -580,9 +615,9 @@ Partial Class Settings
         Me.JSButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.JSButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.JSButton.ForeColor = System.Drawing.Color.White
-        Me.JSButton.Location = New System.Drawing.Point(507, 198)
+        Me.JSButton.Location = New System.Drawing.Point(490, 195)
         Me.JSButton.Name = "JSButton"
-        Me.JSButton.Size = New System.Drawing.Size(126, 23)
+        Me.JSButton.Size = New System.Drawing.Size(124, 30)
         Me.JSButton.TabIndex = 3
         Me.JSButton.Text = "Edit JavaScript..."
         Me.JSButton.UseVisualStyleBackColor = False
@@ -854,16 +889,17 @@ Partial Class Settings
         '
         'CFUButton
         '
+        Me.CFUButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.CFUButton.FlatAppearance.BorderSize = 0
         Me.CFUButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CFUButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CFUButton.ForeColor = System.Drawing.Color.White
-        Me.CFUButton.Location = New System.Drawing.Point(482, 191)
+        Me.CFUButton.Location = New System.Drawing.Point(482, 185)
         Me.CFUButton.Name = "CFUButton"
-        Me.CFUButton.Size = New System.Drawing.Size(145, 23)
+        Me.CFUButton.Size = New System.Drawing.Size(145, 30)
         Me.CFUButton.TabIndex = 5
         Me.CFUButton.Text = "Check For Updates..."
-        Me.CFUButton.UseVisualStyleBackColor = True
+        Me.CFUButton.UseVisualStyleBackColor = False
         '
         'Label15
         '
@@ -912,6 +948,7 @@ Partial Class Settings
         '
         'DataButton
         '
+        Me.DataButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.DataButton.FlatAppearance.BorderSize = 0
         Me.DataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DataButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -921,20 +958,21 @@ Partial Class Settings
         Me.DataButton.Size = New System.Drawing.Size(111, 23)
         Me.DataButton.TabIndex = 3
         Me.DataButton.Text = "Clear User Data"
-        Me.DataButton.UseVisualStyleBackColor = True
+        Me.DataButton.UseVisualStyleBackColor = False
         '
         'CacheButton
         '
+        Me.CacheButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.CacheButton.FlatAppearance.BorderSize = 0
         Me.CacheButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CacheButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CacheButton.ForeColor = System.Drawing.Color.White
         Me.CacheButton.Location = New System.Drawing.Point(405, 107)
         Me.CacheButton.Name = "CacheButton"
-        Me.CacheButton.Size = New System.Drawing.Size(111, 23)
+        Me.CacheButton.Size = New System.Drawing.Size(105, 23)
         Me.CacheButton.TabIndex = 2
         Me.CacheButton.Text = "Clear Cache"
-        Me.CacheButton.UseVisualStyleBackColor = True
+        Me.CacheButton.UseVisualStyleBackColor = False
         '
         'Label10
         '
@@ -981,44 +1019,13 @@ Partial Class Settings
         Me.PictureBox7.TabIndex = 9
         Me.PictureBox7.TabStop = False
         '
-        'CMLabel
-        '
-        Me.CMLabel.AutoSize = True
-        Me.CMLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMLabel.ForeColor = System.Drawing.Color.White
-        Me.CMLabel.Location = New System.Drawing.Point(52, 404)
-        Me.CMLabel.Name = "CMLabel"
-        Me.CMLabel.Size = New System.Drawing.Size(403, 17)
-        Me.CMLabel.TabIndex = 33
-        Me.CMLabel.Text = "Clicking the close button (X) will minimise instead of exiting the app."
-        '
-        'CMCheckBox
-        '
-        Me.CMCheckBox.AutoSize = True
-        Me.CMCheckBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMCheckBox.ForeColor = System.Drawing.Color.White
-        Me.CMCheckBox.Location = New System.Drawing.Point(55, 380)
-        Me.CMCheckBox.Name = "CMCheckBox"
-        Me.CMCheckBox.Size = New System.Drawing.Size(139, 21)
-        Me.CMCheckBox.TabIndex = 8
-        Me.CMCheckBox.Text = "Minimise on close"
-        Me.CMCheckBox.UseVisualStyleBackColor = True
-        '
-        'PictureBox12
-        '
-        Me.PictureBox12.Image = Global.VisCord.My.Resources.Resources.GreyLine
-        Me.PictureBox12.Location = New System.Drawing.Point(43, 357)
-        Me.PictureBox12.Name = "PictureBox12"
-        Me.PictureBox12.Size = New System.Drawing.Size(590, 1)
-        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox12.TabIndex = 32
-        Me.PictureBox12.TabStop = False
-        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.BackgroundImage = Global.VisCord.My.Resources.Resources.gradient
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.AboutLink)
         Me.Controls.Add(Me.TitleLabel)
@@ -1027,11 +1034,12 @@ Partial Class Settings
         Me.Controls.Add(Me.AdvButton)
         Me.Controls.Add(Me.PersonaliseButton)
         Me.Controls.Add(Me.NavButton)
+        Me.Controls.Add(Me.NavigationPanel)
+        Me.Controls.Add(Me.NotifPanel)
         Me.Controls.Add(Me.GeneralPanel)
         Me.Controls.Add(Me.AdvancedPanel)
         Me.Controls.Add(Me.PersonalisePanel)
-        Me.Controls.Add(Me.NavigationPanel)
-        Me.Controls.Add(Me.NotifPanel)
+        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1043,6 +1051,7 @@ Partial Class Settings
         Me.Text = "VisCord Settings"
         Me.GeneralPanel.ResumeLayout(False)
         Me.GeneralPanel.PerformLayout()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1062,7 +1071,6 @@ Partial Class Settings
         Me.AdvancedPanel.PerformLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
