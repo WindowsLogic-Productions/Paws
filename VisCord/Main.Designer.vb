@@ -303,7 +303,7 @@ Partial Class Main
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(298, 6)
+        Me.TextBox1.Location = New System.Drawing.Point(434, 5)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
@@ -522,10 +522,10 @@ Partial Class Main
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.OfflinePanel)
         Me.Controls.Add(Me.TitlePanel)
-        Me.Controls.Add(Me.NoWVPanel)
         Me.Controls.Add(Me.WebView21)
         Me.Controls.Add(Me.TipLabel)
         Me.Controls.Add(Me.TipPic)
+        Me.Controls.Add(Me.NoWVPanel)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

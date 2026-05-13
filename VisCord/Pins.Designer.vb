@@ -60,6 +60,7 @@ Partial Class Pins
         'FavouritesLabel
         '
         Me.FavouritesLabel.AutoSize = True
+        Me.FavouritesLabel.BackColor = System.Drawing.Color.Transparent
         Me.FavouritesLabel.ForeColor = System.Drawing.Color.White
         Me.FavouritesLabel.Location = New System.Drawing.Point(9, 9)
         Me.FavouritesLabel.Name = "FavouritesLabel"
@@ -105,7 +106,7 @@ Partial Class Pins
         'ClearButton
         '
         Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ClearButton.BackColor = System.Drawing.Color.Transparent
+        Me.ClearButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClearButton.FlatAppearance.BorderSize = 0
         Me.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ClearButton.Image = Global.VisCord.My.Resources.Resources.WinBin
@@ -119,7 +120,7 @@ Partial Class Pins
         'AddList1
         '
         Me.AddList1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddList1.BackColor = System.Drawing.Color.Transparent
+        Me.AddList1.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.AddList1.FlatAppearance.BorderSize = 0
         Me.AddList1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AddList1.Image = Global.VisCord.My.Resources.Resources.WinMore
@@ -133,7 +134,7 @@ Partial Class Pins
         'AddList2
         '
         Me.AddList2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddList2.BackColor = System.Drawing.Color.Transparent
+        Me.AddList2.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.AddList2.FlatAppearance.BorderSize = 0
         Me.AddList2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AddList2.Image = Global.VisCord.My.Resources.Resources.WinMore
@@ -147,7 +148,7 @@ Partial Class Pins
         'AddList3
         '
         Me.AddList3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddList3.BackColor = System.Drawing.Color.Transparent
+        Me.AddList3.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.AddList3.FlatAppearance.BorderSize = 0
         Me.AddList3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AddList3.Image = Global.VisCord.My.Resources.Resources.WinMore
@@ -161,11 +162,11 @@ Partial Class Pins
         'DelList1
         '
         Me.DelList1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DelList1.BackColor = System.Drawing.Color.Transparent
+        Me.DelList1.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.DelList1.FlatAppearance.BorderSize = 0
         Me.DelList1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DelList1.Image = Global.VisCord.My.Resources.Resources.WinLess
-        Me.DelList1.Location = New System.Drawing.Point(81, 410)
+        Me.DelList1.Location = New System.Drawing.Point(75, 410)
         Me.DelList1.Name = "DelList1"
         Me.DelList1.Size = New System.Drawing.Size(28, 28)
         Me.DelList1.TabIndex = 4
@@ -175,11 +176,11 @@ Partial Class Pins
         'DelList2
         '
         Me.DelList2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DelList2.BackColor = System.Drawing.Color.Transparent
+        Me.DelList2.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.DelList2.FlatAppearance.BorderSize = 0
         Me.DelList2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DelList2.Image = Global.VisCord.My.Resources.Resources.WinLess
-        Me.DelList2.Location = New System.Drawing.Point(325, 410)
+        Me.DelList2.Location = New System.Drawing.Point(319, 410)
         Me.DelList2.Name = "DelList2"
         Me.DelList2.Size = New System.Drawing.Size(28, 28)
         Me.DelList2.TabIndex = 6
@@ -189,11 +190,11 @@ Partial Class Pins
         'DelList3
         '
         Me.DelList3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DelList3.BackColor = System.Drawing.Color.Transparent
+        Me.DelList3.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.DelList3.FlatAppearance.BorderSize = 0
         Me.DelList3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DelList3.Image = Global.VisCord.My.Resources.Resources.WinLess
-        Me.DelList3.Location = New System.Drawing.Point(569, 410)
+        Me.DelList3.Location = New System.Drawing.Point(563, 410)
         Me.DelList3.Name = "DelList3"
         Me.DelList3.Size = New System.Drawing.Size(28, 28)
         Me.DelList3.TabIndex = 8
@@ -203,11 +204,11 @@ Partial Class Pins
         'ExportList1
         '
         Me.ExportList1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ExportList1.BackColor = System.Drawing.Color.Transparent
+        Me.ExportList1.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ExportList1.FlatAppearance.BorderSize = 0
         Me.ExportList1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExportList1.Image = Global.VisCord.My.Resources.Resources.WinForward
-        Me.ExportList1.Location = New System.Drawing.Point(115, 410)
+        Me.ExportList1.Location = New System.Drawing.Point(103, 410)
         Me.ExportList1.Name = "ExportList1"
         Me.ExportList1.Size = New System.Drawing.Size(28, 28)
         Me.ExportList1.TabIndex = 10
@@ -217,11 +218,11 @@ Partial Class Pins
         'ExportList2
         '
         Me.ExportList2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ExportList2.BackColor = System.Drawing.Color.Transparent
+        Me.ExportList2.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ExportList2.FlatAppearance.BorderSize = 0
         Me.ExportList2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExportList2.Image = Global.VisCord.My.Resources.Resources.WinForward
-        Me.ExportList2.Location = New System.Drawing.Point(359, 410)
+        Me.ExportList2.Location = New System.Drawing.Point(347, 410)
         Me.ExportList2.Name = "ExportList2"
         Me.ExportList2.Size = New System.Drawing.Size(28, 28)
         Me.ExportList2.TabIndex = 12
@@ -231,11 +232,11 @@ Partial Class Pins
         'ExportList3
         '
         Me.ExportList3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ExportList3.BackColor = System.Drawing.Color.Transparent
+        Me.ExportList3.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ExportList3.FlatAppearance.BorderSize = 0
         Me.ExportList3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExportList3.Image = Global.VisCord.My.Resources.Resources.WinForward
-        Me.ExportList3.Location = New System.Drawing.Point(603, 410)
+        Me.ExportList3.Location = New System.Drawing.Point(591, 410)
         Me.ExportList3.Name = "ExportList3"
         Me.ExportList3.Size = New System.Drawing.Size(28, 28)
         Me.ExportList3.TabIndex = 13
@@ -312,10 +313,10 @@ Partial Class Pins
         '
         'ExportBox
         '
-        Me.ExportBox.Location = New System.Drawing.Point(9, 312)
+        Me.ExportBox.Location = New System.Drawing.Point(12, 312)
         Me.ExportBox.Multiline = True
         Me.ExportBox.Name = "ExportBox"
-        Me.ExportBox.Size = New System.Drawing.Size(16, 20)
+        Me.ExportBox.Size = New System.Drawing.Size(29, 20)
         Me.ExportBox.TabIndex = 11
         Me.ExportBox.Visible = False
         '

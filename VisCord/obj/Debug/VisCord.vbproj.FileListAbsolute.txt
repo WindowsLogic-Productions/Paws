@@ -11,15 +11,12 @@ J:\Projects\VisCord\VisCord\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
 J:\Projects\VisCord\VisCord\bin\Debug\Microsoft.Web.WebView2.Core.xml
 J:\Projects\VisCord\VisCord\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
 J:\Projects\VisCord\VisCord\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
-J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbprojAssemblyReference.cache
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.About.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Injection.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Main.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Resources.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.SendOfflineMessage.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbproj.GenerateResource.cache
-J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbproj.CoreCompileInputs.cache
-J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbproj.CopyComplete
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.exe
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.xml
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.pdb
@@ -27,3 +24,4 @@ J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Pins.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.AddPins.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.UpdaterPrompt.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Settings.resources
+J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbprojResolveAssemblyReference.cache
