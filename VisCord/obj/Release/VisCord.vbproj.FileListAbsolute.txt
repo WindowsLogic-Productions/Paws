@@ -14,12 +14,9 @@ J:\Projects\VisCord\VisCord\bin\Release\Microsoft.Web.WebView2.Wpf.xml
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.Main.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.Resources.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.vbproj.GenerateResource.cache
-J:\Projects\VisCord\VisCord\obj\Release\VisCord.vbproj.CoreCompileInputs.cache
-J:\Projects\VisCord\VisCord\obj\Release\VisCord.vbproj.CopyComplete
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.exe
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.xml
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.pdb
-J:\Projects\VisCord\VisCord\obj\Release\VisCord.vbprojAssemblyReference.cache
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.About.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.Injection.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.SendOfflineMessage.resources
