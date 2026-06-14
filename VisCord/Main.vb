@@ -317,9 +317,9 @@ Public Class Main
 
             'Check if user is on friends or DMs.
             If WebView21.CoreWebView2.Source.Contains("@me") Then
-                PinsButton.Visible = True
+                RecButton.Visible = False
             Else
-                PinsButton.Visible = False
+                RecButton.Visible = False
             End If
 
             'Check if user is on a NSFW area.
@@ -677,8 +677,8 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles PinsButton.Click
-        Pins.Show()
+    Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles RecButton.Click
+        Recommended.Show()
     End Sub
 
     Private Sub NoWVCloseButton_Click(sender As Object, e As EventArgs) Handles NoWVCloseButton.Click

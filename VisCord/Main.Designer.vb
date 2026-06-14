@@ -32,7 +32,7 @@ Partial Class Main
         Me.OfflineMessageLink = New System.Windows.Forms.LinkLabel()
         Me.ReloadLink = New System.Windows.Forms.LinkLabel()
         Me.GetWVLink = New System.Windows.Forms.LinkLabel()
-        Me.PinsButton = New System.Windows.Forms.Button()
+        Me.RecButton = New System.Windows.Forms.Button()
         Me.NoWVCloseButton = New System.Windows.Forms.Button()
         Me.ContentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SysTrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
@@ -176,20 +176,20 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.GetWVLink, "Open the download page for WebView2." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WebView2 is required for VisCord to load " &
         "the Discord interface.")
         '
-        'PinsButton
+        'RecButton
         '
-        Me.PinsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PinsButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.PinsButton.FlatAppearance.BorderSize = 0
-        Me.PinsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.PinsButton.Image = Global.VisCord.My.Resources.Resources.Pins
-        Me.PinsButton.Location = New System.Drawing.Point(1180, 0)
-        Me.PinsButton.Name = "PinsButton"
-        Me.PinsButton.Size = New System.Drawing.Size(28, 28)
-        Me.PinsButton.TabIndex = 2
-        Me.ToolTip1.SetToolTip(Me.PinsButton, "Pinned Friends")
-        Me.PinsButton.UseVisualStyleBackColor = False
-        Me.PinsButton.Visible = False
+        Me.RecButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RecButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.RecButton.FlatAppearance.BorderSize = 0
+        Me.RecButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RecButton.Image = Global.VisCord.My.Resources.Resources.WinMore
+        Me.RecButton.Location = New System.Drawing.Point(1180, 0)
+        Me.RecButton.Name = "RecButton"
+        Me.RecButton.Size = New System.Drawing.Size(28, 28)
+        Me.RecButton.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.RecButton, "See a list of servers recommended by us.")
+        Me.RecButton.UseVisualStyleBackColor = False
+        Me.RecButton.Visible = False
         '
         'NoWVCloseButton
         '
@@ -288,7 +288,7 @@ Partial Class Main
         Me.TitlePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.TitlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TitlePanel.Controls.Add(Me.TextBox1)
-        Me.TitlePanel.Controls.Add(Me.PinsButton)
+        Me.TitlePanel.Controls.Add(Me.RecButton)
         Me.TitlePanel.Controls.Add(Me.ToolboxButton)
         Me.TitlePanel.Controls.Add(Me.HelpButton)
         Me.TitlePanel.Controls.Add(Me.AreaLabel)
@@ -583,7 +583,7 @@ Partial Class Main
     Friend WithEvents Timer1 As Timer
     Friend WithEvents TipLabel As Label
     Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
-    Friend WithEvents PinsButton As Button
+    Friend WithEvents RecButton As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Updater As System.ComponentModel.BackgroundWorker
     Friend WithEvents ProgressBar1 As ProgressBar

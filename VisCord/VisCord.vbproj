@@ -102,6 +102,12 @@
     <Compile Include="AddPins.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Fluxer.Designer.vb">
+      <DependentUpon>Fluxer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fluxer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Injection.Designer.vb">
       <DependentUpon>Injection.vb</DependentUpon>
     </Compile>
@@ -130,10 +136,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Pins.Designer.vb">
-      <DependentUpon>Pins.vb</DependentUpon>
+    <Compile Include="Recommended.Designer.vb">
+      <DependentUpon>Recommended.vb</DependentUpon>
     </Compile>
-    <Compile Include="Pins.vb">
+    <Compile Include="Recommended.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SendOfflineMessage.Designer.vb">
@@ -164,6 +170,9 @@
     <EmbeddedResource Include="AddPins.resx">
       <DependentUpon>AddPins.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fluxer.resx">
+      <DependentUpon>Fluxer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Injection.resx">
       <DependentUpon>Injection.vb</DependentUpon>
     </EmbeddedResource>
@@ -176,8 +185,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pins.resx">
-      <DependentUpon>Pins.vb</DependentUpon>
+    <EmbeddedResource Include="Recommended.resx">
+      <DependentUpon>Recommended.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SendOfflineMessage.resx">
       <DependentUpon>SendOfflineMessage.vb</DependentUpon>
@@ -208,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Discord.ico" />
+    <None Include="Resources\PKG.ico" />
     <None Include="Resources\GreyLine.png" />
     <None Include="Resources\Updates New.ico" />
     <None Include="Resources\WarningGradient.png" />
