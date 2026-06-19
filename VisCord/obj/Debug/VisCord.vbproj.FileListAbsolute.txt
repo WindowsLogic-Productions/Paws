@@ -20,8 +20,8 @@ J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbproj.GenerateResource.cache
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.exe
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.xml
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.pdb
-J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Pins.resources
-J:\Projects\VisCord\VisCord\obj\Debug\VisCord.AddPins.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.UpdaterPrompt.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Settings.resources
+J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Fluxer.resources
+J:\Projects\VisCord\VisCord\obj\Debug\VisCord.Recommended.resources
 J:\Projects\VisCord\VisCord\obj\Debug\VisCord.vbprojResolveAssemblyReference.cache

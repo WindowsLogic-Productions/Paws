@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PDiscord_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PDiscord_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Alethila_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Alethila_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,12 +136,6 @@
   <data name="GreyLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GreyLine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WinLess" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WinLess.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DiscordNotif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DiscordNotif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="VeloVag_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VeloVag_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,8 +145,8 @@
   <data name="Updates New" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Updates New.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VeloVag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VeloVag.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Discord1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Discord.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WinClose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WinClose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -159,9 +156,6 @@
   </data>
   <data name="AleVag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AleVag.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MissingWebView" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MissingWebView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Velo_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Velo_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,8 +172,8 @@
   <data name="Alethila_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Alethila_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PDiscord_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PDiscord_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiscordNotif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiscordNotif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PDiscord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PDiscord.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,8 +184,8 @@
   <data name="SplashPone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SplashPone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Alethila_Discord" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Alethila_Discord.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PDiscord_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PDiscord_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WinBin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WinBin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,8 +193,14 @@
   <data name="gradient" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gradient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="WinRefresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WinRefresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WarningGradient" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WarningGradient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WinLess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WinLess.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pins" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pins.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,25 +208,34 @@
   <data name="WinMore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WinMore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PKG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PKG.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WinAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WinAccount.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PDiscord_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PDiscord_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WLP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WLP.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Alethila_Discord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alethila_Discord.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AleVag_Notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AleVag_Notif.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WinRefresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WinRefresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MissingWebView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MissingWebView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Discord1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Discord.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="VeloVag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VeloVag.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AleVag_Big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AleVag_Big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PKG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PKG.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WLPFull" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WLPFull.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FiMA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FiMA.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

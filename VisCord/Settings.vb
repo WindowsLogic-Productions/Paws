@@ -1,4 +1,5 @@
-﻿Public Class Settings
+﻿Imports System.IO
+Public Class Settings
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GeneralPanel.Show()
         GeneralPanel.BringToFront()
@@ -488,6 +489,55 @@
         Else
             My.Settings.CloseMinimise = 0
         End If
+    End Sub
+
+    Private Sub Settings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Save all user settings to application settings.
+        My.Settings.Save()
+
+        'Save outbox to file.
+        File.Create(Application.StartupPath & "\Outbox.vco").Dispose()
+        System.IO.File.WriteAllText(Application.StartupPath & "\Outbox.vco", "")
+        Dim objWriter1 As New System.IO.StreamWriter(Application.StartupPath & "\Outbox.vco", True)
+        objWriter1.Write(My.Settings.OutboxList)
+
+        objWriter1.Close()
+
+        'Save all user settings to INI file.
+        File.Create(Application.StartupPath & "\VisCord.ini").Dispose()
+
+        System.IO.File.WriteAllText(Application.StartupPath & "\VisCord.ini", "")
+
+        Dim objWriter As New System.IO.StreamWriter(Application.StartupPath & "\VisCord.ini", True)
+
+        objWriter.WriteLine("[VisCord User Data - " & My.Application.Info.Version.ToString & "]")
+        objWriter.WriteLine("[General]")
+        objWriter.WriteLine(My.Settings.Startup.ToString())
+        objWriter.WriteLine(My.Settings.NotifBadge.ToString())
+        objWriter.WriteLine(My.Settings.AleTips.ToString())
+        objWriter.WriteLine("[System Tray]")
+        objWriter.WriteLine(My.Settings.SysTray.ToString())
+        objWriter.WriteLine("[Notifications]")
+        objWriter.WriteLine(My.Settings.Notify.ToString())
+        objWriter.WriteLine("[Navigation]")
+        objWriter.WriteLine(My.Settings.OpenExternal.ToString())
+        objWriter.WriteLine("[Performance / Cache / Updates]")
+        objWriter.WriteLine(My.Settings.HA.ToString())
+        objWriter.WriteLine(My.Settings.Updates.ToString())
+        objWriter.WriteLine("[Privacy]")
+        objWriter.WriteLine(My.Settings.EnableNetwork.ToString())
+        objWriter.WriteLine("[Pin List Names]")
+        objWriter.WriteLine(My.Settings.PinList1Name)
+        objWriter.WriteLine(My.Settings.PinList2Name)
+        objWriter.WriteLine(My.Settings.PinList3Name)
+        objWriter.WriteLine("[Other]")
+        objWriter.WriteLine(My.Settings.Icon.ToString())
+        objWriter.WriteLine(My.Settings.NSFWFeatures.ToString())
+        objWriter.WriteLine(My.Settings.NSFWContent.ToString())
+        objWriter.WriteLine(My.Settings.HideNav.ToString())
+        objWriter.WriteLine(My.Settings.CloseMinimise.ToString())
+
+        objWriter.Close()
     End Sub
 #End Region
 End Class

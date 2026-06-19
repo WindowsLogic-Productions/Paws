@@ -28,12 +28,13 @@ Partial Class Recommended
         Me.RenameListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TitleLink = New System.Windows.Forms.LinkLabel()
+        Me.WLPButton = New System.Windows.Forms.Button()
+        Me.FiMAButton = New System.Windows.Forms.Button()
         Me.List2Menu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.List3Menu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TitleLabel = New System.Windows.Forms.Label()
-        Me.WLPButton = New System.Windows.Forms.Button()
         Me.ServersPanel = New System.Windows.Forms.Panel()
         Me.List1Menu.SuspendLayout()
         Me.List2Menu.SuspendLayout()
@@ -67,6 +68,46 @@ Partial Class Recommended
         Me.TitleLink.TabStop = True
         Me.TitleLink.Text = "Add Server"
         Me.ToolTip1.SetToolTip(Me.TitleLink, "Add your own server to this list.")
+        '
+        'WLPButton
+        '
+        Me.WLPButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WLPButton.BackColor = System.Drawing.Color.Black
+        Me.WLPButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.WLPButton.FlatAppearance.BorderSize = 0
+        Me.WLPButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.WLPButton.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WLPButton.ForeColor = System.Drawing.Color.White
+        Me.WLPButton.Image = Global.VisCord.My.Resources.Resources.WLP
+        Me.WLPButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.WLPButton.Location = New System.Drawing.Point(0, 0)
+        Me.WLPButton.Name = "WLPButton"
+        Me.WLPButton.Size = New System.Drawing.Size(443, 70)
+        Me.WLPButton.TabIndex = 16
+        Me.WLPButton.Text = "WindowsLogic Productions (18+)"
+        Me.ToolTip1.SetToolTip(Me.WLPButton, "The official WindowsLogic Productions Discord server" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for game development and di" &
+        "scussion.")
+        Me.WLPButton.UseVisualStyleBackColor = False
+        '
+        'FiMAButton
+        '
+        Me.FiMAButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FiMAButton.BackColor = System.Drawing.Color.Black
+        Me.FiMAButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FiMAButton.FlatAppearance.BorderSize = 0
+        Me.FiMAButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FiMAButton.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FiMAButton.ForeColor = System.Drawing.Color.White
+        Me.FiMAButton.Image = Global.VisCord.My.Resources.Resources.FiMA
+        Me.FiMAButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FiMAButton.Location = New System.Drawing.Point(0, 70)
+        Me.FiMAButton.Name = "FiMAButton"
+        Me.FiMAButton.Size = New System.Drawing.Size(443, 70)
+        Me.FiMAButton.TabIndex = 17
+        Me.FiMAButton.Text = "Fighting is Magic: Aurora"
+        Me.ToolTip1.SetToolTip(Me.FiMAButton, "The official Fighting is Magic: Aurora Discord server" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for discussion of the infa" &
+        "mous 2D pony fighting game.")
+        Me.FiMAButton.UseVisualStyleBackColor = False
         '
         'List2Menu
         '
@@ -105,25 +146,13 @@ Partial Class Recommended
         Me.TitleLabel.TabIndex = 14
         Me.TitleLabel.Text = "Recommended Servers - "
         '
-        'WLPButton
-        '
-        Me.WLPButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.WLPButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.WLPButton.Image = Global.VisCord.My.Resources.Resources.PKG
-        Me.WLPButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.WLPButton.Location = New System.Drawing.Point(0, 0)
-        Me.WLPButton.Name = "WLPButton"
-        Me.WLPButton.Size = New System.Drawing.Size(443, 70)
-        Me.WLPButton.TabIndex = 16
-        Me.WLPButton.Text = "WindowsLogic Productions"
-        Me.WLPButton.UseVisualStyleBackColor = True
-        '
         'ServersPanel
         '
         Me.ServersPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServersPanel.AutoScroll = True
+        Me.ServersPanel.Controls.Add(Me.FiMAButton)
         Me.ServersPanel.Controls.Add(Me.WLPButton)
         Me.ServersPanel.Location = New System.Drawing.Point(0, 95)
         Me.ServersPanel.Name = "ServersPanel"
@@ -146,7 +175,9 @@ Partial Class Recommended
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Recommended"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Recommended Servers"
         Me.List1Menu.ResumeLayout(False)
@@ -168,4 +199,5 @@ Partial Class Recommended
     Friend WithEvents TitleLink As LinkLabel
     Friend WithEvents WLPButton As Button
     Friend WithEvents ServersPanel As Panel
+    Friend WithEvents FiMAButton As Button
 End Class

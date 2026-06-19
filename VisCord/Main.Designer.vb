@@ -189,7 +189,6 @@ Partial Class Main
         Me.RecButton.TabIndex = 2
         Me.ToolTip1.SetToolTip(Me.RecButton, "See a list of servers recommended by us.")
         Me.RecButton.UseVisualStyleBackColor = False
-        Me.RecButton.Visible = False
         '
         'NoWVCloseButton
         '

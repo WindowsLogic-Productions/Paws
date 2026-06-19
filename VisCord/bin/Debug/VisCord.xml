@@ -72,6 +72,11 @@ VisCord
   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
 </summary>
 </member>
+<member name="P:VisCord.My.Resources.Resources.FiMA">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:VisCord.My.Resources.Resources.gradient">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -103,6 +108,11 @@ VisCord
 </summary>
 </member>
 <member name="P:VisCord.My.Resources.Resources.Pins">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.PKG">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -198,6 +208,16 @@ VisCord
 </summary>
 </member>
 <member name="P:VisCord.My.Resources.Resources.WinRefresh">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.WLP">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:VisCord.My.Resources.Resources.WLPFull">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

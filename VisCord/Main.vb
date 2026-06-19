@@ -305,6 +305,12 @@ Public Class Main
                 Else
                     AreaLabel.Text = "- " + WebView21.CoreWebView2.DocumentTitle
                 End If
+
+                If WebView21.CoreWebView2.DocumentTitle.Contains("&") Then
+                    Dim replace As String
+                    replace = WebView21.CoreWebView2.DocumentTitle.Replace("&", "&&")
+                    AreaLabel.Text = "- " + replace
+                End If
             End If
 
             'Ping user if message is detected.
@@ -313,13 +319,6 @@ Public Class Main
                 If Me.WindowState = FormWindowState.Minimized Then
                     Ping()
                 End If
-            End If
-
-            'Check if user is on friends or DMs.
-            If WebView21.CoreWebView2.Source.Contains("@me") Then
-                RecButton.Visible = False
-            Else
-                RecButton.Visible = False
             End If
 
             'Check if user is on a NSFW area.
@@ -431,6 +430,7 @@ Public Class Main
                 BackButton.Enabled = False
             End If
 
+            'Check if WebView2 can go forward a page.
             If WebView21.CoreWebView2.CanGoForward = True Then
                 ForwardButton.Enabled = True
             Else
@@ -678,7 +678,7 @@ Public Class Main
     End Sub
 
     Private Sub PinsButton_Click(sender As Object, e As EventArgs) Handles RecButton.Click
-        Recommended.Show()
+        Recommended.ShowDialog()
     End Sub
 
     Private Sub NoWVCloseButton_Click(sender As Object, e As EventArgs) Handles NoWVCloseButton.Click
