@@ -20,7 +20,8 @@ J:\Projects\VisCord\VisCord\obj\Release\VisCord.pdb
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.About.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.Injection.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.SendOfflineMessage.resources
-J:\Projects\VisCord\VisCord\obj\Release\VisCord.AddPins.resources
-J:\Projects\VisCord\VisCord\obj\Release\VisCord.Pins.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.UpdaterPrompt.resources
 J:\Projects\VisCord\VisCord\obj\Release\VisCord.Settings.resources
+J:\Projects\VisCord\VisCord\obj\Release\VisCord.vbprojResolveAssemblyReference.cache
+J:\Projects\VisCord\VisCord\obj\Release\VisCord.Fluxer.resources
+J:\Projects\VisCord\VisCord\obj\Release\VisCord.Recommended.resources
