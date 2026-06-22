@@ -1,5 +1,5 @@
 ## Paws
-Paws is a lightweight Discord client for Windows 10 & 11 using WebView2 and Visual Basic.NET.
+Paws is a lightweight Kemono-style website client for Windows 10 & 11 using WebView2 and Visual Basic.NET.
 
 ## Features
 - Run at startup.
