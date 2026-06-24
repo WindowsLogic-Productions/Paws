@@ -10,9 +10,11 @@ D:\GitHub\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
 D:\GitHub\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.Core.xml
 D:\GitHub\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
 D:\GitHub\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
-D:\GitHub\Paws\Paws\obj\Debug\Paws.csprojResolveAssemblyReference.cache
 D:\GitHub\Paws\Paws\obj\Debug\Paws.Main.resources
 D:\GitHub\Paws\Paws\obj\Debug\Paws.Properties.Resources.resources
 D:\GitHub\Paws\Paws\obj\Debug\Paws.csproj.GenerateResource.Cache
 D:\GitHub\Paws\Paws\obj\Debug\Paws.exe
 D:\GitHub\Paws\Paws\obj\Debug\Paws.pdb
+D:\GitHub\Paws\Paws\obj\Debug\Paws.csprojAssemblyReference.cache
+D:\GitHub\Paws\Paws\obj\Debug\Paws.csproj.CoreCompileInputs.cache
+D:\GitHub\Paws\Paws\obj\Debug\Paws.csproj.CopyComplete

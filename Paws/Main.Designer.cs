@@ -56,8 +56,11 @@
             this.webView21.Location = new System.Drawing.Point(0, 0);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(1264, 681);
+            this.webView21.Source = new System.Uri("https://pawchive.st/", System.UriKind.Absolute);
             this.webView21.TabIndex = 25;
             this.webView21.ZoomFactor = 1D;
+            this.webView21.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView21_CoreWebView2InitializationCompleted);
+            this.webView21.NavigationStarting += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs>(this.webView21_NavigationStarting);
             // 
             // lblArt
             // 
@@ -88,10 +91,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(25)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.webView21);
             this.Controls.Add(this.linkArt);
             this.Controls.Add(this.lblArt);
             this.Controls.Add(this.picBack);
-            this.Controls.Add(this.webView21);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "Main";
