@@ -28,12 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.picBack = new System.Windows.Forms.PictureBox();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.lblArt = new System.Windows.Forms.Label();
             this.linkArt = new System.Windows.Forms.LinkLabel();
+            this.sysTrayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.RestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutVisCordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sysTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
+            this.sysTrayMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // picBack
@@ -85,6 +96,68 @@
             this.linkArt.Text = "ruka_tou";
             this.linkArt.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkArt_LinkClicked);
             // 
+            // sysTrayMenu
+            // 
+            this.sysTrayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RestoreToolStripMenuItem,
+            this.ToolStripSeparator1,
+            this.SettingsToolStripMenuItem,
+            this.AboutVisCordToolStripMenuItem,
+            this.ToolStripSeparator2,
+            this.ExitToolStripMenuItem});
+            this.sysTrayMenu.Name = "SysTrayMenu";
+            this.sysTrayMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.sysTrayMenu.Size = new System.Drawing.Size(147, 104);
+            // 
+            // RestoreToolStripMenuItem
+            // 
+            this.RestoreToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem";
+            this.RestoreToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.RestoreToolStripMenuItem.Text = "Restore";
+            this.RestoreToolStripMenuItem.Click += new System.EventHandler(this.RestoreToolStripMenuItem_Click);
+            // 
+            // ToolStripSeparator1
+            // 
+            this.ToolStripSeparator1.Name = "ToolStripSeparator1";
+            this.ToolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            // 
+            // SettingsToolStripMenuItem
+            // 
+            this.SettingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
+            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.SettingsToolStripMenuItem.Text = "Settings...";
+            this.SettingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            // 
+            // AboutVisCordToolStripMenuItem
+            // 
+            this.AboutVisCordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AboutVisCordToolStripMenuItem.Name = "AboutVisCordToolStripMenuItem";
+            this.AboutVisCordToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.AboutVisCordToolStripMenuItem.Text = "About Paws...";
+            this.AboutVisCordToolStripMenuItem.Click += new System.EventHandler(this.AboutVisCordToolStripMenuItem_Click);
+            // 
+            // ToolStripSeparator2
+            // 
+            this.ToolStripSeparator2.Name = "ToolStripSeparator2";
+            this.ToolStripSeparator2.Size = new System.Drawing.Size(143, 6);
+            // 
+            // ExitToolStripMenuItem
+            // 
+            this.ExitToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.ExitToolStripMenuItem.Text = "Exit";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // sysTrayIcon
+            // 
+            this.sysTrayIcon.ContextMenuStrip = this.sysTrayMenu;
+            this.sysTrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("sysTrayIcon.Icon")));
+            this.sysTrayIcon.Text = "Paws";
+            this.sysTrayIcon.Visible = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,8 +173,10 @@
             this.Name = "Main";
             this.Text = "Paws";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Resize += new System.EventHandler(this.Main_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
+            this.sysTrayMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,6 +188,14 @@
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private System.Windows.Forms.Label lblArt;
         private System.Windows.Forms.LinkLabel linkArt;
+        internal System.Windows.Forms.ContextMenuStrip sysTrayMenu;
+        internal System.Windows.Forms.ToolStripMenuItem RestoreToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator1;
+        internal System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripMenuItem AboutVisCordToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator2;
+        internal System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+        internal System.Windows.Forms.NotifyIcon sysTrayIcon;
     }
 }
 

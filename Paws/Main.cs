@@ -81,5 +81,61 @@ namespace Paws
             }
         }
         #endregion
+
+        #region System Tray
+
+        #endregion
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.SysTray == 1)
+            {
+                if (WindowState == FormWindowState.Minimized == true)
+                {
+                    Visible = false;
+                    sysTrayIcon.Visible = true;
+                    sysTrayIcon.ShowBalloonTip(1, "VisCord - Notification", "Paws is now running in the background.", ToolTipIcon.Info);
+                    GC.Collect();
+                }
+                else if (Properties.Settings.Default.SysTray == 0){
+                    GC.Collect();
+                }
+            }
+        }
+
+        private void RestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Visible = true;
+                WindowState = FormWindowState.Normal;
+                sysTrayIcon.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var settingsform = new Settings();
+            settingsform.ShowDialog();
+        }
+
+        private void AboutVisCordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var aboutform = new About();
+            aboutform.lblVersion.Text = "Paws " + Application.ProductVersion.ToString();
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Would you like to exit Paws?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Properties.Settings.Default.Save();
+                Application.Exit();
+            }
+        }
     }
 }

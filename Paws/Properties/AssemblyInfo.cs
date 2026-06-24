@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Paws")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A lightweight Pawchive client made in C#.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("WindowsLogic Productions")]
 [assembly: AssemblyProduct("Paws")]
-[assembly: AssemblyCopyright("Copyright ©  2026")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2026 WindowsLogic Productions. All rights reserved.")]
+[assembly: AssemblyTrademark("Paws")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
