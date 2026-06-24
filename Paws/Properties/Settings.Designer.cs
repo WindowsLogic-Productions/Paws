@@ -46,5 +46,41 @@ namespace Paws.Properties {
                 this["Startup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SysTray {
+            get {
+                return ((int)(this["SysTray"]));
+            }
+            set {
+                this["SysTray"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int HA {
+            get {
+                return ((int)(this["HA"]));
+            }
+            set {
+                this["HA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int OpenExternal {
+            get {
+                return ((int)(this["OpenExternal"]));
+            }
+            set {
+                this["OpenExternal"] = value;
+            }
+        }
     }
 }
