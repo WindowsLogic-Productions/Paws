@@ -169,6 +169,7 @@
             this.Controls.Add(this.lblArt);
             this.Controls.Add(this.picBack);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "Main";
             this.Text = "Paws";

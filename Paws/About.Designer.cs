@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.buttonOK = new System.Windows.Forms.Button();
             this.linkLabelContribute = new System.Windows.Forms.LinkLabel();
             this.labelLicense = new System.Windows.Forms.Label();
@@ -105,9 +106,10 @@
             this.Controls.Add(this.labelLicense);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.AppPic);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "About";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About";
+            this.Text = "About Paws";
             ((System.ComponentModel.ISupportInitialize)(this.AppPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
