@@ -42,6 +42,10 @@
             this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sysTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.lblWVWarn = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.FixTitle = new System.Windows.Forms.Timer(this.components);
+            this.ContentTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
@@ -75,6 +79,7 @@
             // 
             // lblArt
             // 
+            this.lblArt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblArt.AutoSize = true;
             this.lblArt.ForeColor = System.Drawing.Color.White;
             this.lblArt.Location = new System.Drawing.Point(865, 631);
@@ -86,6 +91,7 @@
             // linkArt
             // 
             this.linkArt.ActiveLinkColor = System.Drawing.Color.Aqua;
+            this.linkArt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkArt.AutoSize = true;
             this.linkArt.LinkColor = System.Drawing.Color.White;
             this.linkArt.Location = new System.Drawing.Point(901, 631);
@@ -158,16 +164,39 @@
             this.sysTrayIcon.Text = "Paws";
             this.sysTrayIcon.Visible = true;
             // 
+            // lblWVWarn
+            // 
+            this.lblWVWarn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblWVWarn.AutoSize = true;
+            this.lblWVWarn.ForeColor = System.Drawing.Color.White;
+            this.lblWVWarn.Location = new System.Drawing.Point(12, 659);
+            this.lblWVWarn.Name = "lblWVWarn";
+            this.lblWVWarn.Size = new System.Drawing.Size(352, 13);
+            this.lblWVWarn.TabIndex = 28;
+            this.lblWVWarn.Text = "If Pawchive does not load, then you may need to install WebView2.";
+            // 
+            // FixTitle
+            // 
+            this.FixTitle.Enabled = true;
+            this.FixTitle.Interval = 1000;
+            this.FixTitle.Tick += new System.EventHandler(this.FixTitle_Tick);
+            // 
+            // ContentTimer
+            // 
+            this.ContentTimer.Enabled = true;
+            this.ContentTimer.Tick += new System.EventHandler(this.ContentTimer_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(25)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.webView21);
+            this.Controls.Add(this.lblWVWarn);
             this.Controls.Add(this.linkArt);
             this.Controls.Add(this.lblArt);
             this.Controls.Add(this.picBack);
-            this.Controls.Add(this.webView21);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 500);
@@ -197,6 +226,10 @@
         internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator2;
         internal System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         internal System.Windows.Forms.NotifyIcon sysTrayIcon;
+        private System.Windows.Forms.Label lblWVWarn;
+        private System.Windows.Forms.ToolTip toolTip1;
+        internal System.Windows.Forms.Timer FixTitle;
+        internal System.Windows.Forms.Timer ContentTimer;
     }
 }
 

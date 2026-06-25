@@ -3468,6 +3468,15 @@
         AADAAQAA4AMAAOAHAADgHwAA+D8AAA==
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>263, 16</value>
+  </metadata>
+  <metadata name="FixTitle.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>360, 16</value>
+  </metadata>
+  <metadata name="ContentTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>449, 16</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAA8AAAAQAAEABAAkOQAA9gAAADAwEAABAAQAaAYAABo6AAAgIBAAAQAEAOgCAACCQAAAGBgQAAEA

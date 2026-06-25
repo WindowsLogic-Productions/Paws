@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
+using System.Threading;
 
 namespace Paws
 {
@@ -60,6 +61,7 @@ namespace Paws
 
         private void webView21_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
+
             if (!e.Uri.Contains("pawchive.st"))
             {
                 e.Cancel = true;
@@ -85,11 +87,7 @@ namespace Paws
             }
         }
         #endregion
-
         #region System Tray
-
-        #endregion
-
         private void Main_Resize(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.SysTray == 1)
@@ -101,7 +99,8 @@ namespace Paws
                     sysTrayIcon.ShowBalloonTip(1, "VisCord - Notification", "Paws is now running in the background.", ToolTipIcon.Info);
                     GC.Collect();
                 }
-                else if (Properties.Settings.Default.SysTray == 0){
+                else if (Properties.Settings.Default.SysTray == 0)
+                {
                     GC.Collect();
                 }
             }
@@ -142,5 +141,69 @@ namespace Paws
                 Application.Exit();
             }
         }
+        #endregion
+
+        #region Functions
+        private void ContentTimer_Tick(object sender, EventArgs e)
+        {
+            //Attempt to update window title to match area of Pawchive.
+            try
+            {
+                if (webView21.CoreWebView2.DocumentTitle == "")
+                {
+                    webView21.Visible = false;
+                    Text = "Initailising... - Paws";
+                    sysTrayIcon.Text = "Initialising... - Paws";
+                    webView21.Visible = true;
+                }
+                else
+                {
+                    var title = webView21.CoreWebView2.Source;
+                    switch (title)
+                    {
+                        case string s when title.Contains("artists"):
+                            Text = "Creators | " + webView21.CoreWebView2.DocumentTitle + " - Paws";
+                            break;
+
+                        case string s when title.Contains("posts"):
+                            Text = "Posts | " + webView21.CoreWebView2.DocumentTitle + " - Paws";
+                            break;
+
+                        case string s when title.Contains("dms"):
+                            Text = "Direct Messages | " + webView21.CoreWebView2.DocumentTitle + " - Paws";
+                            break;
+
+                        case string s when title.Contains("shares"):
+                            Text = "Filehaus | " + webView21.CoreWebView2.DocumentTitle + " - Paws";
+                            break;
+
+                        case string s when title.Contains("favorites"):
+                            Text = "Favourites | " + webView21.CoreWebView2.DocumentTitle + " - Paws";
+                            break;
+
+                        case string s when title.Contains("tutorial"):
+                            Text = "FAQ | " + webView21.CoreWebView2.DocumentTitle + " - Paws";
+                            break;
+
+                        default:
+                            Text = webView21.CoreWebView2.DocumentTitle + " - Paws";
+                            break;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void FixTitle_Tick(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+
     }
 }
