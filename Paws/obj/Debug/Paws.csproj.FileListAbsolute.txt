@@ -19,3 +19,4 @@ D:\GitHub\Paws\Paws\obj\Debug\Paws.csprojAssemblyReference.cache
 D:\GitHub\Paws\Paws\obj\Debug\Paws.csproj.CoreCompileInputs.cache
 D:\GitHub\Paws\Paws\obj\Debug\Paws.csproj.CopyComplete
 D:\GitHub\Paws\Paws\obj\Debug\Paws.About.resources
+D:\GitHub\Paws\Paws\obj\Debug\Paws.Settings.resources

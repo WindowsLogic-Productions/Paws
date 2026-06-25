@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Paws
 {
@@ -15,6 +16,16 @@ namespace Paws
         public About()
         {
             InitializeComponent();
+        }
+
+        private void linkLabelContribute_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/windowslogic-productions/paws");
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

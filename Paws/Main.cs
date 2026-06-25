@@ -44,7 +44,7 @@ namespace Paws
             webView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
             webView21.CoreWebView2.Settings.AreDefaultContextMenusEnabled = true;
             webView21.CoreWebView2.Settings.AreDevToolsEnabled = false;
-            webView21.CoreWebView2.Settings.IsStatusBarEnabled = false;
+            webView21.CoreWebView2.Settings.IsStatusBarEnabled = true;
 
             if (Properties.Settings.Default.HA == 0)
             {
@@ -60,8 +60,12 @@ namespace Paws
 
         private void webView21_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
-            e.Cancel = true;
-            OpenInExternalBrowser(e.Uri);
+            if (!e.Uri.Contains("pawchive.st"))
+            {
+                e.Cancel = true;
+                OpenInExternalBrowser(e.Uri);
+            }
+            
         }
 
         private void OpenInExternalBrowser(string url)
@@ -127,6 +131,7 @@ namespace Paws
         {
             var aboutform = new About();
             aboutform.lblVersion.Text = "Paws " + Application.ProductVersion.ToString();
+            aboutform.ShowDialog();
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
