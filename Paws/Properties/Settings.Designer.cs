@@ -73,13 +73,25 @@ namespace Paws.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int OpenExternal {
             get {
                 return ((int)(this["OpenExternal"]));
             }
             set {
                 this["OpenExternal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int AI {
+            get {
+                return ((int)(this["AI"]));
+            }
+            set {
+                this["AI"] = value;
             }
         }
     }
