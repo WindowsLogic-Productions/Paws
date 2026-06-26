@@ -46,6 +46,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ContentTimer = new System.Windows.Forms.Timer(this.components);
             this.menuRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openInNewWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,7 @@
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutPawsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openInNewWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.copyLinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
@@ -206,14 +207,27 @@
             this.toolStripSeparator5,
             this.cutToolStripMenuItem,
             this.copyToolStripMenuItem,
+            this.copyLinkToolStripMenuItem,
             this.pasteToolStripMenuItem,
             this.toolStripSeparator3,
             this.settingsToolStripMenuItem1,
             this.toolStripSeparator4,
             this.aboutPawsToolStripMenuItem});
             this.menuRightClick.Name = "menuRightClick";
-            this.menuRightClick.Size = new System.Drawing.Size(187, 248);
+            this.menuRightClick.Size = new System.Drawing.Size(187, 270);
             this.menuRightClick.MouseLeave += new System.EventHandler(this.menuRightClick_MouseLeave);
+            // 
+            // openInNewWindowToolStripMenuItem
+            // 
+            this.openInNewWindowToolStripMenuItem.Name = "openInNewWindowToolStripMenuItem";
+            this.openInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.openInNewWindowToolStripMenuItem.Text = "Open in new window";
+            this.openInNewWindowToolStripMenuItem.Click += new System.EventHandler(this.openInNewWindowToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(183, 6);
             // 
             // backToolStripMenuItem
             // 
@@ -287,17 +301,12 @@
             this.aboutPawsToolStripMenuItem.Text = "About Paws...";
             this.aboutPawsToolStripMenuItem.Click += new System.EventHandler(this.aboutPawsToolStripMenuItem_Click);
             // 
-            // openInNewWindowToolStripMenuItem
+            // copyLinkToolStripMenuItem
             // 
-            this.openInNewWindowToolStripMenuItem.Name = "openInNewWindowToolStripMenuItem";
-            this.openInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.openInNewWindowToolStripMenuItem.Text = "Open in new window";
-            this.openInNewWindowToolStripMenuItem.Click += new System.EventHandler(this.openInNewWindowToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(183, 6);
+            this.copyLinkToolStripMenuItem.Name = "copyLinkToolStripMenuItem";
+            this.copyLinkToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.copyLinkToolStripMenuItem.Text = "Copy link";
+            this.copyLinkToolStripMenuItem.Click += new System.EventHandler(this.copyLinkToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -358,6 +367,7 @@
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openInNewWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem copyLinkToolStripMenuItem;
     }
 }
 

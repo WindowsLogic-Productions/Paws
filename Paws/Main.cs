@@ -11,15 +11,19 @@ using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
 using System.IO;
 using System.Runtime.InteropServices;
+using Microsoft.Web.WebView2.WinForms;
 
 namespace Paws
 {
+
     public partial class Main : Form
     {
         [DllImport("user32.dll")]
         static extern IntPtr GetForegroundWindow();
         [DllImport("user32.dll")]
         static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        string getStatText = "";
 
         public Main()
         {
@@ -63,8 +67,6 @@ namespace Paws
             else
             {
             }
-
-            
         }
 
         private void webView21_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
@@ -89,23 +91,18 @@ namespace Paws
         {
             var startnew = new Main();
             startnew.Show();
-            var newSource = startnew.webView21.Source.AbsoluteUri;
-            newSource = "about:blank";
-            startnew.webView21.NavigateToString(url);
+            startnew.webView21.CoreWebView2InitializationCompleted += (s, args) =>
+            {
+                MessageBox.Show(getStatText);
+                startnew.webView21.Source = new Uri(getStatText);
+            };
+            
         }
 
         private void CoreWebView2_NewWindowRequested(object sender, CoreWebView2NewWindowRequestedEventArgs e)
         {
-            if (Properties.Settings.Default.OpenExternal == 0)
-            {
-                OpenInExternalBrowser(e.Uri);
-                //e.Handled = true;
-            }
-            else
-            {
-                OpenInExternalBrowser(e.Uri);
-                e.Handled = true;
-            }
+            e.Handled = true;
+            OpenInExternalBrowser(getStatText);
         }
         #endregion
         #region System Tray
@@ -288,6 +285,8 @@ namespace Paws
                 pasteToolStripMenuItem.Enabled = true;
             }
 
+            getStatusText();
+
             menuRightClick.Show(screenLocation);
         }
 
@@ -328,14 +327,21 @@ namespace Paws
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PasteWithKeystrokes();
+        }
 
+        private void getStatusText()
+        {
+            getStatText = webView21.CoreWebView2.StatusBarText;
         }
 
         private void openInNewWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            OpenInExternalBrowser(getStatText);
+        }
 
-            var geturl = webView21.CoreWebView2.StatusBarText;
-            OpenInExternalBrowser(geturl);
+        private void copyLinkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(getStatText);
         }
     }
 }
