@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
@@ -169,9 +169,11 @@ namespace Paws
                 if (webView21.CoreWebView2.DocumentTitle == "")
                 {
                     webView21.Visible = false;
-                    Text = "Initailising... - Paws";
+                    Text = "Initialising... - Paws";
                     sysTrayIcon.Text = "Initialising... - Paws";
+                    Thread.Sleep(1000);
                     webView21.Visible = true;
+                    sysTrayIcon.Text = "Paws";
                 }
                 else
                 {
@@ -209,7 +211,7 @@ namespace Paws
 
                 }
 
-                //Attempt to block AI genereated content.
+                //Attempt to block AI generated content.
                 if(Properties.Settings.Default.AI == 0)
                 {
                     if (Text.Contains("ai"))
@@ -285,7 +287,18 @@ namespace Paws
                 pasteToolStripMenuItem.Enabled = true;
             }
 
-            getStatusText();
+            if (webView21.CoreWebView2.StatusBarText == "")
+            {
+                copyLinkToolStripMenuItem.Enabled = false;
+                openInNewWindowToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                copyLinkToolStripMenuItem.Enabled = true;
+                openInNewWindowToolStripMenuItem.Enabled = true;
+                getStatusText();
+            }
+            
 
             menuRightClick.Show(screenLocation);
         }

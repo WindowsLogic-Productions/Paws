@@ -54,12 +54,13 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyLinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutPawsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyLinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
@@ -124,12 +125,13 @@
             this.RestoreToolStripMenuItem,
             this.ToolStripSeparator1,
             this.SettingsToolStripMenuItem,
+            this.toolStripSeparator7,
             this.AboutVisCordToolStripMenuItem,
             this.ToolStripSeparator2,
             this.ExitToolStripMenuItem});
             this.sysTrayMenu.Name = "SysTrayMenu";
             this.sysTrayMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.sysTrayMenu.Size = new System.Drawing.Size(147, 104);
+            this.sysTrayMenu.Size = new System.Drawing.Size(147, 110);
             // 
             // RestoreToolStripMenuItem
             // 
@@ -214,7 +216,7 @@
             this.toolStripSeparator4,
             this.aboutPawsToolStripMenuItem});
             this.menuRightClick.Name = "menuRightClick";
-            this.menuRightClick.Size = new System.Drawing.Size(187, 270);
+            this.menuRightClick.Size = new System.Drawing.Size(187, 248);
             this.menuRightClick.MouseLeave += new System.EventHandler(this.menuRightClick_MouseLeave);
             // 
             // openInNewWindowToolStripMenuItem
@@ -269,6 +271,13 @@
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
+            // copyLinkToolStripMenuItem
+            // 
+            this.copyLinkToolStripMenuItem.Name = "copyLinkToolStripMenuItem";
+            this.copyLinkToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.copyLinkToolStripMenuItem.Text = "Copy link";
+            this.copyLinkToolStripMenuItem.Click += new System.EventHandler(this.copyLinkToolStripMenuItem_Click);
+            // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Enabled = false;
@@ -301,12 +310,10 @@
             this.aboutPawsToolStripMenuItem.Text = "About Paws...";
             this.aboutPawsToolStripMenuItem.Click += new System.EventHandler(this.aboutPawsToolStripMenuItem_Click);
             // 
-            // copyLinkToolStripMenuItem
+            // toolStripSeparator7
             // 
-            this.copyLinkToolStripMenuItem.Name = "copyLinkToolStripMenuItem";
-            this.copyLinkToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.copyLinkToolStripMenuItem.Text = "Copy link";
-            this.copyLinkToolStripMenuItem.Click += new System.EventHandler(this.copyLinkToolStripMenuItem_Click);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(143, 6);
             // 
             // Main
             // 
@@ -323,7 +330,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "Main";
-            this.Text = "Paws";
+            this.Text = "Initialising... - Paws";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.Resize += new System.EventHandler(this.Main_Resize);
@@ -368,6 +375,7 @@
         private System.Windows.Forms.ToolStripMenuItem openInNewWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem copyLinkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }
 
