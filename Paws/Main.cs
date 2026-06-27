@@ -15,7 +15,6 @@ using Microsoft.Web.WebView2.WinForms;
 
 namespace Paws
 {
-
     public partial class Main : Form
     {
         [DllImport("user32.dll")]
@@ -29,7 +28,7 @@ namespace Paws
         {
             InitializeComponent();
         }
-
+        #region Load Settings
         private void Main_Load(object sender, EventArgs e)
         {
             //Pre-load hardware support.
@@ -42,11 +41,7 @@ namespace Paws
 
             }
         }
-
-        private void linkArt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://x.com/ruka_tou");
-        }
+        #endregion
         #region WebView2
         private void webView21_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
         {
@@ -87,22 +82,126 @@ namespace Paws
             }
         }
 
-        private void OpenInExternalBrowser(string url)
-        {
-            var startnew = new Main();
-            startnew.Show();
-            startnew.webView21.CoreWebView2InitializationCompleted += (s, args) =>
-            {
-                MessageBox.Show(getStatText);
-                startnew.webView21.Source = new Uri(getStatText);
-            };
-            
-        }
-
         private void CoreWebView2_NewWindowRequested(object sender, CoreWebView2NewWindowRequestedEventArgs e)
         {
+            //Attempt to open a new instance when a new window is requested, currently does not work.
             e.Handled = true;
             OpenInExternalBrowser(getStatText);
+        }
+
+        private void CoreWebView2_ContextMenuRequested(object sender, CoreWebView2ContextMenuRequestedEventArgs e)
+        {
+            e.Handled = true;
+            int x = e.Location.X;
+            int y = e.Location.Y;
+            Point screenLocation = webView21.PointToScreen(new Point(x, y));
+
+            backToolStripMenuItem.Enabled = webView21.CanGoBack;
+            forwardToolStripMenuItem.Enabled = webView21.CanGoForward;
+
+            if (Clipboard.ContainsText(TextDataFormat.Text))
+            {
+                pasteToolStripMenuItem.Enabled = true;
+            }
+
+            if (webView21.CoreWebView2.StatusBarText == "")
+            {
+                copyLinkToolStripMenuItem.Enabled = false;
+                openInNewWindowToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                copyLinkToolStripMenuItem.Enabled = true;
+                openInNewWindowToolStripMenuItem.Enabled = true;
+                getStatusText();
+            }
+
+
+            menuRightClick.Show(screenLocation);
+        }
+
+        private void webView21_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Middle)
+            {
+                return;
+            }
+            if (webView21.CoreWebView2 == null)
+            {
+                return;
+            }
+            var geturl = webView21.CoreWebView2.StatusBarText;
+            OpenInExternalBrowser(geturl);
+        }
+        #endregion
+        #region Right-click Menu
+        private void openInNewWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Use the status text of WebView2 and run it through a new WebView2 instance.
+            OpenInExternalBrowser(getStatText);
+        }
+
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Go back a page.
+            webView21.GoBack();
+        }
+
+        private void forwardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Go forward a page.
+            webView21.GoForward();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Reload the current page.
+            webView21.Reload();
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Cut from the current web page and store it in the clipboard.
+            webView21.CoreWebView2?.ExecuteScriptAsync("document.execCommand('cut');");
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Copy from the current web page and store it in the clipboard.
+            webView21.CoreWebView2?.ExecuteScriptAsync("document.execCommand('copy');");
+        }
+
+        private void copyLinkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Set the clipboard to the WebView2 status text currently hovered over.
+            Clipboard.SetText(getStatText);
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Grab from the saved clipboard text and paste the stored text.
+            PasteWithKeystrokes();
+        }
+
+        private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Open a new settings window.
+            var settingsform = new Settings();
+            settingsform.ShowDialog();
+        }
+
+        private void aboutPawsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open a new about window and pull app version.
+            var aboutform = new About();
+            aboutform.lblVersion.Text = "Paws " + Application.ProductVersion;
+            aboutform.ShowDialog();
+        }
+
+        private void menuRightClick_MouseLeave(object sender, EventArgs e)
+        {
+            //Close the right click menu if the mouse pointer leaves it.
+            menuRightClick.Close();
         }
         #endregion
         #region System Tray
@@ -231,130 +330,41 @@ namespace Paws
         }
         #endregion
         #region Fuctions
+        private void linkArt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //If WebView2 does not initialise (WebView2 Runtime not installed), allow user to click a link to the artist for the Pawchive mascot.
+            Process.Start("https://x.com/ruka_tou");
+        }
+
+        private void OpenInExternalBrowser(string url)
+        {
+            //Create a new WebView2 instance and pull the previous WebView2 instance status text from that
+            //Run that status text through the new instance after the new instance has been initialised.
+            var startnew = new Main();
+            startnew.Show();
+            startnew.webView21.CoreWebView2InitializationCompleted += (s, args) =>
+            {
+                startnew.webView21.Source = new Uri(getStatText);
+            };
+        }
+
         private void PasteWithKeystrokes()
         {
+            //Focus WebView2 and send the keystrokes stored in the clipboard.
             webView21.Focus();
             SendKeys.SendWait("^v");
-        }
-        #endregion
-        #region Closing
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-        #endregion
-
-        private void backToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.GoBack();
-        }
-
-        private void forwardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.GoForward();
-        }
-
-        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.Reload();
-        }
-
-        private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            var settingsform = new Settings();
-            settingsform.ShowDialog();
-        }
-
-        private void aboutPawsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var aboutform = new About();
-            aboutform.lblVersion.Text = "Paws " + Application.ProductVersion;
-            aboutform.ShowDialog();
-        }
-
-        private void CoreWebView2_ContextMenuRequested(object sender, CoreWebView2ContextMenuRequestedEventArgs e)
-        {
-            e.Handled = true;
-            int x = e.Location.X;
-            int y = e.Location.Y;
-            Point screenLocation = webView21.PointToScreen(new Point (x, y));
-
-            backToolStripMenuItem.Enabled = webView21.CanGoBack;
-            forwardToolStripMenuItem.Enabled = webView21.CanGoForward;
-
-            if (Clipboard.ContainsText(TextDataFormat.Text))
-            {
-                pasteToolStripMenuItem.Enabled = true;
-            }
-
-            if (webView21.CoreWebView2.StatusBarText == "")
-            {
-                copyLinkToolStripMenuItem.Enabled = false;
-                openInNewWindowToolStripMenuItem.Enabled = false;
-            }
-            else
-            {
-                copyLinkToolStripMenuItem.Enabled = true;
-                openInNewWindowToolStripMenuItem.Enabled = true;
-                getStatusText();
-            }
-            
-
-            menuRightClick.Show(screenLocation);
-        }
-
-        private void webView21_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Middle)
-            {
-                return;
-            }
-            if (webView21.CoreWebView2 == null)
-            {
-                return;
-            }
-            var geturl = webView21.CoreWebView2.StatusBarText;
-            OpenInExternalBrowser(geturl);
-        }
-
-        private void webView21_MouseClick(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void menuRightClick_MouseLeave(object sender, EventArgs e)
-        {
-            menuRightClick.Close();
-        }
-
-        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.CoreWebView2?.ExecuteScriptAsync("document.execCommand('cut');");
-        }
-
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.CoreWebView2?.ExecuteScriptAsync("document.execCommand('copy');");
-        }
-
-        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PasteWithKeystrokes();
         }
 
         private void getStatusText()
         {
             getStatText = webView21.CoreWebView2.StatusBarText;
         }
-
-        private void openInNewWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        #endregion
+        #region Closing
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            OpenInExternalBrowser(getStatText);
+            //Future use.
         }
-
-        private void copyLinkToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(getStatText);
-        }
+        #endregion
     }
 }

@@ -91,7 +91,6 @@
             this.webView21.TabIndex = 25;
             this.webView21.ZoomFactor = 1D;
             this.webView21.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView21_CoreWebView2InitializationCompleted);
-            this.webView21.MouseClick += new System.Windows.Forms.MouseEventHandler(this.webView21_MouseClick);
             this.webView21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.webView21_MouseDown);
             // 
             // lblArt
