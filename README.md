@@ -3,7 +3,7 @@ Paws is a lightweight Kemono-style website client for Windows 7, 8.1, 10 & 11 us
 
 ## Compatibility
 
-- Compatible with Windows 7, 8.1, 10 and 11. Windows 7/8.1 requires a specific WebView2 runtime linked here: [x64](https://github.com/WindowsLogic-Productions/Paws/releases/download/0.1/MicrosoftEdgeWebView2RuntimeInstallerX64.exe) [x86](https://github.com/WindowsLogic-Productions/Paws/releases/download/0.1/MicrosoftEdgeWebView2RuntimeInstallerX86.exe)
+- Compatible with Windows 7, 8.1, 10 and 11. Windows 7/8.1 requires Microsoft Edge installed: [x64](https://archive.org/download/microsoft-edge-web-view-2-runtime-installer-v109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX64.exe) [x86](https://archive.org/download/microsoft-edge-web-view-2-runtime-installer-v109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX86.exe)
 
 ## Planned Features
 - Run at startup.
