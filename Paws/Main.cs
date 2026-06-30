@@ -32,13 +32,15 @@ namespace Paws
         private void Main_Load(object sender, EventArgs e)
         {
             //Pre-load hardware support.
+            var settingsform = new Settings();
+
             if (Properties.Settings.Default.HA == 1)
             {
-                
+                settingsform.chkHardware.Checked = true;
             }
             else
             {
-
+                settingsform.chkHardware.Checked = false;
             }
         }
         #endregion
@@ -188,14 +190,6 @@ namespace Paws
             //Open a new settings window.
             var settingsform = new Settings();
             settingsform.ShowDialog();
-        }
-
-        private void aboutPawsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Open a new about window and pull app version.
-            var aboutform = new About();
-            aboutform.lblVersion.Text = "Paws " + Application.ProductVersion;
-            aboutform.ShowDialog();
         }
 
         private void menuRightClick_MouseLeave(object sender, EventArgs e)

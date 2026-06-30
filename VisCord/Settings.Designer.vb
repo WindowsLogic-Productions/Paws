@@ -1034,11 +1034,11 @@ Partial Class Settings
         Me.Controls.Add(Me.AdvButton)
         Me.Controls.Add(Me.PersonaliseButton)
         Me.Controls.Add(Me.NavButton)
+        Me.Controls.Add(Me.NavigationPanel)
+        Me.Controls.Add(Me.NotifPanel)
         Me.Controls.Add(Me.GeneralPanel)
         Me.Controls.Add(Me.AdvancedPanel)
         Me.Controls.Add(Me.PersonalisePanel)
-        Me.Controls.Add(Me.NavigationPanel)
-        Me.Controls.Add(Me.NotifPanel)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

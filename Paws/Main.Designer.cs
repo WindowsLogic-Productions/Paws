@@ -38,6 +38,7 @@
             this.RestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.AboutVisCordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,9 +59,6 @@
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutPawsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.sysTrayMenu.SuspendLayout();
@@ -153,6 +151,11 @@
             this.SettingsToolStripMenuItem.Text = "Settings...";
             this.SettingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(143, 6);
+            // 
             // AboutVisCordToolStripMenuItem
             // 
             this.AboutVisCordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -211,11 +214,10 @@
             this.copyLinkToolStripMenuItem,
             this.pasteToolStripMenuItem,
             this.toolStripSeparator3,
-            this.settingsToolStripMenuItem1,
-            this.toolStripSeparator4,
-            this.aboutPawsToolStripMenuItem});
+            this.settingsToolStripMenuItem1});
             this.menuRightClick.Name = "menuRightClick";
-            this.menuRightClick.Size = new System.Drawing.Size(187, 248);
+            this.menuRightClick.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuRightClick.Size = new System.Drawing.Size(187, 220);
             this.menuRightClick.MouseLeave += new System.EventHandler(this.menuRightClick_MouseLeave);
             // 
             // openInNewWindowToolStripMenuItem
@@ -297,23 +299,6 @@
             this.settingsToolStripMenuItem1.Text = "Settings...";
             this.settingsToolStripMenuItem1.Click += new System.EventHandler(this.settingsToolStripMenuItem1_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(183, 6);
-            // 
-            // aboutPawsToolStripMenuItem
-            // 
-            this.aboutPawsToolStripMenuItem.Name = "aboutPawsToolStripMenuItem";
-            this.aboutPawsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.aboutPawsToolStripMenuItem.Text = "About Paws...";
-            this.aboutPawsToolStripMenuItem.Click += new System.EventHandler(this.aboutPawsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(143, 6);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +330,6 @@
         #endregion
 
         internal System.Windows.Forms.PictureBox picBack;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private System.Windows.Forms.Label lblArt;
         private System.Windows.Forms.LinkLabel linkArt;
         internal System.Windows.Forms.ContextMenuStrip sysTrayMenu;
@@ -365,8 +349,6 @@
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem aboutPawsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
@@ -375,6 +357,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem copyLinkToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        internal Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
 

@@ -94,5 +94,17 @@ namespace Paws.Properties {
                 this["AI"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int CloseMinimise {
+            get {
+                return ((int)(this["CloseMinimise"]));
+            }
+            set {
+                this["CloseMinimise"] = value;
+            }
+        }
     }
 }
