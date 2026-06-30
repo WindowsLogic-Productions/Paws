@@ -5,10 +5,14 @@ Paws is a lightweight Kemono-style website client for Windows 7, 8.1, 10 & 11 us
 
 - Compatible with Windows 7, 8.1, 10 and 11. Windows 7/8.1 requires Microsoft Edge installed: [x64](https://archive.org/download/microsoft-edge-web-view-2-runtime-installer-v109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX64.exe) [x86](https://archive.org/download/microsoft-edge-web-view-2-runtime-installer-v109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX86.exe)
 
+## Current Features (In Pre-release)
+- Allows for multiple instances.
+- File Downloads (RAR, ZIP, 7ZIP, etc.).
+- Source file downloading (Middle-click to download direct source file).
+
 ## Planned Features
 - Run at startup.
-- Hardware acceleration toggle.
-- Open links in default browser toggle.
+- Hardware acceleration toggle (currently on by default).
 - Clear cache & data.
 - User scripts (JavaScript injection).
 
