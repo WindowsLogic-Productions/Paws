@@ -30,7 +30,6 @@ J:\Projects\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
 J:\Projects\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.Core.xml
 J:\Projects\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
 J:\Projects\Paws\Paws\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
-J:\Projects\Paws\Paws\obj\Debug\Paws.csprojResolveAssemblyReference.cache
 J:\Projects\Paws\Paws\obj\Debug\Paws.About.resources
 J:\Projects\Paws\Paws\obj\Debug\Paws.Main.resources
 J:\Projects\Paws\Paws\obj\Debug\Paws.Properties.Resources.resources
@@ -38,3 +37,6 @@ J:\Projects\Paws\Paws\obj\Debug\Paws.Settings.resources
 J:\Projects\Paws\Paws\obj\Debug\Paws.csproj.GenerateResource.Cache
 J:\Projects\Paws\Paws\obj\Debug\Paws.exe
 J:\Projects\Paws\Paws\obj\Debug\Paws.pdb
+J:\Projects\Paws\Paws\obj\Debug\Paws.csprojAssemblyReference.cache
+J:\Projects\Paws\Paws\obj\Debug\Paws.csproj.CoreCompileInputs.cache
+J:\Projects\Paws\Paws\obj\Debug\Paws.csproj.CopyComplete
