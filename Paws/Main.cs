@@ -357,7 +357,18 @@ namespace Paws
         #region Closing
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Future use.
+            if (Properties.Settings.Default.CloseMinimise == 1)
+            {
+                //If the CloseMinimise setting is enabled, then minimise on close instead
+                //of ending the application.
+                this.WindowState = FormWindowState.Minimized;
+                e.Cancel = true;
+            }
+            else
+            {
+                //Save all settings.
+                Properties.Settings.Default.Save();
+            }
         }
         #endregion
     }
