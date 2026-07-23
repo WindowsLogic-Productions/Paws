@@ -56,6 +56,16 @@ namespace Paws
             {
                 chkCM.Checked = true;
             }
+
+            //Load hardware acceleration settings.
+            if (Properties.Settings.Default.HA == 0)
+            {
+                chkHardware.Checked = false;
+            }
+            else
+            {
+                chkHardware.Checked = true;
+            }
         }
 
         private void btnGeneral_Click(object sender, EventArgs e)

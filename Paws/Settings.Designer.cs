@@ -36,12 +36,12 @@
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.CMLabel = new System.Windows.Forms.Label();
             this.chkCM = new System.Windows.Forms.CheckBox();
+            this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.chkSysTray = new System.Windows.Forms.CheckBox();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.StartupLabel = new System.Windows.Forms.Label();
             this.chkStartup = new System.Windows.Forms.CheckBox();
-            this.PictureBox3 = new System.Windows.Forms.PictureBox();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdvanced = new System.Windows.Forms.Panel();
             this.chkHardware = new System.Windows.Forms.CheckBox();
             this.DataButton = new System.Windows.Forms.Button();
@@ -157,6 +157,16 @@
             this.chkCM.UseVisualStyleBackColor = true;
             this.chkCM.CheckedChanged += new System.EventHandler(this.chkCM_CheckedChanged);
             // 
+            // PictureBox3
+            // 
+            this.PictureBox3.Image = global::Paws.Properties.Resources.line;
+            this.PictureBox3.Location = new System.Drawing.Point(43, 180);
+            this.PictureBox3.Name = "PictureBox3";
+            this.PictureBox3.Size = new System.Drawing.Size(590, 10);
+            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox3.TabIndex = 17;
+            this.PictureBox3.TabStop = false;
+            // 
             // Label3
             // 
             this.Label3.AutoSize = true;
@@ -181,6 +191,16 @@
             this.chkSysTray.UseVisualStyleBackColor = true;
             this.chkSysTray.CheckedChanged += new System.EventHandler(this.chkSysTray_CheckedChanged);
             // 
+            // PictureBox1
+            // 
+            this.PictureBox1.Image = global::Paws.Properties.Resources.line;
+            this.PictureBox1.Location = new System.Drawing.Point(43, 93);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(590, 10);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox1.TabIndex = 9;
+            this.PictureBox1.TabStop = false;
+            // 
             // StartupLabel
             // 
             this.StartupLabel.AutoSize = true;
@@ -204,26 +224,6 @@
             this.chkStartup.Text = "Run at startup";
             this.chkStartup.UseVisualStyleBackColor = true;
             this.chkStartup.CheckedChanged += new System.EventHandler(this.chkStartup_CheckedChanged);
-            // 
-            // PictureBox3
-            // 
-            this.PictureBox3.Image = global::Paws.Properties.Resources.line;
-            this.PictureBox3.Location = new System.Drawing.Point(43, 180);
-            this.PictureBox3.Name = "PictureBox3";
-            this.PictureBox3.Size = new System.Drawing.Size(590, 10);
-            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox3.TabIndex = 17;
-            this.PictureBox3.TabStop = false;
-            // 
-            // PictureBox1
-            // 
-            this.PictureBox1.Image = global::Paws.Properties.Resources.line;
-            this.PictureBox1.Location = new System.Drawing.Point(43, 93);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(590, 10);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox1.TabIndex = 9;
-            this.PictureBox1.TabStop = false;
             // 
             // pnlAdvanced
             // 
