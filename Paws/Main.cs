@@ -69,11 +69,11 @@ namespace Paws
         private void webView21_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
 
-            if (e.Uri == "https://pawchive.st/")
+            if (e.Uri == "https://pawchive.pw/")
             {
              
             }
-            else if (!e.Uri.Contains("pawchive.st"))
+            else if (!e.Uri.Contains("pawchive.pw"))
             {
                 e.Cancel = true;
                 OpenInExternalBrowser(e.Uri);

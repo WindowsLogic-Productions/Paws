@@ -85,7 +85,7 @@
             this.webView21.Location = new System.Drawing.Point(0, 0);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(1264, 681);
-            this.webView21.Source = new System.Uri("https://pawchive.st/", System.UriKind.Absolute);
+            this.webView21.Source = new System.Uri("https://pawchive.pw/", System.UriKind.Absolute);
             this.webView21.TabIndex = 25;
             this.webView21.ZoomFactor = 1D;
             this.webView21.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView21_CoreWebView2InitializationCompleted);
