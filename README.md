@@ -9,10 +9,10 @@ Paws is a lightweight Kemono-style website client for Windows 7, 8.1, 10 & 11 us
 - Allows for multiple instances.
 - File Downloads (RAR, ZIP, 7ZIP, etc.).
 - Source file downloading (Middle-click to download direct source file).
-
-## Planned Features
 - Run at startup.
 - Hardware acceleration toggle (currently on by default).
+
+## Planned Features
 - Clear cache & data.
 - User scripts (JavaScript injection).
 
