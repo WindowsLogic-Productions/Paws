@@ -140,6 +140,13 @@
             This Class is a <see cref="T:System.Windows.Interop.D3DImage"/> capturing the content of the provided <see cref="T:Windows.UI.Composition.ContainerVisual"/> (the WebView2 visual).
             </summary>
         </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.GraphicsItemD3DImage.ClearBackBuffer">
+            <summary>
+            Safely detaches the D3D9 surface from the D3DImage by setting the back buffer
+            to null. This prevents WPF's render thread from presenting a stale surface to
+            a dead or transitioning adapter during display topology changes.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Wpf.ImplicitInitGate">
             <summary>
             Tracks the conditions which block implicit initialization and whether it has been requested or not.
